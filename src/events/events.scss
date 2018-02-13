@@ -2,12 +2,8 @@
 	.items-list{
 		display: flex;
 		justify-content: space-around;
+		flex-wrap: wrap;
 		.item{
-			display: flex;
-			flex-direction: column;
-			justify-content: flex-start;
-			align-items: stretch;
-			width: calc(100% / 7 - 10px);
 			.event-date{
 				display: flex;
 				flex-direction: column;
@@ -15,8 +11,6 @@
 				align-items: center;
 			}
 			.event-summary{
-				width: 100%;
-				text-align: center;
 			}
 		}
 	}

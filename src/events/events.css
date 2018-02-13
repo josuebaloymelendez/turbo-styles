@@ -1,19 +1,11 @@
 #quicklinks .items-list {
   display: flex;
-  justify-content: space-around; }
-  #quicklinks .items-list .item {
+  justify-content: space-around;
+  flex-wrap: wrap; }
+  #quicklinks .items-list .item .event-date {
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
-    align-items: stretch;
-    width: calc(100% / 7 - 10px); }
-    #quicklinks .items-list .item .event-date {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center; }
-    #quicklinks .items-list .item .event-summary {
-      width: 100%;
-      text-align: center; }
+    justify-content: center;
+    align-items: center; }
 
 /*# sourceMappingURL=events.css.map */

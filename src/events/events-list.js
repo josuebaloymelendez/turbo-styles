@@ -1,20 +1,24 @@
 import React, { Component } from 'react';
+import {events_count} from '../constants';
 import EventItem from './event-item';
 import './events.css';
 
 
-class EventsList extends Component{
+export default class EventsList extends Component{
+
 	render(){
-		let events_list = [];
-		for(let i=1; i<8; i++){
-			events_list.push(<EventItem/>);
-		}
+		const {months, yyy} = this.props;
+		let kek = months.filter(word => word == "jan");
+		yyy();
 		return(
 			<div id="quicklinks">
-				<h2 class="section-title">Upcoming Events</h2>
-				<div className="items-list">{events_list}</div>
+				<h2 class="section-title">titulo</h2>
+				<ul className="items-list">
+					{kek.map((item) =>(	
+						<li>{item}</li>
+					))}
+				</ul>
 			</div>
 		)
 	}
 }
-export default EventsList;
