@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
+import './event-item-a.css';
 
-class EventItem extends{
+class EventItem extends Component{
 	render(){
 		return(
 			<div className="item">
 				<div className="event-date">
-					<span>event day</span>
-					<span>even month</span>
+					<span className="event-day">01</span>
+					<span className="event-month">sep</span>
 				</div>
 				<div className="event-summary">
 					<h3 className="item-name">Event Name</h3>
@@ -17,4 +18,5 @@ class EventItem extends{
 		)
 	}
 }
-export default EventItem;
+
+export default  EventItem;

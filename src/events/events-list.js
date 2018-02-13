@@ -1,0 +1,20 @@
+import React, { Component } from 'react';
+import EventItem from './event-item';
+import './events.css';
+
+
+class EventsList extends Component{
+	render(){
+		let events_list = [];
+		for(let i=1; i<8; i++){
+			events_list.push(<EventItem/>);
+		}
+		return(
+			<div id="quicklinks">
+				<h2 class="section-title">Upcoming Events</h2>
+				<div className="items-list">{events_list}</div>
+			</div>
+		)
+	}
+}
+export default EventsList;

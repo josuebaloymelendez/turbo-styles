@@ -1,0 +1,14 @@
+.homepage-row {
+  width: 100%; }
+  .homepage-row .homepage-row-inner {
+    width: 100%;
+    max-width: 1024px;
+    margin-left: auto;
+    margin-right: auto; }
+
+.section-title {
+  margin-top: 25px;
+  margin-bottom: 25px;
+  text-align: center; }
+
+/*# sourceMappingURL=core.css.map */

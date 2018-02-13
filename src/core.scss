@@ -1,0 +1,19 @@
+.homepage-row{
+	width: 100%;
+	.homepage-row-inner{
+		width: 100%;
+		max-width: 1024px;
+		margin:{
+			left: auto;
+			right: auto;
+		}
+	}
+}
+
+.section-title{
+	margin:{
+		top: 25px;
+		bottom: 25px;
+	}
+	text-align: center;
+}
