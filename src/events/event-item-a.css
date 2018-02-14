@@ -1,9 +1,9 @@
-#quicklinks .items-list .item {
+#events_container .items-list .item {
   width: calc(25% - 10px);
   display: flex;
   align-items: stretch;
   margin-bottom: 10px; }
-  #quicklinks .items-list .item .event-date {
+  #events_container .items-list .item .event-date {
     background-color: red;
     color: white;
     width: 80px;
@@ -12,13 +12,17 @@
     text-transform: uppercase;
     font-size: 1.25rem;
     font-weight: 700; }
-  #quicklinks .items-list .item .event-summary {
+  #events_container .items-list .item .event-summary {
     padding: 10px;
     width: calc(100% - 90px);
     background-color: #323232;
     color: white; }
-    #quicklinks .items-list .item .event-summary .item-name {
+    #events_container .items-list .item .event-summary .item-name {
       margin-top: 0;
       margin-bottom: 0; }
+    #events_container .items-list .item .event-summary .item-text {
+      font-size: .75rem;
+      display: block;
+      width: 100%; }
 
 /*# sourceMappingURL=event-item-a.css.map */

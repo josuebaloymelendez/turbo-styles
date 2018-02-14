@@ -7,17 +7,14 @@ import './events.css';
 export default class EventsList extends Component{
 
 	render(){
-		const {months, yyy} = this.props;
-		let kek = months.filter(word => word == "jan");
-		yyy();
+		let items_list = [];
+		for (let i = 1; i <= this.props.itemsNum; i++){
+			items_list.push(<EventItem key={i}/>);
+		}
 		return(
-			<div id="quicklinks">
-				<h2 class="section-title">titulo</h2>
-				<ul className="items-list">
-					{kek.map((item) =>(	
-						<li>{item}</li>
-					))}
-				</ul>
+			<div id="events_container">
+				<h2 className="section-title">Upcoming Events</h2>
+				<div className="items-list slicked">{items_list}</div>
 			</div>
 		)
 	}

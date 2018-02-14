@@ -1,4 +1,4 @@
-#quicklinks{
+#events_container{
 	.items-list{
 		.item{
 			width: calc(25% - 10px);
@@ -35,6 +35,11 @@
 						top: 0;
 						bottom: 0;
 					}
+				}
+				.item-text{
+					font-size: .75rem;
+					display: block;
+					width: 100%;
 				}
 			}
 		}

@@ -1,14 +1,49 @@
-#quicklinks{
+@import "events_partials/_events-settings";
+
+#events_container{
 	.items-list{
-		display: flex;
-		justify-content: space-around;
-		flex-wrap: wrap;
+		&:not(.slicked){
+			display: flex;
+			flex:{
+				direction: row;
+				wrap: wrap;
+			}
+			justify-content: center;
+			text-align: center;
+			@media(min-width: 1024px){
+				justify-content: space-between;
+			}
+		}
 		.item{
+			display: flex;
+			justify-content: flex-start;
+			align-items: stretch;
+			flex-direction: column;
 			.event-date{
 				display: flex;
 				flex-direction: column;
 				justify-content: center;
 				align-items: center;
+				widht: $date-width;
+				height: $date-height;
+				margin: 0 auto $date-margin auto;
+			}
+			.event-summary{
+				width: 100%;
+			}
+			&.row-in-large{
+				@media (min-width: 1024px){
+					flex-direction: row;
+					text-align: left;
+					.event-date{
+						margin: 0 $date-margin 0 0;
+					}
+					.event-summary{
+						width: calc(100% - #{$date-width + $date-margin});
+					}
+				}
+			}
+			.event-date{
 			}
 			.event-summary{
 			}

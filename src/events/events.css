@@ -1,11 +1,34 @@
-#quicklinks .items-list {
+#events_container .items-list:not(.slicked) {
   display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap; }
-  #quicklinks .items-list .item .event-date {
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center; }
+  @media (min-width: 1024px) {
+    #events_container .items-list:not(.slicked) {
+      justify-content: space-between; } }
+#events_container .items-list .item {
+  display: flex;
+  justify-content: flex-start;
+  align-items: stretch;
+  flex-direction: column; }
+  #events_container .items-list .item .event-date {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center; }
+    align-items: center;
+    widht: 100px;
+    height: 100px;
+    margin: 0 auto 10px auto; }
+  #events_container .items-list .item .event-summary {
+    width: 100%; }
+  @media (min-width: 1024px) {
+    #events_container .items-list .item.row-in-large {
+      flex-direction: row;
+      text-align: left; }
+      #events_container .items-list .item.row-in-large .event-date {
+        margin: 0 10px 0 0; }
+      #events_container .items-list .item.row-in-large .event-summary {
+        width: calc(100% - 110px); } }
 
 /*# sourceMappingURL=events.css.map */
