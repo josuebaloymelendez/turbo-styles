@@ -3,7 +3,6 @@ import {events_count} from '../constants';
 import EventItem from './event-item';
 import './events.css';
 
-
 export default class EventsList extends Component{
 
 	render(){

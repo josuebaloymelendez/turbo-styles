@@ -22,6 +22,11 @@
     margin: 0 auto 10px auto; }
   #events_container .items-list .item .event-summary {
     width: 100%; }
+    #events_container .items-list .item .event-summary .item-name > a {
+      color: inherit;
+      text-decoration: none; }
+      #events_container .items-list .item .event-summary .item-name > a:hover {
+        text-decoration: underline; }
   @media (min-width: 1024px) {
     #events_container .items-list .item.row-in-large {
       flex-direction: row;

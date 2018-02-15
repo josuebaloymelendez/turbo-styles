@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import {events_count} from './constants';
 import UIeventsController from './events/ui-events';
 import EventsList from './events/events-list';
 import './core.css';
@@ -12,7 +12,7 @@ class App extends Component {
       	<UIeventsController />
 	      <div className="homepage-row">
 	      	<div className="homepage-row-inner">
-			       <EventsList/>
+			       <EventsList itemsNum={events_count}/>
 	      	</div>
 	     	</div>
       </div>

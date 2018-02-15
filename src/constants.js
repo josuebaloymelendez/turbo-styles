@@ -1,4 +1,4 @@
-const 	events_count = 8,
+const 	events_count = 4,
 				news_count = 9;
 
 
