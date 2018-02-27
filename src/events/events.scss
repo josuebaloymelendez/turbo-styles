@@ -10,6 +10,20 @@
 			}
 			justify-content: center;
 			text-align: center;
+			.item{
+				@media(max-width: 768px){
+					width: calc(100% / #{$events-columns-small} + #{$events-item-margin * 2});
+					margin: $events-item-margin;
+				}
+				@media(min-width: 768px) and (max-width: 1024px){
+					width: calc(100% / #{$events-columns-mid} + #{$events-item-margin * 2});
+					margin-bottom: $events-item-margin;
+				}
+				@media(min-width: 1024px){
+					width: calc(100% / #{$events-columns-large} - 20px);
+					margin-bottom: $events-item-margin;
+				}
+			}
 			@media(min-width: 1024px){
 				justify-content: space-between;
 			}
@@ -19,7 +33,7 @@
 			justify-content: flex-start;
 			align-items: stretch;
 			flex-direction: column;
-			.event-date{
+			.item-date{
 				display: flex;
 				flex-direction: column;
 				justify-content: center;
@@ -28,7 +42,7 @@
 				height: $date-height;
 				margin: 0 auto $date-margin auto;
 			}
-			.event-summary{
+			.item-summary{
 				width: 100%;
 				.item-name{
 					>a{
@@ -40,21 +54,24 @@
 					}
 				}
 			}
-			&.row-in-large{
+			&.row{
+				flex-direction: row;
+				text-align: left;
+				.item-date{
+				}
+				.item-summary{
+					width: calc(100% - #{$date-width + $date-margin});
+				}
+			}
+			&.row-only-large{
 				@media (min-width: 1024px){
 					flex-direction: row;
 					text-align: left;
-					.event-date{
-						margin: 0 $date-margin 0 0;
-					}
-					.event-summary{
-						width: calc(100% - #{$date-width + $date-margin});
-					}
 				}
 			}
-			.event-date{
+			.item-date{
 			}
-			.event-summary{
+			.item-summary{
 			}
 		}
 	}

@@ -1,5 +1,7 @@
 .homepage-row {
   width: 100%; }
+  .homepage-row:dark {
+    background-color: black; }
   .homepage-row .homepage-row-inner {
     width: 100%;
     max-width: 1024px;
