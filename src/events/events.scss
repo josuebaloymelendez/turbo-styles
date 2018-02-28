@@ -41,6 +41,10 @@
 				widht: $date-width;
 				height: $date-height;
 				margin: 0 auto $date-margin auto;
+				transition: all .2s ease-out;
+				&:before, &:after{
+					transition: all .2s ease-in;
+				}
 			}
 			.item-summary{
 				width: 100%;

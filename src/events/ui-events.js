@@ -3,8 +3,9 @@ import React, { Component } from 'react';
 class UIeventsController extends Component{
 	render(){
 		return(
-			<div className="ui-events">
+			<div className="ui-buttons">
       		<div className="events-buttons">
+	      		<h2 className="category-title">Events date shapes & colours</h2>
 	      		<button
 	      			className="style-button"
 	      			onClick={() => { this._changeShape('circle')}}
@@ -17,15 +18,24 @@ class UIeventsController extends Component{
 	      			className="style-button"
 	      			onClick={() => { this._changeShape('rombus')}}
 	      		>Rombus date</button>
-      		</div>
-      		<div className="events-buttons">
 	      		<button
 	      			className="style-button"
-	      			onClick={() => { this._changeSummaryColor('dark')}}
+	      			onClick={() => { this._changeShape('frame')}}
+	      		>Frame date</button>
+	      		<button
+	      			className="style-button"
+	      			onClick={() => { this._changeShape('cube')}}
+	      		>Cube date</button>
+      		</div>
+      		<div className="events-buttons">
+	      		<h2 className="category-title">Events summary shape & colours</h2>
+	      		<button
+	      			className="style-button"
+	      			onClick={() => { this._changeSummCol('dark')}}
 	      		>Dark summary</button>
 	      		<button
 	      			className="style-button"
-	      			onClick={() => { this._changeSummaryColor('light')}}
+	      			onClick={() => { this._changeSummCol('light')}}
 	      		>Light summary</button>
       		</div>
       	</div>
@@ -34,8 +44,8 @@ class UIeventsController extends Component{
 	_changeShape(shape){
 		this.props.changeEventdateShape(shape);
 	}
-	_changeSummaryColor(color){
-		this.props.changeEventdateShape(color);
+	_changeSummCol(color){
+		this.props.changeSummaryColor(color);
 	}
 }
 

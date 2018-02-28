@@ -1,0 +1,19 @@
+@mixin rectangle-triangle($type, $height, $color, $width: $height){
+	border-style: solid;
+	@if $type == 1{
+		border-width: $height $width 0 0;
+		border-color: $color transparent transparent transparent;
+	}
+	@if $type == 2{
+		border-width: 0 $width $height 0;
+		border-color: transparent $color transparent transparent;
+	}
+	@if $type == 3{
+		border-width: 0 0 $height $width;
+		border-color: transparent transparent $color transparent;
+	}
+	@if $type == 4{
+		border-width: $height 0 0 $width;
+		border-color: transparent transparent transparent $color;
+	}
+}

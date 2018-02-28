@@ -1,7 +1,6 @@
+@import "../mixins";
 @import 'events_partials/events-settings.scss';
 @import "../colors";
-
-
 
 #events_container{
 	.items-list{
@@ -19,7 +18,9 @@
 				}
 
 				///// Shapes
-				&.circle, &.square, &.rombus{
+				&.circle, &.square, 
+				&.rombus, &.frame,
+				&.cube{
 					flex: none;
 					height: $date-width;
 					width: $date-height;
@@ -57,8 +58,58 @@
 						position: relative;
 					}
 				}
-
-
+				&.frame{
+					position: relative;
+					&:before, &:after{
+						position: absolute;
+						top: calc(100% + 2px);
+						content: "";
+						display: block;
+					}
+					&:before{
+						@include rectangle-triangle(2, 15px, lighten($al-green, 15%));
+						left: 0;
+					}
+					&:after{
+						@include rectangle-triangle(1, 15px, lighten($al-green, 15%));
+						right: 0;
+					}
+				}
+				&.cube{
+					position: relative;
+					&:before, &:after{
+						position: absolute;
+						content: "";
+						display: block;
+					}
+					&:before{
+						left: -20px;
+						top: 7px;
+						height: 100%;
+						width: 20px;
+						transform: skewY(-35deg);
+						background-color: darken($al-green, 5%);
+					}
+					&:after{
+						bottom: -14px;
+						right: 11px;
+						width: 100%;
+						height: 14px;
+						transform: skewX(-55deg);
+						background-color: lighten($al-green, 5%);
+					}
+					.event-day, .event-month{
+						text-shadow: 2px -2px 0 rgba($jack-black, .3);
+					}
+				}
+				.event-day{
+					font:{
+						//size: 1.5em;
+					}
+					height: 1em;
+				}
+			}
+			.item-date, .item-summary{
 				///// Colors
 				&.green{
 					color: $al-green-over;
@@ -77,23 +128,25 @@
 					background-color: $yellow-ono;
 				}
 				font-size: 1.3rem;
-				.event-day{
-					font:{
-						//size: 1.5em;
-					}
-					height: 1em;
-				}
 			}
 			.item-summary{
 				padding: 10px;
 				font-size: 1rem;
 				width: calc(100% - #{$date-margin + $date-width});
+				transition: all .2s ease-in;
 				&.light{
 					color: $jack-black;
+					background-color: lighten($jack-black, 90%);
 				}
 				&.dark{
 					color: $jack-white;
 					background-color: $dark-grey;
+				}
+				&.round{
+					border-radius: 15px;
+				}
+				&.corner{
+					border-radius: 0;
 				}
 				.item-name{
 					font-size: inherit;

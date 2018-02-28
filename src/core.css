@@ -13,21 +13,38 @@
   margin-bottom: 25px;
   text-align: center; }
 
-.ui-events {
+.ui-buttons {
   width: 100%;
-  padding: 10px;
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  background-color: #4b4b4b; }
-
-.events-buttons {
-  display: flex;
-  justify-content: flex-start;
-  flex-wrap: wrap; }
-  .events-buttons .style-button {
+  padding: 25px;
+  box-sizing: border-box;
+  background-color: #0f0f0f; }
+  .ui-buttons .category-title {
+    width: 100%;
+    color: white;
+    margin-top: 0; }
+  .ui-buttons .style-button {
     width: 100px;
-    height: 50px;
-    margin: 10px; }
+    height: 40px;
+    border: none;
+    background-color: white;
+    color: #0f0f0f;
+    font-size: .75rem;
+    font-weight: 400;
+    border-radius: 25px; }
+    .ui-buttons .style-button + .style-button {
+      margin-left: 20px; }
+    .ui-buttons .style-button:hover {
+      background-color: #dbdbdb; }
+  .ui-buttons .events-buttons {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap; }
+    .ui-buttons .events-buttons + .events-buttons {
+      padding-top: 25px;
+      margin-top: 25px;
+      border-top: 1px solid #8f8f8f; }
+
+body {
+  margin-bottom: 300px; }
 
 /*# sourceMappingURL=core.css.map */

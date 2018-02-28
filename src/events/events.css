@@ -6,16 +6,16 @@
   text-align: center; }
   @media (max-width: 768px) {
     #events_container .items-list:not(.slicked) .item {
-      width: calc(100% / 1 + 20px);
-      margin: 10px; } }
+      width: calc(100% / 1 + 40px);
+      margin: 20px; } }
   @media (min-width: 768px) and (max-width: 1024px) {
     #events_container .items-list:not(.slicked) .item {
-      width: calc(100% / 2 + 20px);
-      margin-bottom: 10px; } }
+      width: calc(100% / 2 + 40px);
+      margin-bottom: 20px; } }
   @media (min-width: 1024px) {
     #events_container .items-list:not(.slicked) .item {
       width: calc(100% / 3 - 20px);
-      margin-bottom: 10px; } }
+      margin-bottom: 20px; } }
   @media (min-width: 1024px) {
     #events_container .items-list:not(.slicked) {
       justify-content: space-between; } }
@@ -31,7 +31,10 @@
     align-items: center;
     widht: 100px;
     height: 100px;
-    margin: 0 auto 10px auto; }
+    margin: 0 auto 10px auto;
+    transition: all .2s ease-out; }
+    #events_container .items-list .item .item-date:before, #events_container .items-list .item .item-date:after {
+      transition: all .2s ease-in; }
   #events_container .items-list .item .item-summary {
     width: 100%; }
     #events_container .items-list .item .item-summary .item-name > a {

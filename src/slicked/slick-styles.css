@@ -1,18 +1,26 @@
 .baby {
   display: flex;
-  align-items: center;
   justify-content: center;
   text-align: center;
   background-color: #365484;
   color: white;
-  padding-top: 20px;
-  padding-bottom: 20px; }
+  padding-top: 100px;
+  padding-bottom: 100px; }
+
+.bobby {
+  text-align: center;
+  background-color: #0f0f0f;
+  color: white;
+  padding-top: 50px;
+  padding-bottom: 50px; }
 
 .slick-slider {
   position: relative; }
-
-.slick-arrow {
-  background-color: #bb3e53;
-  z-index: 10; }
+  .slick-slider .slick-arrow {
+    z-index: 10; }
+    .slick-slider .slick-arrow.slick-prev {
+      left: 10px; }
+    .slick-slider .slick-arrow.slick-next {
+      right: 10px; }
 
 /*# sourceMappingURL=slick-styles.css.map */

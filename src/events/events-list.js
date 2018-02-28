@@ -5,13 +5,14 @@ import './events.css';
 export default class EventsList extends Component{
 	render(){
 		let  		items_list = [],
-					{dateShape, dateColor, summaryColor} = this.props;
+					{dateShape, dateColor, summaryShape, summaryColor} = this.props;
 		for (let i = 1; i <= this.props.itemsNum; i++){
 			items_list.push(
 				<EventItem
 					key={i}
 					dateShape={dateShape}
 					dateColor={dateColor}
+					summaryShape={summaryShape}
 					summaryColor={summaryColor}
 				/>
 			);
