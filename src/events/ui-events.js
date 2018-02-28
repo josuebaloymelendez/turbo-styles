@@ -14,12 +14,12 @@ class UIeventsController extends Component{
 	      		<h2 className="category-title">Events date shapes & colours</h2>
 	      		<button
 	      			className="style-button"
-	      			onClick={() => { this._changeShape('circle', "02")}}
-	      		>Circle date</button>
-	      		<button
-	      			className="style-button"
 	      			onClick={() => { this._changeShape('square', "01")}}
 	      		>Square date</button>
+	      		<button
+	      			className="style-button"
+	      			onClick={() => { this._changeShape('circle', "02")}}
+	      		>Circle date</button>
 	      		<button
 	      			className="style-button"
 	      			onClick={() => { this._changeShape('rombus', "03")}}
@@ -34,7 +34,7 @@ class UIeventsController extends Component{
 	      		>Cube date</button>
 	      		<div className="output-code">
 	      			<h3 className="code-title">SCSS Code:</h3>
-	      			<img className="code-img" src={this.state.codeImageUrl}/>
+	      			<img className="code-img" alt="" src={this.state.codeImageUrl}/>
 	      		</div>
       		</div>
       		<div className="events-buttons">

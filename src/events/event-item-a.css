@@ -1,117 +1,333 @@
-#events_container .items-list .item {
+.alt-1 .section-title {
+  color: #365484; }
+.alt-1 .items-list .item {
+  display: flex;
+  position: relative; }
+  .alt-1 .items-list .item:before {
+    content: "";
+    display: block;
+    width: 0;
+    height: 0;
+    border-top: 50px solid transparent;
+    border-left: 50px solid gainsboro;
+    border-bottom: 50px solid transparent;
+    position: absolute;
+    left: 100%;
+    top: 0; }
+  .alt-1 .items-list .item-date {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex: none;
+    position: relative;
+    height: 100px;
+    width: 100px;
+    color: white; }
+    .alt-1 .items-list .item-date:before, .alt-1 .items-list .item-date:after {
+      content: "";
+      display: block;
+      position: absolute;
+      left: 0;
+      z-index: 1; }
+    .alt-1 .items-list .item-date:before {
+      width: 0;
+      height: 0;
+      border-right: 50px solid transparent;
+      border-bottom: 50px solid #365484;
+      border-left: 50px solid transparent;
+      top: 0; }
+    .alt-1 .items-list .item-date:after {
+      width: 0;
+      height: 0;
+      border-top: 50px solid #365484;
+      border-right: 50px solid transparent;
+      border-left: 50px solid transparent;
+      bottom: 0; }
+    .alt-1 .items-list .item-date .event-day, .alt-1 .items-list .item-date .event-month {
+      position: relative;
+      z-index: 2; }
+  .alt-1 .items-list .item-summary {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 1;
+    padding: 0 10px;
+    z-index: 10;
+    height: 100px;
+    position: relative;
+    background-color: gainsboro;
+    font-size: .75rem; }
+    .alt-1 .items-list .item-summary:before, .alt-1 .items-list .item-summary:after {
+      content: "";
+      display: block;
+      position: absolute;
+      left: -50px; }
+    .alt-1 .items-list .item-summary .item-name {
+      margin: 0;
+      font-size: inherit; }
+    .alt-1 .items-list .item-summary:before {
+      border-style: solid;
+      border-width: 0 50px 50px 0;
+      border-color: transparent gainsboro transparent transparent;
+      top: 0; }
+    .alt-1 .items-list .item-summary:after {
+      border-style: solid;
+      border-width: 0 0 50px 50px;
+      border-color: transparent transparent gainsboro transparent;
+      bottom: 0; }
+
+.alt-2 .section-title {
+  color: #bb3e53; }
+.alt-2 .items-list .item {
+  font-family: serif;
+  font-size: 16px;
+  display: flex;
+  color: white; }
+  .alt-2 .items-list .item-date {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    position: relative;
+    flex: none;
+    width: 50px;
+    height: 100px;
+    background-color: #bb3e53;
+    position: relative; }
+    .alt-2 .items-list .item-date:before {
+      content: "";
+      display: block;
+      position: absolute;
+      border-style: solid;
+      border-width: 100px 50px 0 0;
+      border-color: #bb3e53 transparent transparent transparent;
+      top: 0;
+      left: 100%; }
+    .alt-2 .items-list .item-date .event-day {
+      height: 1em; }
+    .alt-2 .items-list .item-date .event-day, .alt-2 .items-list .item-date .event-month {
+      position: relative;
+      text-indent: .8em; }
+  .alt-2 .items-list .item-summary {
+    font-size: .8rem;
+    background-color: #bb3e53;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 45px;
+    position: relative; }
+    .alt-2 .items-list .item-summary:before {
+      content: "";
+      display: block;
+      position: absolute;
+      border-style: solid;
+      border-width: 0 0 100px 50px;
+      border-color: transparent transparent #bb3e53 transparent;
+      top: 0;
+      right: 100%; }
+    .alt-2 .items-list .item-summary .item-name {
+      margin: 0;
+      font-size: inherit; }
+
+.alt-3 .section-title {
+  color: #b1b381; }
+.alt-3 .items-list .item {
+  font-family: serif;
+  margin-top: 50px;
+  padding: 10px;
+  border-radius: 15px;
+  background-color: #ecede0;
+  color: #5f613a; }
+  .alt-3 .items-list .item-date {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    top: -50px;
+    float: left;
+    background-color: #b1b381;
+    color: black;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    font-weight: 700; }
+    .alt-3 .items-list .item-date .event-day {
+      font-size: 2rem;
+      height: 1.7rem; }
+  .alt-3 .items-list .item-summary {
+    display: flex;
+    flex-direction: column;
+    width: 100% !important;
+    z-index: 5;
+    font-size: 1rem; }
+    .alt-3 .items-list .item-summary .item-name {
+      text-align: center;
+      margin-top: 0;
+      margin-bottom: 15px;
+      margin-left: 100px;
+      font-size: inherit; }
+
+.events-container .section-title {
+  color: #4a8153; }
+.events-container .items-list .item {
   display: flex;
   align-items: stretch; }
-  #events_container .items-list .item .item-date {
+  .events-container .items-list .item .item-date {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     height: 100%;
     text-transform: uppercase;
     font-size: 1.25rem;
     font-weight: 700; }
-    #events_container .items-list .item .item-date.circle, #events_container .items-list .item .item-date.square, #events_container .items-list .item .item-date.rombus, #events_container .items-list .item .item-date.frame, #events_container .items-list .item .item-date.cube {
+    .events-container .items-list .item .item-date .event-day {
+      font-size: 2rem; }
+    .events-container .items-list .item .item-date.circle, .events-container .items-list .item .item-date.square, .events-container .items-list .item .item-date.rombus, .events-container .items-list .item .item-date.frame, .events-container .items-list .item .item-date.cube {
       flex: none;
       height: 100px;
       width: 100px;
       margin-right: 10px; }
-    #events_container .items-list .item .item-date.circle {
+    .events-container .items-list .item .item-date.circle {
       border-radius: 50%; }
-    #events_container .items-list .item .item-date.rombus {
+    .events-container .items-list .item .item-date.rombus {
       position: relative;
       background-color: transparent !important; }
-      #events_container .items-list .item .item-date.rombus:before, #events_container .items-list .item .item-date.rombus:after {
+      .events-container .items-list .item .item-date.rombus:before, .events-container .items-list .item .item-date.rombus:after {
         position: absolute;
         display: block;
         content: "";
         z-index: -5; }
-      #events_container .items-list .item .item-date.rombus:before {
+      .events-container .items-list .item .item-date.rombus:before {
         top: 0;
         left: 0;
         border-bottom: 50px solid #4a8153;
         border-left: 50px solid transparent;
         border-right: 50px solid transparent; }
-      #events_container .items-list .item .item-date.rombus:after {
+      .events-container .items-list .item .item-date.rombus:after {
         bottom: 0;
         left: 0;
         border-top: 50px solid #4a8153;
         border-left: 50px solid transparent;
         border-right: 50px solid transparent; }
-      #events_container .items-list .item .item-date.rombus .event-day, #events_container .items-list .item .item-date.rombus .event-month {
+      .events-container .items-list .item .item-date.rombus .event-day, .events-container .items-list .item .item-date.rombus .event-month {
         position: relative; }
-    #events_container .items-list .item .item-date.frame {
+    .events-container .items-list .item .item-date.frame {
       position: relative; }
-      #events_container .items-list .item .item-date.frame:before, #events_container .items-list .item .item-date.frame:after {
+      .events-container .items-list .item .item-date.frame:before, .events-container .items-list .item .item-date.frame:after {
         position: absolute;
         top: calc(100% + 2px);
         content: "";
         display: block; }
-      #events_container .items-list .item .item-date.frame:before {
+      .events-container .items-list .item .item-date.frame:before {
         border-style: solid;
         border-width: 0 15px 15px 0;
         border-color: transparent #6dab77 transparent transparent;
         left: 0; }
-      #events_container .items-list .item .item-date.frame:after {
+      .events-container .items-list .item .item-date.frame:after {
         border-style: solid;
         border-width: 15px 15px 0 0;
         border-color: #6dab77 transparent transparent transparent;
         right: 0; }
-    #events_container .items-list .item .item-date.cube {
+    .events-container .items-list .item .item-date.cube {
       position: relative; }
-      #events_container .items-list .item .item-date.cube:before, #events_container .items-list .item .item-date.cube:after {
+      .events-container .items-list .item .item-date.cube:before, .events-container .items-list .item .item-date.cube:after {
         position: absolute;
         content: "";
         display: block; }
-      #events_container .items-list .item .item-date.cube:before {
+      .events-container .items-list .item .item-date.cube:before {
         left: -20px;
         top: 7px;
         height: 100%;
         width: 20px;
         transform: skewY(-35deg);
         background-color: #417149; }
-      #events_container .items-list .item .item-date.cube:after {
+      .events-container .items-list .item .item-date.cube:after {
         bottom: -14px;
         right: 11px;
         width: 100%;
         height: 14px;
         transform: skewX(-55deg);
         background-color: #53915d; }
-      #events_container .items-list .item .item-date.cube .event-day, #events_container .items-list .item .item-date.cube .event-month {
+      .events-container .items-list .item .item-date.cube .event-day, .events-container .items-list .item .item-date.cube .event-month {
         text-shadow: -2px 2px 0 rgba(15, 15, 15, 0.3); }
-    #events_container .items-list .item .item-date .event-day {
+    .events-container .items-list .item .item-date .event-day, .events-container .items-list .item .item-date .event-month {
+      transition: all .2s ease-out; }
+    .events-container .items-list .item .item-date .event-day {
       height: 1em; }
-  #events_container .items-list .item .item-date, #events_container .items-list .item .item-summary {
+  .events-container .items-list .item .item-date, .events-container .items-list .item .item-summary {
     font-size: 1.3rem; }
-    #events_container .items-list .item .item-date.green, #events_container .items-list .item .item-summary.green {
+    .events-container .items-list .item .item-date.green, .events-container .items-list .item .item-summary.green {
       color: white;
       background-color: #4a8153; }
-    #events_container .items-list .item .item-date.red, #events_container .items-list .item .item-summary.red {
+    .events-container .items-list .item .item-date.red, .events-container .items-list .item .item-summary.red {
       color: white;
       background-color: #bb3e53; }
-    #events_container .items-list .item .item-date.blue, #events_container .items-list .item .item-summary.blue {
+    .events-container .items-list .item .item-date.blue, .events-container .items-list .item .item-summary.blue {
       color: white;
       background-color: #365484; }
-    #events_container .items-list .item .item-date.yellow, #events_container .items-list .item .item-summary.yellow {
+    .events-container .items-list .item .item-date.yellow, .events-container .items-list .item .item-summary.yellow {
       color: black;
       background-color: #b1b381; }
-  #events_container .items-list .item .item-summary {
+  .events-container .items-list .item .item-summary {
     padding: 10px;
     font-size: 1rem;
     width: calc(100% - 110px);
     transition: all .2s ease-in; }
-    #events_container .items-list .item .item-summary.light {
+    .events-container .items-list .item .item-summary.light {
       color: #0f0f0f;
       background-color: whitesmoke; }
-    #events_container .items-list .item .item-summary.dark {
+    .events-container .items-list .item .item-summary.dark {
       color: white;
       background-color: #323232; }
-    #events_container .items-list .item .item-summary.round {
+    .events-container .items-list .item .item-summary.round {
       border-radius: 15px; }
-    #events_container .items-list .item .item-summary.corner {
+    .events-container .items-list .item .item-summary.corner {
       border-radius: 0; }
-    #events_container .items-list .item .item-summary .item-name {
+    .events-container .items-list .item .item-summary .item-name {
       font-size: inherit;
       margin-top: 0;
       margin-bottom: .5em; }
-    #events_container .items-list .item .item-summary .item-text {
+    .events-container .items-list .item .item-summary .item-text {
       font-size: .8em;
       display: block;
       width: 100%; }
+
+.slick-events {
+  margin-bottom: 50px; }
+  .slick-events .item {
+    margin: 0 15px;
+    font-family: serif;
+    padding: 10px;
+    color: gainsboro;
+    background-color: #323232; }
+    .slick-events .item-date {
+      font-size: 2rem;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 10px; }
+      .slick-events .item-date span + span {
+        margin-left: .5rem; }
+    .slick-events .item-summary {
+      border-radius: 10px;
+      text-align: center;
+      padding: 10px;
+      background-color: gainsboro;
+      color: #0f0f0f; }
+      .slick-events .item-summary .item-name {
+        margin-top: 0;
+        margin-bottom: 8px; }
+        .slick-events .item-summary .item-name > a {
+          color: inherit;
+          text-decoration: none; }
+          .slick-events .item-summary .item-name > a:hover {
+            text-decoration: underl	ine; }
+      .slick-events .item-summary .item-text {
+        display: block; }
 
 /*# sourceMappingURL=event-item-a.css.map */

@@ -1,16 +1,15 @@
 import React, { Component } from 'react';
 import EventItem from './event-item';
-import './events.css';
+import './events-un.css';
 
-export default class EventsList extends Component{
+export default class EventsUnconventionalList extends Component{
 	render(){
 		let  		items_list = [],
-					{monthLenght, dateShape, dateColor, summaryShape, summaryColor} = this.props;
+					{dateShape, dateColor, summaryShape, summaryColor} = this.props;
 		for (let i = 1; i <= this.props.itemsNum; i++){
 			items_list.push(
 				<EventItem
 					key={i}
-					monthLenght={monthLenght}
 					dateShape={dateShape}
 					dateColor={dateColor}
 					summaryShape={summaryShape}
@@ -19,8 +18,8 @@ export default class EventsList extends Component{
 			);
 		}
 		return(
-			<div id="events_container" className={this.props.eventsType}>
-				<h2 className="section-title"><a href="/">{this.props.sectionName}</a></h2>
+			<div id="events_container">
+				<h2 className="section-title"><a href="/">Unconventional Events Styles</a></h2>
 				<div className="items-list">{items_list}</div>
 			</div>
 		)

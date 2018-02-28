@@ -2,14 +2,17 @@ import React, { Component } from 'react';
 import './event-item-a.css';
 
 class EventItem extends Component{
-
 	constructor(props){
 		super(props);
-		let 	item_name = ["Very unnecesary long name for the event", "A standard name for event", "Short name"],
-				months = ["jan","feb","mar","apr","may","jun","jul","aug","sep","oct","nov","dic"],
+		let 	item_name = ["Very unnecesary long name for the event as it usually do", "A standard name for event", "Short name"],
+				monthsLong = ["January","February","March","April","May","June","July","August","September","October","November","December"],
+				monthsShort = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],
 				random_name = item_name[Math.ceil(Math.random()*item_name.length - 1)],
-				random_month = months[Math.ceil(Math.random()*months.length - 1)],
 				random_day = Math.round(Math.random()*30 + 1);
+		let 		random_month = this.props.monthLenght !== "short" ?
+					monthsLong[Math.ceil(Math.random()*monthsLong.length - 1)]
+					:
+					monthsShort[Math.ceil(Math.random()*monthsShort.length - 1)];
 		this.state = {
 			defaultDate : "item-date",
 			defaultSummary : "item-summary",
@@ -24,7 +27,7 @@ class EventItem extends Component{
 			summaryShape, summaryColor
 		} = this.props;
 		return(
-			<div className="item row-only-large">
+			<div className="item">
 				<div className={`${this.state.defaultDate} ${dateColor} ${dateShape}`}>
 					<span className="event-day">{this.state.r_day}</span>
 					<span className="event-month">{this.state.r_month}</span>

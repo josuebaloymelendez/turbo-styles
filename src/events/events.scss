@@ -1,16 +1,12 @@
 @import "events_partials/_events-settings";
 
-#events_container{
-	.section-title{
-		text-transform: uppercase;
-		>a{
-			color: inherit;
-			text-decoration: none;
-			&:hover{
-				text-decoration: underline;
-			}
-		}
+#events_un_container{
+	color: black;
+	.items-list{
+
 	}
+}
+#events_container{
 	.items-list{
 		&:not(.slicked){
 			display: flex;
@@ -30,7 +26,7 @@
 					margin-bottom: $events-item-margin;
 				}
 				@media(min-width: 1024px){
-					width: calc(100% / #{$events-columns-large} - 20px);
+					width: calc(100% / #{$events-columns-large} - #{$events-item-margin * 2});
 					margin-bottom: $events-item-margin;
 				}
 			}
@@ -39,25 +35,17 @@
 			}
 		}
 		.item{
-			display: flex;
-			justify-content: flex-start;
-			align-items: stretch;
-			flex-direction: column;
 			.item-date{
-				display: flex;
-				flex-direction: column;
-				justify-content: center;
-				align-items: center;
 				widht: $date-width;
 				height: $date-height;
-				margin: 0 auto $date-margin auto;
+				margin: 0 $date-margin 0 0;
 				transition: all .2s ease-out;
 				&:before, &:after{
 					transition: all .2s ease-in;
 				}
 			}
 			.item-summary{
-				width: 100%;
+				width: calc(100% - #{$date-width + $date-margin});
 				.item-name{
 					>a{
 						color: inherit;
@@ -68,15 +56,7 @@
 					}
 				}
 			}
-			&.row{
-				flex-direction: row;
-				text-align: left;
-				.item-date{
-				}
-				.item-summary{
-					width: calc(100% - #{$date-width + $date-margin});
-				}
-			}
+		
 			&.row-only-large{
 				@media (min-width: 1024px){
 					flex-direction: row;

@@ -11,51 +11,63 @@
 .section-title {
   margin-top: 25px;
   margin-bottom: 25px;
-  text-align: center; }
+  text-align: center;
+  text-transform: uppercase; }
+  .section-title > a {
+    color: inherit;
+    text-decoration: none; }
+    .section-title > a:hover {
+      text-decoration: underline; }
+  .section-title.dark-grey {
+    color: #323232; }
 
 .ui-buttons {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
   width: 100%;
   padding: 25px;
   box-sizing: border-box;
   background-color: #0f0f0f;
-  margin-top: 25px; }
-  .ui-buttons .category-title {
-    width: 100%;
-    color: white;
-    margin-top: 0; }
-  .ui-buttons .style-button {
-    width: 100px;
-    height: 40px;
-    border: none;
-    background-color: white;
-    color: #0f0f0f;
-    font-size: .75rem;
-    font-weight: 400;
-    border-radius: 25px; }
-    .ui-buttons .style-button + .style-button {
-      margin-left: 20px; }
-    .ui-buttons .style-button:hover {
-      background-color: #dbdbdb; }
+  margin-top: 25px;
+  margin-bottom: 50px;
+  border-bottom: 25px solid #4a8153; }
   .ui-buttons .events-buttons {
+    width: calc(50% - 50px);
     display: flex;
-    justify-content: flex-start;
-    flex-wrap: wrap; }
-    .ui-buttons .events-buttons + .events-buttons {
-      padding-top: 25px;
-      margin-top: 25px;
-      border-top: 1px solid #8f8f8f; }
-  .ui-buttons .output-code {
-    width: 100%;
-    margin-top: 25px;
-    padding: 30px;
-    border-radius: 15px;
-    background-color: rgba(255, 255, 255, 0.2);
-    color: white; }
-    .ui-buttons .output-code .code-title {
+    justify-content: center;
+    flex-wrap: wrap;
+    font-size: 1rem; }
+    .ui-buttons .events-buttons .category-title {
+      font-size: inherit;
+      width: 100%;
+      color: white;
       margin-top: 0;
-      margin-bottom: 15px; }
-    .ui-buttons .output-code .code-img {
-      display: block; }
+      text-align: center; }
+    .ui-buttons .events-buttons .style-button {
+      width: 100px;
+      height: 40px;
+      border: none;
+      background-color: white;
+      color: #0f0f0f;
+      font-size: .75rem;
+      font-weight: 400;
+      border-radius: 25px;
+      margin: 10px; }
+      .ui-buttons .events-buttons .style-button:hover {
+        background-color: #dbdbdb; }
+    .ui-buttons .events-buttons .output-code {
+      width: 100%;
+      margin-top: 25px;
+      padding: 30px;
+      border-radius: 15px;
+      background-color: rgba(255, 255, 255, 0.2);
+      color: white; }
+      .ui-buttons .events-buttons .output-code .code-title {
+        margin-top: 0;
+        margin-bottom: 15px; }
+      .ui-buttons .events-buttons .output-code .code-img {
+        display: block; }
 
 body {
   margin-bottom: 300px; }
