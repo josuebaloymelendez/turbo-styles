@@ -19,7 +19,7 @@ export default class EventsList extends Component{
 		}
 		return(
 			<div id="events_container">
-				<h2 className="section-title">Upcoming Events</h2>
+				<h2 className="section-title"><a href="/">Upcoming Events</a></h2>
 				<div className="items-list">{items_list}</div>
 			</div>
 		)

@@ -17,7 +17,8 @@
   width: 100%;
   padding: 25px;
   box-sizing: border-box;
-  background-color: #0f0f0f; }
+  background-color: #0f0f0f;
+  margin-top: 25px; }
   .ui-buttons .category-title {
     width: 100%;
     color: white;
@@ -43,6 +44,18 @@
       padding-top: 25px;
       margin-top: 25px;
       border-top: 1px solid #8f8f8f; }
+  .ui-buttons .output-code {
+    width: 100%;
+    margin-top: 25px;
+    padding: 30px;
+    border-radius: 15px;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white; }
+    .ui-buttons .output-code .code-title {
+      margin-top: 0;
+      margin-bottom: 15px; }
+    .ui-buttons .output-code .code-img {
+      display: block; }
 
 body {
   margin-bottom: 300px; }

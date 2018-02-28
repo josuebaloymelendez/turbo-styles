@@ -73,7 +73,7 @@
         transform: skewX(-55deg);
         background-color: #53915d; }
       #events_container .items-list .item .item-date.cube .event-day, #events_container .items-list .item .item-date.cube .event-month {
-        text-shadow: 2px -2px 0 rgba(15, 15, 15, 0.3); }
+        text-shadow: -2px 2px 0 rgba(15, 15, 15, 0.3); }
     #events_container .items-list .item .item-date .event-day {
       height: 1em; }
   #events_container .items-list .item .item-date, #events_container .items-list .item .item-summary {
