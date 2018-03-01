@@ -15,7 +15,6 @@
 				wrap: wrap;
 			}
 			justify-content: center;
-			text-align: center;
 			.item{
 				@media(max-width: 768px){
 					width: calc(100% / #{$events-columns-small} + #{$events-item-margin * 2});

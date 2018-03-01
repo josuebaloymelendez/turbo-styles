@@ -39,10 +39,11 @@
 	}
 }
 
-.ui-buttons{
+.ui-container{
 	display: flex;
 	align-items: flex-start;
 	justify-content: space-between;
+	flex-wrap: wrap;
 	width: 100%;
 	padding: 25px;
 	box-sizing: border-box;
@@ -50,13 +51,13 @@
 	margin-top: 25px;
 	margin-bottom: 50px;
 	border-bottom: 25px solid $al-green;
-	.events-buttons{
+	.ui-buttons{
 		width: calc(50% - 50px);
 		display: flex;
 		justify-content: center;
 		flex-wrap: wrap;
 		font-size: 1rem;
-		.category-title{
+		.ui-title{
 			font-size: inherit;
 			width: 100%;
 			color: $jack-white;
@@ -64,7 +65,7 @@
 			text-align: center;
 		}
 		.style-button{
-			width: 100px;
+			flex: 1;
 			height: 40px;
 			border: none;
 			background-color: $jack-white;

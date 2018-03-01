@@ -117,6 +117,8 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    padding-right: 15px;
+    box-sizing: border-box;
     margin-left: 45px;
     position: relative; }
     .alt-2 .items-list .item-summary:before {
@@ -256,6 +258,33 @@
         background-color: #53915d; }
       .events-container .items-list .item .item-date.cube .event-day, .events-container .items-list .item .item-date.cube .event-month {
         text-shadow: -2px 2px 0 rgba(15, 15, 15, 0.3); }
+    .events-container .items-list .item .item-date.hexagon {
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      background-color: transparent !important; }
+      .events-container .items-list .item .item-date.hexagon:before, .events-container .items-list .item .item-date.hexagon:after {
+        content: "";
+        display: block; }
+      .events-container .items-list .item .item-date.hexagon:before {
+        width: 0;
+        height: 0;
+        border-right: 50px solid transparent;
+        border-bottom: 50px solid #4a8153;
+        border-left: 50px solid transparent;
+        border-bottom-width: 25px; }
+      .events-container .items-list .item .item-date.hexagon:after {
+        width: 0;
+        height: 0;
+        border-top: 50px solid #4a8153;
+        border-right: 50px solid transparent;
+        border-left: 50px solid transparent;
+        border-top-width: 25px; }
+      .events-container .items-list .item .item-date.hexagon .event-day, .events-container .items-list .item .item-date.hexagon .event-month {
+        display: block;
+        background-color: #4a8153;
+        width: 100%;
+        text-align: center; }
     .events-container .items-list .item .item-date .event-day, .events-container .items-list .item .item-date .event-month {
       transition: all .2s ease-out; }
     .events-container .items-list .item .item-date .event-day {

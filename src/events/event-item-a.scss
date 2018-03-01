@@ -121,6 +121,8 @@
 				display: flex;
 				flex-direction: column;
 				justify-content: center;
+				padding-right: 15px;
+				box-sizing: border-box;
 				margin-left: 45px;
 				@include mask{
 					@include rectangle-triangle(3, $date-height, $red-fox, 50px);
@@ -298,6 +300,29 @@
 						text-shadow: -2px 2px 0 rgba($jack-black, .3);
 					}
 				}
+				&.hexagon{
+					display: flex;
+					flex-direction: column;
+					position: relative;
+					background-color: transparent !important;
+					@include pseudo-both;
+					&:before{
+						@include triangle-eq(3, #{$date-width / 2}, $al-green);
+						border-bottom-width: 25px;
+					}
+					&:after{
+						@include triangle-eq(1, #{$date-width / 2}, $al-green);
+						border-top-width: 25px;
+					}
+					.event-day, .event-month{
+						display: block;
+						background-color: $al-green;
+						width: 100%;
+						text-align: center;
+					}
+				}
+
+
 				.event-day, .event-month{
 					transition: all .2s ease-out;
 				}
@@ -307,6 +332,8 @@
 					}
 					height: 1em;
 				}
+
+
 			}
 			.item-date, .item-summary{
 				///// Colors

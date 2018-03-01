@@ -4,17 +4,17 @@ import './events.css';
 
 export default class EventsList extends Component{
 	render(){
-		let  		items_list = [],
-					{monthLenght, dateShape, dateColor, summaryShape, summaryColor} = this.props;
+		let items_list = [];
+		let {date, summary} = this.props.eventsProps;
 		for (let i = 1; i <= this.props.itemsNum; i++){
 			items_list.push(
 				<EventItem
 					key={i}
-					monthLenght={monthLenght}
-					dateShape={dateShape}
-					dateColor={dateColor}
-					summaryShape={summaryShape}
-					summaryColor={summaryColor}
+					dateShape={date.shape}
+					dateColor={date.color}
+					monthLenght={date.month.length}
+					summaryShape={summary.shape}
+					summaryColor={summary.color}
 				/>
 			);
 		}

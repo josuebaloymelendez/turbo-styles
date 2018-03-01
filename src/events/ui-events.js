@@ -9,55 +9,63 @@ class UIeventsController extends Component{
 	}
 	render(){
 		return(
-			<div className="ui-buttons">
-      		<div className="events-buttons">
-	      		<h2 className="category-title">Events date shapes & colours</h2>
+			<div className="ui-container">
+      		<div className="ui-buttons">
+	      		<h2 className="ui-title">Events date shapes & colours</h2>
 	      		<button
 	      			className="style-button"
-	      			onClick={() => { this._changeShape('square', "01")}}
+	      			onClick={() => { this._changeShape("events", 'square', "01")}}
 	      		>Square date</button>
 	      		<button
 	      			className="style-button"
-	      			onClick={() => { this._changeShape('circle', "02")}}
+	      			onClick={() => { this._changeShape('events', 'circle', "02")}}
 	      		>Circle date</button>
 	      		<button
 	      			className="style-button"
-	      			onClick={() => { this._changeShape('rombus', "03")}}
+	      			onClick={() => { this._changeShape('events.date.shape', 'rombus', "03")}}
 	      		>Rombus date</button>
 	      		<button
 	      			className="style-button"
-	      			onClick={() => { this._changeShape('frame', "04")}}
+	      			onClick={() => { this._changeShape('events.date.shape', 'frame', "04")}}
 	      		>Frame date</button>
 	      		<button
 	      			className="style-button"
-	      			onClick={() => { this._changeShape('cube', "05")}}
+	      			onClick={() => { this._changeShape('events.date.shape', 'cube', "05")}}
 	      		>Cube date</button>
+	      		<button
+	      			className="style-button"
+	      			onClick={() => { this._changeShape('events.date.shape', 'hexagon', "06")}}
+	      		>Hexagon date</button>
 	      		<div className="output-code">
 	      			<h3 className="code-title">SCSS Code:</h3>
 	      			<img className="code-img" alt="" src={this.state.codeImageUrl}/>
 	      		</div>
       		</div>
-      		<div className="events-buttons">
-	      		<h2 className="category-title">Events summary shape & colours</h2>
+      		<div className="ui-buttons">
+	      		<h2 className="ui-title">Events summary shape & colours</h2>
 	      		<button
 	      			className="style-button"
-	      			onClick={() => { this._changeSummCol('dark')}}
+	      			onClick={() => { this._changeSummCol('events-summary-color', 'dark')}}
 	      		>Dark summary</button>
 	      		<button
 	      			className="style-button"
-	      			onClick={() => { this._changeSummCol('light')}}
+	      			onClick={() => { this._changeSummCol('events-summary-color','light')}}
 	      		>Light summary</button>
       		</div>
       	</div>
 		);
 	}
-	_changeShape(shape, image){
-		this.props.changeEventdateShape(shape);
+	_changeShape(key, value, image){
+		this.props.changeState(key, value,  (state, value) => {
+			let obj = state.events;
+			obj.date.shape = value;
+			return obj;
+		});
 		let path = "events_images/images/code-image_", extension = ".png";
 		this.setState({codeImageUrl: path+image+extension});
 	}
-	_changeSummCol(color){
-		this.props.changeSummaryColor(color);
+	_changeSummCol(key, value){
+		this.props.changeState(key, value)
 	}
 }
 

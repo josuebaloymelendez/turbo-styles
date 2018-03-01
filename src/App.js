@@ -1,49 +1,88 @@
 import React, { Component } from 'react';
 import {events_count} from './constants';
 import UIeventsController from './events/ui-events';
+
 import EventsList from './events/events-list';
+import EventItem from './events/event-item';
+
 import SlickSlider from './slicked/slider';
+import UISlick from './slicked/ui-slick';
 import './core.css';
 
 class App extends Component {
 	constructor(){
 		super();
 		this.state = {
-			events_MonthLenght: 'short',
-			events_dateShape : 'square',
-			events_dateColor : 'green',
-			events_summaryShape : 'corner',
-			events_summaryColor : 'green',
+			events:{
+				date:{
+					color: "green",
+					shape: "square",
+					month:{
+						length: "short"
+					}
+				},
+				summary:{
+					shape: "corner",
+					color: "green"
+				}
+			},
+			slicked:{
+				status: false,
+				total:{
+					large: 3,
+					mid: 2,
+					small: 1
+				},
+				arrows: false,
+				dots: true
+			},
+			
 
-			slicked :  false,
-			slick_total_large: 3,
-			slick_total_mid: 2,
+			slickedingus :  false,
 			slick_total_small: 1,
-
+			slick_total_mid: 2,
+			slick_total_large: 3,
 			slick_arrows: false,
 			slick_dots: true
 		}
-		this.changeDateShape = this.changeDateShape.bind(this);
-		this.changeSummaryColor = this.changeSummaryColor.bind(this);
-		this.changeMonthLength = this.changeMonthLength.bind(this);
+		this.changeState = this.changeState.bind(this);
 	}
-	changeDateShape(shape){
-		this.setState({ events_dateShape : shape });
-	}
-	changeSummaryColor(color){
-		this.setState({ events_summaryColor : color });
-	}
-	changeMonthLength(long){
-		this.setState({ events_MonthLenght : long });
+
+	changeState(keyName, keyValue,  fun){
+		let objeto = fun(this.state, keyValue);
+		this.setState({[keyName]: objeto});
+		console.log(this.state);
 	}
 	render() {
 		let sliderSettings = {
-			slidesToShow: 3,
+			slidesToShow: this.state.slick_total_large,
 			arrows: this.state.slick_arrows,
 			dots: this.state.slick_dots,
-			centerMode: true,
-			focusOnSelect: true
+			focusOnSelect: true,
+			responsive: [
+				{
+					breakpoing: 1024,
+					settings:{
+						slidesToShow: this.state.slick_total_mid
+					}
+				},
+				{
+					breakpoing: 768,
+					settings:{
+						slidesToShow: this.state.slick_total_small
+					}
+				}
+			]
 		};
+		let eventsSlicked = [];
+		for(let i = 1; i <= 10; i++ ){
+			eventsSlicked.push(
+				<div key={i}>
+					<EventItem monthLenght="short"/>
+				</div>
+			);
+		}
+		
 		return (
 			<div className="App">
 
@@ -52,72 +91,26 @@ class App extends Component {
 						<EventsList
 							sectionName="Conventional events styles"
 							eventsType="events-container"
+							eventsProps={this.state.events}
 							itemsNum={events_count}
-							monthLenght={this.state.events_MonthLenght}
-							dateShape={this.state.events_dateShape}
-							dateColor={this.state.events_dateColor}
-							summaryShape={this.state.events_summaryShape}
-							summaryColor={this.state.events_summaryColor}
 						/>
 					</div>
 				</div>
 				<UIeventsController
-					changeEventdateShape={this.changeDateShape}
-					changeSummaryColor={this.changeSummaryColor}
-					changeMonthLength={this.changeMonthLength}
+					changeProps={this.state.events}
+					changeState={this.changeState}
 				/>
 				<div className="homepage-row">
 					<div className="homepage-row-inner">
 						<h2 className="section-title dark-grey"><a href="/">Slicked Events</a></h2>
 						<SlickSlider
 							settings={sliderSettings}
-							itemsNum={events_count}
-							monthLenght={this.state.events_MonthLenght}
+							slickedContents={eventsSlicked}
 						/>
 					</div>
+					<UISlick changeSlidesNumber={this.changeSlickSlides} />
 				</div>
-				<div className="homepage-row">
-					<div className="homepage-row-inner">
-						<EventsList
-							sectionName="Another events styles 1"
-							eventsType="alt-1"
-							itemsNum={events_count}
-							monthLenght={this.state.events_MonthLenght}
-							dateShape={this.state.events_dateShape}
-							dateColor={this.state.events_dateColor}
-							summaryShape={this.state.events_summaryShape}
-							summaryColor={this.state.events_summaryColor}
-						/>
-					</div>
-				</div>
-				<div className="homepage-row">
-					<div className="homepage-row-inner">
-						<EventsList
-							sectionName="Another events styles 2"
-							eventsType="alt-2"
-							itemsNum={events_count}
-							monthLenght={this.state.events_MonthLenght}
-							dateShape={this.state.events_dateShape}
-							dateColor={this.state.events_dateColor}
-							summaryShape={this.state.events_summaryShape}
-							summaryColor={this.state.events_summaryColor}
-						/>
-					</div>
-				</div>
-				<div className="homepage-row">
-					<div className="homepage-row-inner">
-						<EventsList
-							sectionName="Another events styles 3"
-							eventsType="alt-3"
-							itemsNum={events_count}
-							monthLenght={this.state.events_MonthLenght}
-							dateShape={this.state.events_dateShape}
-							dateColor={this.state.events_dateColor}
-							summaryShape={this.state.events_summaryShape}
-							summaryColor={this.state.events_summaryColor}
-						/>
-					</div>
-				</div>
+
 			</div>
 		);
 	}
