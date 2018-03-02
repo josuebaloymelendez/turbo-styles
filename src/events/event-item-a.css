@@ -190,14 +190,22 @@
     font-weight: 700; }
     .events-container .items-list .item .item-date .event-day {
       font-size: 2rem; }
-    .events-container .items-list .item .item-date.circle, .events-container .items-list .item .item-date.square, .events-container .items-list .item .item-date.rombus, .events-container .items-list .item .item-date.frame, .events-container .items-list .item .item-date.cube {
+    .events-container .items-list .item .item-date.square {
       flex: none;
       height: 100px;
       width: 100px;
       margin-right: 10px; }
     .events-container .items-list .item .item-date.circle {
+      flex: none;
+      height: 100px;
+      width: 100px;
+      margin-right: 10px;
       border-radius: 50%; }
     .events-container .items-list .item .item-date.rombus {
+      flex: none;
+      height: 100px;
+      width: 100px;
+      margin-right: 10px;
       position: relative;
       background-color: transparent !important; }
       .events-container .items-list .item .item-date.rombus:before, .events-container .items-list .item .item-date.rombus:after {
@@ -219,24 +227,32 @@
         border-right: 50px solid transparent; }
       .events-container .items-list .item .item-date.rombus .event-day, .events-container .items-list .item .item-date.rombus .event-month {
         position: relative; }
-    .events-container .items-list .item .item-date.frame {
+    .events-container .items-list .item .item-date.folded {
+      flex: none;
+      height: 100px;
+      width: 100px;
+      margin-right: 10px;
       position: relative; }
-      .events-container .items-list .item .item-date.frame:before, .events-container .items-list .item .item-date.frame:after {
+      .events-container .items-list .item .item-date.folded:before, .events-container .items-list .item .item-date.folded:after {
         position: absolute;
         top: calc(100% + 2px);
         content: "";
         display: block; }
-      .events-container .items-list .item .item-date.frame:before {
+      .events-container .items-list .item .item-date.folded:before {
         border-style: solid;
         border-width: 0 15px 15px 0;
         border-color: transparent #6dab77 transparent transparent;
         left: 0; }
-      .events-container .items-list .item .item-date.frame:after {
+      .events-container .items-list .item .item-date.folded:after {
         border-style: solid;
         border-width: 15px 15px 0 0;
         border-color: #6dab77 transparent transparent transparent;
         right: 0; }
     .events-container .items-list .item .item-date.cube {
+      flex: none;
+      height: 100px;
+      width: 100px;
+      margin-right: 10px;
       position: relative; }
       .events-container .items-list .item .item-date.cube:before, .events-container .items-list .item .item-date.cube:after {
         position: absolute;
@@ -285,6 +301,75 @@
         background-color: #4a8153;
         width: 100%;
         text-align: center; }
+    .events-container .items-list .item .item-date.mosaic {
+      flex: none;
+      height: 100px;
+      width: 100px;
+      margin-right: 10px;
+      position: relative; }
+      .events-container .items-list .item .item-date.mosaic:before, .events-container .items-list .item .item-date.mosaic:after {
+        content: "";
+        display: block;
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        background-color: #417149;
+        z-index: 5; }
+      .events-container .items-list .item .item-date.mosaic:before {
+        top: 0;
+        left: 0; }
+      .events-container .items-list .item .item-date.mosaic:after {
+        right: 0;
+        bottom: 0; }
+      .events-container .items-list .item .item-date.mosaic .event-day, .events-container .items-list .item .item-date.mosaic .event-month {
+        z-index: 10; }
+    .events-container .items-list .item .item-date.flag {
+      flex: none;
+      height: 100px;
+      width: 100px;
+      margin-right: 10px;
+      box-sizing: border-box;
+      border-top: 5px solid #417149;
+      position: relative; }
+      .events-container .items-list .item .item-date.flag:after {
+        content: "";
+        display: block;
+        position: absolute;
+        width: 0;
+        height: 0;
+        border-top: 50px solid #4a8153;
+        border-right: 50px solid transparent;
+        border-left: 50px solid transparent;
+        top: 100%;
+        border-top-width: 15px; }
+    .events-container .items-list .item .item-date.prism {
+      flex: none;
+      height: 100px;
+      width: 100px;
+      margin-right: 10px;
+      transform: skewY(-15deg);
+      position: relative;
+      left: -20px; }
+      .events-container .items-list .item .item-date.prism:before, .events-container .items-list .item .item-date.prism:after {
+        content: "";
+        display: block;
+        position: absolute; }
+      .events-container .items-list .item .item-date.prism:after {
+        left: 100%;
+        top: 5px;
+        width: 20px;
+        height: 100%;
+        background-color: #2e5034;
+        transform: skewY(30deg); }
+      .events-container .items-list .item .item-date.prism:before {
+        top: 100%;
+        left: 10px;
+        width: 100%;
+        height: 10px;
+        background-color: #6dab77;
+        transform: skewX(60deg); }
+      .events-container .items-list .item .item-date.prism .event-day, .events-container .items-list .item .item-date.prism .event-month {
+        text-shadow: 3px 3px 0 rgba(15, 15, 15, 0.3); }
     .events-container .items-list .item .item-date .event-day, .events-container .items-list .item .item-date .event-month {
       transition: all .2s ease-out; }
     .events-container .items-list .item .item-date .event-day {
@@ -315,9 +400,14 @@
       color: white;
       background-color: #323232; }
     .events-container .items-list .item .item-summary.round {
-      border-radius: 15px; }
+      border-radius: 15px;
+      background-color: #4a8153;
+      color: white; }
     .events-container .items-list .item .item-summary.corner {
       border-radius: 0; }
+    .events-container .items-list .item .item-summary.stroke {
+      border: 2px solid #4a8153;
+      box-sizing: border-box; }
     .events-container .items-list .item .item-summary .item-name {
       font-size: inherit;
       margin-top: 0;

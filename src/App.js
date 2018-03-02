@@ -26,6 +26,7 @@ class App extends Component {
 					color: "green"
 				}
 			},
+
 			slicked:{
 				status: false,
 				total:{
@@ -110,7 +111,6 @@ class App extends Component {
 					</div>
 					<UISlick changeSlidesNumber={this.changeSlickSlides} />
 				</div>
-
 			</div>
 		);
 	}

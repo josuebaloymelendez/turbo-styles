@@ -23,6 +23,6 @@ export default class UIslickController extends Component{
 		);
 	}
 	_changeSlickSlides(vpName, number){
-		this.props.changeSlidesNumber(vpName,number);
+		//this.props.changeSlidesNumber(vpName,number);
 	}
 }

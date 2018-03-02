@@ -54,7 +54,7 @@
 	.ui-buttons{
 		width: calc(50% - 50px);
 		display: flex;
-		justify-content: center;
+		justify-content: space-between;
 		flex-wrap: wrap;
 		font-size: 1rem;
 		.ui-title{
@@ -65,7 +65,7 @@
 			text-align: center;
 		}
 		.style-button{
-			flex: 1;
+			width: calc(25% - 20px);
 			height: 40px;
 			border: none;
 			background-color: $jack-white;
@@ -97,6 +97,7 @@
 			}
 			.code-img{
 				display: block;
+				width: 100%;
 			}
 		}
 	}

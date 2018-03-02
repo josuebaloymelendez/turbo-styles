@@ -11,6 +11,14 @@
 	align-items: center;
 	justify-content: center;
 }
+@mixin square-date{
+	flex: none;
+	height: $date-width;
+	width: $date-height;
+	margin:{
+		right: $date-margin;
+	}
+}
 
 .alt-1{
 	.section-title{
@@ -216,20 +224,15 @@
 					font-size: 2rem;
 				}
 				///// Shapes
-				&.circle, &.square, 
-				&.rombus, &.frame,
-				&.cube{
-					flex: none;
-					height: $date-width;
-					width: $date-height;
-					margin:{
-						right: $date-margin;
-					}
+				&.square{
+					@include square-date;
 				}
 				&.circle{
+					@include square-date;
 					border-radius: 50%;
 				}
 				&.rombus{
+					@include square-date;
 					position: relative;
 					background-color: transparent !important;
 					&:before, &:after{
@@ -256,7 +259,8 @@
 						position: relative;
 					}
 				}
-				&.frame{
+				&.folded{
+					@include square-date;
 					position: relative;
 					&:before, &:after{
 						position: absolute;
@@ -274,6 +278,7 @@
 					}
 				}
 				&.cube{
+					@include square-date;
 					position: relative;
 					&:before, &:after{
 						position: absolute;
@@ -322,6 +327,66 @@
 					}
 				}
 
+				&.mosaic{
+					@include square-date;
+					position: relative;
+					@include pseudo-both{
+						position: absolute;
+						width: $date-width / 2;
+						height: $date-height / 2;
+						background-color: darken($al-green, 5%);
+						z-index: 5;
+					}
+					&:before{
+						top: 0;
+						left: 0;
+					}
+					&:after{
+						right: 0;
+						bottom: 0;
+					}
+					.event-day, .event-month{
+						z-index: 10;
+					}
+				}
+				&.flag{
+					@include square-date;
+					box-sizing: border-box;
+					border-top: 5px solid darken($al-green, 5%);
+					@include mask(after){
+						@include triangle-eq(1, $date-width / 2, $al-green);
+						top: 100%;
+						border-top-width: 15px;
+					}
+				}
+				&.prism{
+					@include square-date;
+					transform: skewY(-15deg);
+					position: relative;
+					left: -20px;
+					@include pseudo-both{
+						position: absolute;
+					}
+					&:after{
+						left: 100%;
+						top: 5px;
+						width: 20px;
+						height: 100%;
+						background-color: darken($al-green, 15%);
+						transform: skewY(30deg);
+					}
+					&:before{
+						top: 100%;
+						left: 10px;
+						width: 100%;
+						height: 10px;
+						background-color: lighten($al-green, 15%);
+						transform: skewX(60deg);
+					}
+					.event-day, .event-month{
+						text-shadow: 3px 3px 0 rgba($jack-black, .3);
+					}
+				}
 
 				.event-day, .event-month{
 					transition: all .2s ease-out;
@@ -360,6 +425,9 @@
 				font-size: 1rem;
 				width: calc(100% - #{$date-margin + $date-width});
 				transition: all .2s ease-in;
+				
+
+				// Color
 				&.light{
 					color: $jack-black;
 					background-color: lighten($jack-black, 90%);
@@ -368,11 +436,19 @@
 					color: $jack-white;
 					background-color: $dark-grey;
 				}
+
+				// Shape
 				&.round{
 					border-radius: 15px;
+					background-color: $al-green;
+					color: $jack-white;
 				}
 				&.corner{
 					border-radius: 0;
+				}
+				&.stroke{
+					border: 2px solid $al-green;
+					box-sizing: border-box;
 				}
 				.item-name{
 					font-size: inherit;
