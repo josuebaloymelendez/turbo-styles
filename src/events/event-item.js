@@ -24,7 +24,7 @@ class EventItem extends Component{
 	render(){
 		let {
 			dateColor, dateShape,
-			summaryShape, summaryColor
+			summaryShape, summaryColor, summaryStroke
 		} = this.props;
 		return(
 			<div className="item">
@@ -32,7 +32,7 @@ class EventItem extends Component{
 					<span className="event-day">{this.state.r_day}</span>
 					<span className="event-month">{this.state.r_month}</span>
 				</div>
-				<div className={`${this.state.defaultSummary} ${summaryShape} ${summaryColor}`}>
+				<div className={`${this.state.defaultSummary} ${summaryShape} ${summaryColor} ${summaryStroke}`}>
 					<h3 className="item-name"><a href="/">{this.state.r_name}</a></h3>
 					<span className="item-text"><b>Location:</b> Somewhere</span>
 					<span className="item-text"><b>Time:</b> Sometime</span>

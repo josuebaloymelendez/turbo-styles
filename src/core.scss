@@ -51,8 +51,15 @@
 	margin-top: 25px;
 	margin-bottom: 50px;
 	border-bottom: 25px solid $al-green;
-	.ui-buttons{
+	.ui-column{
 		width: calc(50% - 50px);
+		.ui-buttons + .ui-buttons{
+			margin-top: 20px;
+			border-top: 1px solid $light-grey;
+			padding-top: 20px;
+		}
+	}
+	.ui-buttons{
 		display: flex;
 		justify-content: space-between;
 		flex-wrap: wrap;
@@ -78,6 +85,10 @@
 			margin: 10px;
 			&:hover{
 				background-color: lighten($jack-black, 80%);
+			}
+			&.active{
+				background-color: $pinku-desu;
+				color: $pinku-desu-over;
 			}
 		}
 		.output-code{

@@ -33,8 +33,13 @@
   margin-top: 25px;
   margin-bottom: 50px;
   border-bottom: 25px solid #4a8153; }
+  .ui-container .ui-column {
+    width: calc(50% - 50px); }
+    .ui-container .ui-column .ui-buttons + .ui-buttons {
+      margin-top: 20px;
+      border-top: 1px solid gainsboro;
+      padding-top: 20px; }
   .ui-container .ui-buttons {
-    width: calc(50% - 50px);
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
@@ -57,6 +62,9 @@
       margin: 10px; }
       .ui-container .ui-buttons .style-button:hover {
         background-color: #dbdbdb; }
+      .ui-container .ui-buttons .style-button.active {
+        background-color: #af6668;
+        color: #1f1011; }
     .ui-container .ui-buttons .output-code {
       width: 100%;
       margin-top: 25px;

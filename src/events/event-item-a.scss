@@ -402,6 +402,7 @@
 			}
 			.item-date, .item-summary{
 				///// Colors
+				font-size: 1.3rem;
 				&.green{
 					color: $al-green-over;
 					background-color: $al-green;
@@ -418,30 +419,24 @@
 					color: $yellow-ono-over;
 					background-color: $yellow-ono;
 				}
-				font-size: 1.3rem;
-			}
-			.item-summary{
-				padding: 10px;
-				font-size: 1rem;
-				width: calc(100% - #{$date-margin + $date-width});
-				transition: all .2s ease-in;
-				
-
 				// Color
 				&.light{
-					color: $jack-black;
+					color: rgba($jack-black, .75);
 					background-color: lighten($jack-black, 90%);
 				}
 				&.dark{
 					color: $jack-white;
 					background-color: $dark-grey;
 				}
-
+			}
+			.item-summary{
+				padding: 10px;
+				font-size: 1rem;
+				width: calc(100% - #{$date-margin + $date-width});
+				transition: all .2s ease-in;
 				// Shape
 				&.round{
 					border-radius: 15px;
-					background-color: $al-green;
-					color: $jack-white;
 				}
 				&.corner{
 					border-radius: 0;

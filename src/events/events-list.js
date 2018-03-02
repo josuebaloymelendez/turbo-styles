@@ -15,6 +15,7 @@ export default class EventsList extends Component{
 					monthLenght={date.month.length}
 					summaryShape={summary.shape}
 					summaryColor={summary.color}
+					summaryStroke={summary.stroke}
 				/>
 			);
 		}

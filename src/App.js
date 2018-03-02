@@ -23,12 +23,32 @@ class App extends Component {
 				},
 				summary:{
 					shape: "corner",
-					color: "green"
-				}
+					color: "green",
+					stroke: "no-stroke"
+				},
+				unstyled:{
+					date:{
+						color: "",
+						shape: "",
+						month:{
+							length: "short"
+						}
+					},
+					summary:{
+						shape: "",
+						color: "",
+						stroke: ""
+					}
+				},
 			},
 
-			slicked:{
+			slick:{
 				status: false,
+				vp:{
+					large: 1024,
+					mid: 768,
+					small: 320
+				},
 				total:{
 					large: 3,
 					mid: 2,
@@ -36,54 +56,45 @@ class App extends Component {
 				},
 				arrows: false,
 				dots: true
-			},
-			
-
-			slickedingus :  false,
-			slick_total_small: 1,
-			slick_total_mid: 2,
-			slick_total_large: 3,
-			slick_arrows: false,
-			slick_dots: true
+			}
 		}
 		this.changeState = this.changeState.bind(this);
 	}
-
-	changeState(keyName, keyValue,  fun){
+	
+	changeState(keyValue,  fun){
 		let objeto = fun(this.state, keyValue);
-		this.setState({[keyName]: objeto});
-		console.log(this.state);
+		this.setState({objeto});
 	}
 	render() {
 		let sliderSettings = {
-			slidesToShow: this.state.slick_total_large,
-			arrows: this.state.slick_arrows,
-			dots: this.state.slick_dots,
+			slidesToShow: this.state.slick.total.large,
+			arrows: this.state.slick.arrows,
+			dots: this.state.slick.dots,
 			focusOnSelect: true,
 			responsive: [
 				{
-					breakpoing: 1024,
+					breakpoing: this.state.slick.vp.large,
 					settings:{
-						slidesToShow: this.state.slick_total_mid
+						slidesToShow: this.state.slick.total.mid
 					}
 				},
 				{
-					breakpoing: 768,
+					breakpoing: this.state.slick.vp.mid,
 					settings:{
-						slidesToShow: this.state.slick_total_small
+						slidesToShow: this.state.slick.total.small
 					}
 				}
 			]
 		};
 		let eventsSlicked = [];
-		for(let i = 1; i <= 10; i++ ){
+		for(let i = 1; i <= 5; i++ ){
 			eventsSlicked.push(
 				<div key={i}>
 					<EventItem monthLenght="short"/>
 				</div>
 			);
 		}
-		
+		var obj = {};
 		return (
 			<div className="App">
 

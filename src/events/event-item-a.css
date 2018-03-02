@@ -388,21 +388,19 @@
     .events-container .items-list .item .item-date.yellow, .events-container .items-list .item .item-summary.yellow {
       color: black;
       background-color: #b1b381; }
+    .events-container .items-list .item .item-date.light, .events-container .items-list .item .item-summary.light {
+      color: rgba(15, 15, 15, 0.75);
+      background-color: whitesmoke; }
+    .events-container .items-list .item .item-date.dark, .events-container .items-list .item .item-summary.dark {
+      color: white;
+      background-color: #323232; }
   .events-container .items-list .item .item-summary {
     padding: 10px;
     font-size: 1rem;
     width: calc(100% - 110px);
     transition: all .2s ease-in; }
-    .events-container .items-list .item .item-summary.light {
-      color: #0f0f0f;
-      background-color: whitesmoke; }
-    .events-container .items-list .item .item-summary.dark {
-      color: white;
-      background-color: #323232; }
     .events-container .items-list .item .item-summary.round {
-      border-radius: 15px;
-      background-color: #4a8153;
-      color: white; }
+      border-radius: 15px; }
     .events-container .items-list .item .item-summary.corner {
       border-radius: 0; }
     .events-container .items-list .item .item-summary.stroke {
