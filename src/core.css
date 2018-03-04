@@ -51,20 +51,20 @@
       margin-top: 0;
       text-align: center; }
     .ui-container .ui-buttons .style-button {
-      width: calc(25% - 20px);
-      height: 40px;
-      border: none;
-      background-color: white;
+      width: calc(25% - 30px);
+      margin: 10px;
+      border: 2px solid #4a8153;
+      background-color: gainsboro;
       color: #0f0f0f;
       font-size: .75rem;
-      font-weight: 400;
-      border-radius: 25px;
-      margin: 10px; }
+      font-weight: 700;
+      text-transform: uppercase;
+      padding: 10px; }
       .ui-container .ui-buttons .style-button:hover {
         background-color: #dbdbdb; }
       .ui-container .ui-buttons .style-button.active {
-        background-color: #af6668;
-        color: #1f1011; }
+        background-color: #4a8153;
+        color: white; }
     .ui-container .ui-buttons .output-code {
       width: 100%;
       margin-top: 25px;

@@ -72,23 +72,25 @@
 			text-align: center;
 		}
 		.style-button{
-			width: calc(25% - 20px);
-			height: 40px;
-			border: none;
-			background-color: $jack-white;
+			width: calc(25% - 30px);
+			margin: 10px;
+			border: 2px solid $al-green;
+			background-color: $light-grey;
 			color: $jack-black;
 			font:{
 				size: .75rem;
-				weight: 400;
+				weight: 700;
 			}
-			border-radius: 25px;
-			margin: 10px;
+			text:{
+				transform: uppercase;
+			}
+			padding: 10px;
 			&:hover{
 				background-color: lighten($jack-black, 80%);
 			}
 			&.active{
-				background-color: $pinku-desu;
-				color: $pinku-desu-over;
+				background-color: $al-green;
+				color: $jack-white;
 			}
 		}
 		.output-code{

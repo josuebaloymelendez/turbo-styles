@@ -94,7 +94,6 @@ class App extends Component {
 				</div>
 			);
 		}
-		var obj = {};
 		return (
 			<div className="App">
 

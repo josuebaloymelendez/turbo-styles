@@ -1,54 +1,35 @@
 import React, { Component } from 'react';
+import UIButton from '../ui_components/ui-button';
 
 class UIeventsController extends Component{
 	constructor(){
 		super();
 		this.state = {
-			codeImageUrl : "events_images/images/code-image_01.png"
+			codeImageUrl : "events_images/images/code-image_01.png",
 		}
-	// }
+	}
 	render(){
+		let  date_shape = ["square", "circle", "rombus", "folded", "cube", "hexagon", "mosaic", "flag", "prism"],
+				date_shapeBtns = [];
+		for(let i=0; i<date_shape.length; i++){
+			let active = i === 0 ? "active" : "";
+			let numstring = i<10 ? "0"+(i+1) : i+"";
+			date_shapeBtns.push(
+				<UIButton
+					key={i}
+					defaultClassName="style-button"
+					buttonStatus=""
+					innerText={`${date_shape[i]} date shape`}
+					actionClick={()=>{this._changeShape(date_shape[i], numstring)}}
+				/>
+			)
+		}
 		return(
 			<div className="ui-container">
 				<div className="ui-column">
 	      		<div className="ui-buttons" id="date_shape_btn">
 		      		<h2 className="ui-title">Events date shapes & colours</h2>
-		      		<button
-		      			className="style-button active"
-		      			onClick={() => { this._changeShape('square', "01")}}
-		      		>Square date</button>
-		      		<button
-		      			className="style-button"
-		      			onClick={() => { this._changeShape('circle', "02")}}
-		      		>Circle date</button>
-		      		<button
-		      			className="style-button"
-		      			onClick={() => { this._changeShape('rombus', "03")}}
-		      		>Rombus date</button>
-		      		<button
-		      			className="style-button"
-		      			onClick={() => { this._changeShape('folded', "04")}}
-		      		>Folded date</button>
-		      		<button
-		      			className="style-button"
-		      			onClick={() => { this._changeShape('cube', "05")}}
-		      		>Cube date</button>
-		      		<button
-		      			className="style-button"
-		      			onClick={() => { this._changeShape('hexagon', "06")}}
-		      		>Hexagon date</button>
-		      		<button
-		      			className="style-button"
-		      			onClick={() => { this._changeShape('mosaic', "06")}}
-		      		>Mosaic date</button>
-		      		<button
-		      			className="style-button"
-		      			onClick={() => { this._changeShape('flag', "06")}}
-		      		>Flag date</button>
-		      		<button
-		      			className="style-button"
-		      			onClick={() => { this._changeShape('prism', "06")}}
-		      		>Prism date</button>
+		      		{date_shapeBtns}
 		      		<div className="output-code">
 		      			<h3 className="code-title">SCSS Code:</h3>
 		      			<img className="code-img" alt="" src={this.state.codeImageUrl}/>
@@ -87,6 +68,8 @@ class UIeventsController extends Component{
 		);
 	}
 	_changeShape(value, image){
+		let poppy = document.getElementById('date_shape_btn').getElementsByClassName('style-button');
+		//console.log(poppy);
 		this.props.changeState(value,  (state, value) => {
 			let obj = state.events;
 			obj.date.shape = value;
