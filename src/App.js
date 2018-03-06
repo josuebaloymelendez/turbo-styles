@@ -9,9 +9,7 @@ import UIeventsControllerAlt from './events/ui-events-alt';
 
 import SlickSlider from './slicked/slider';
 import UISlick from './slicked/ui-slick';
-
-
-import './core.css';
+//import './core.css';
 
 class App extends Component {
 	constructor(){

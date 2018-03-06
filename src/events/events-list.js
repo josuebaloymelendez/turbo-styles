@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import EventItem from './event-item';
-import './events.css';
+import './events.scss';
 
 export default class EventsList extends Component{
 	render(){

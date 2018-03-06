@@ -1,36 +1,42 @@
-@import "../colors";
-.baby{
+@import "../styles/colors";
+
+.baby {
 	display: flex;
-	justify-content: center;
-	text-align: center;
-	background-color: $betty-blue;
 	color: $jack-white;
-	padding:{
+	background-color: $betty-blue;
+	text-align: center;
+	justify-content: center;
+	padding: {
 		top: 100px;
 		bottom: 100px;
-	}
+	};
 }
-.bobby{
-	text-align: center;
-	background-color: $jack-black;
+
+.bobby {
 	color: $jack-white;
-	padding:{
+	background-color: $jack-black;
+	text-align: center;
+	padding: {
 		top: 50px;
 		bottom: 50px;
-	}
+	};
 }
-.slick-slider{
+
+.slick-slider {
 	position: relative;
-	.slick-arrow{
+
+	.slick-arrow {
 		// position: absolute;
 		// width: 20px;
 		// height: 100px;
 		// top: calc(50% - 10px);
 		z-index: 10;
-		&.slick-prev{
+
+		&.slick-prev {
 			left: 10px;
 		}
-		&.slick-next{
+
+		&.slick-next {
 			right: 10px;
 		}
 	}
