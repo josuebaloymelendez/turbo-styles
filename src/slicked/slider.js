@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import Slider from 'react-slick';
-import './slick-styles.css';
+import './slick-styles.scss';
 
  
 export default class SimpleSlider extends Component {

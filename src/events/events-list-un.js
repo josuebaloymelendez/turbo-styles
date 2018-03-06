@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import EventItem from './event-item';
-import './events-un.css';
+//import './events-un.scss';
 
 export default class EventsUnconventionalList extends Component{
 	render(){
