@@ -1,0 +1,43 @@
+@import "../styles/colors";
+
+.baby {
+	display: flex;
+	color: $jack-white;
+	background-color: $betty-blue;
+	text-align: center;
+	justify-content: center;
+	padding: {
+		top: 100px;
+		bottom: 100px;
+	};
+}
+
+.bobby {
+	color: $jack-white;
+	background-color: $jack-black;
+	text-align: center;
+	padding: {
+		top: 50px;
+		bottom: 50px;
+	};
+}
+
+.slick-slider {
+	position: relative;
+
+	.slick-arrow {
+		// position: absolute;
+		// width: 20px;
+		// height: 100px;
+		// top: calc(50% - 10px);
+		z-index: 10;
+
+		&.slick-prev {
+			left: 10px;
+		}
+
+		&.slick-next {
+			right: 10px;
+		}
+	}
+}
