@@ -9,7 +9,7 @@ class UIeventsController extends Component{
 		}
 	}
 	render(){
-		let  date_shape = ["square", "circle", "rombus", "folded", "cube", "hexagon", "mosaic", "flag", "prism"],
+		let  date_shape = ["square", "circle", "rombus","rombus-horizontal", "folded", "cube", "hexagon", "mosaic", "flag", "prism","clip","caca"],
 				date_shapeBtns = [];
 		for(let i=0; i<date_shape.length; i++){
 			let active = i === 0 ? "active" : "";
@@ -53,7 +53,11 @@ class UIeventsController extends Component{
 		      		>Colored summary</button>
 	      		</div>
 	      		<div className="ui-buttons">
-		      		<h2 className="ui-title">Events summary shape and stroke</h2>
+		      		<h2 className="ui-title">Events summary shape</h2>
+		      		<button
+		      			className="style-button"
+		      			onClick={() => { this._changeSummStroke('prism')}}
+		      		>Prism summary</button>
 		      		<button
 		      			className="style-button"
 		      			onClick={() => { this._changeSummStroke('stroke')}}
@@ -62,6 +66,13 @@ class UIeventsController extends Component{
 		      			className="style-button"
 		      			onClick={() => { this._changeSummShape('round')}}
 		      		>Round summary</button>
+		      		<button
+		      			className="style-button"
+		      			onClick={() => { this._changeSummShape('clip')}}
+		      		>Clip summary</button>
+	      		</div>
+	      		<div className="ui-buttons">
+		      		<h2 className="ui-title">Events summary extras</h2>
 	      		</div>
 				</div>
       	</div>

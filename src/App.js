@@ -43,7 +43,12 @@ class App extends Component {
 			},
 
 			slick:{
+				fade: false,
 				status: false,
+				arrows: false,
+				dots: true,
+				adaptiveHeight: true,
+				centerMode: true,
 				vp:{
 					large: 1024,
 					mid: 768,
@@ -53,9 +58,7 @@ class App extends Component {
 					large: 3,
 					mid: 2,
 					small: 1
-				},
-				arrows: false,
-				dots: true
+				}
 			}
 		}
 		this.changeState = this.changeState.bind(this);
@@ -68,9 +71,12 @@ class App extends Component {
 	render() {
 		let sliderSettings = {
 			slidesToShow: this.state.slick.total.large,
+			fade: this.state.slick.fade,
 			arrows: this.state.slick.arrows,
 			dots: this.state.slick.dots,
 			focusOnSelect: true,
+			adaptiveHeight: this.state.slick.adaptiveHeight,
+			centerMode: this.state.slick.centerMode,
 			responsive: [
 				{
 					breakpoing: this.state.slick.vp.large,
@@ -87,7 +93,7 @@ class App extends Component {
 			]
 		};
 		let eventsSlicked = [];
-		for(let i = 1; i <= 5; i++ ){
+		for(let i = 1; i <= 10; i++ ){
 			eventsSlicked.push(
 				<div key={i}>
 					<EventItem monthLenght="short"/>
@@ -119,7 +125,10 @@ class App extends Component {
 							slickedContents={eventsSlicked}
 						/>
 					</div>
-					<UISlick changeSlidesNumber={this.changeSlickSlides} />
+					<UISlick
+						slickSettings={this.state.slick}
+						changeState={this.changeState}
+					/>
 				</div>
 			</div>
 		);

@@ -19,7 +19,8 @@ export default class UIButton extends Component{
 		let btnStatusClass = buttonStatus ? buttonStatus : this.state.status;
 		return(
 			<button
-				onClick={()=>{this.props.actionClick(); this._handleClick();}}
+				//onClick={()=>{this.props.actionClick(); this._handleClick();}}
+				onClick={this.props.actionClick}
 				className={`${this.props.defaultClassName} ${btnStatusClass}`}>{this.props.innerText}</button>
 		);
 	}

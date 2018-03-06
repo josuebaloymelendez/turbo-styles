@@ -235,25 +235,39 @@
 					@include square-date;
 					position: relative;
 					background-color: transparent !important;
-					&:before, &:after{
+					@include pseudo-both{
 						position: absolute;
-						display: block;
-						content: "";
+						left: 0;
 						z-index: -5;
 					}
 					&:before{
+						@include triangle-eq(3, #{$date-width / 2}, $al-green);
 						top: 0;
-						left: 0;
-						border-bottom: #{$date-width / 2} solid $al-green; 
-						border-left: #{$date-width / 2} solid transparent; 
-						border-right: #{$date-width / 2} solid transparent; 
 					}
 					&:after{
+						@include triangle-eq(1, #{$date-width / 2}, darken($al-green, 10%));
 						bottom: 0;
+					}
+					.event-day, .event-month{
+						position: relative;
+					}
+				}
+				&.rombus-horizontal{
+					@include square-date;
+					position: relative;
+					background-color: transparent !important;
+					@include pseudo-both{
+						position: absolute;
+						top: 0;
+						z-index: -5;
+					}
+					&:before{
+						@include triangle-eq(2, #{$date-width / 2}, $al-green);
 						left: 0;
-						border-top: #{$date-width / 2} solid $al-green; 
-						border-left: #{$date-width / 2} solid transparent; 
-						border-right: #{$date-width / 2} solid transparent; 
+					}
+					&:after{
+						@include triangle-eq(4, #{$date-width / 2}, darken($al-green, 10%));
+						right: 0;
 					}
 					.event-day, .event-month{
 						position: relative;
@@ -262,11 +276,9 @@
 				&.folded{
 					@include square-date;
 					position: relative;
-					&:before, &:after{
+					@include pseudo-both{
 						position: absolute;
 						top: calc(100% + 2px);
-						content: "";
-						display: block;
 					}
 					&:before{
 						@include rectangle-triangle(2, 15px, lighten($al-green, 15%));
@@ -280,10 +292,8 @@
 				&.cube{
 					@include square-date;
 					position: relative;
-					&:before, &:after{
+					@include pseudo-both{
 						position: absolute;
-						content: "";
-						display: block;
 					}
 					&:before{
 						left: -20px;
@@ -351,9 +361,19 @@
 				}
 				&.flag{
 					@include square-date;
+					position: relative;
 					box-sizing: border-box;
-					border-top: 5px solid darken($al-green, 5%);
-					@include mask(after){
+					@include pseudo-both{
+						position: absolute;
+					}
+					&:before{
+						top: 0;
+						left: 0;
+						width: 100%;
+						height: 10px;
+						background-color: darken($al-green, 15%);
+					}
+					&:after{
 						@include triangle-eq(1, $date-width / 2, $al-green);
 						top: 100%;
 						border-top-width: 15px;
@@ -387,7 +407,16 @@
 						text-shadow: 3px 3px 0 rgba($jack-black, .3);
 					}
 				}
-
+				&.clip{
+					height: $date-height;
+					width: $date-width / 2;
+					padding-left: 15px;
+					@include mask{
+						@include rectangle-triangle(1, $date-height, $al-green, $date-width / 3);
+						left: 100%;
+						top: 0;
+					}
+				}
 				.event-day, .event-month{
 					transition: all .2s ease-out;
 				}
@@ -444,12 +473,52 @@
 				&.stroke{
 					border: 2px solid $al-green;
 					box-sizing: border-box;
+					border-radius: 0;
+					background-color: transparent;
+					color: $al-green;
 				}
 				.item-name{
 					font-size: inherit;
 					margin:{
 						top: 0;
 						bottom: .5em;
+					}
+				}
+				&.prism{
+					position: relative;
+					transform: skewY(15deg);
+					background-color: darken($al-green, 15%);
+					border-radius: 0;
+					@include pseudo-both{
+						position: absolute;
+					}
+					&:before{
+						width: 100%;
+						height: 11px;
+						background-color: $al-green;
+						bottom: -11px;
+						right: 9px;
+						transform: skewX(-60deg);
+					}
+					&:after{
+						width: 20px;
+						height: 100%;
+						background-color: lighten($al-green, 15%);
+						left: -20px;
+						top: 6px;
+						transform: skewY(-30deg);
+					}
+					.item-name, .item-text{
+						text-shadow: 2px 2px 0 rgba($jack-black, .3);
+					}
+				}
+				&.clip{
+					height: $date-height;
+					margin-left: $date-width / 3;
+					@include mask{
+						@include rectangle-triangle(3, $date-height, $al-green, $date-width / 3);
+						top: 0;
+						right: 100%;
 					}
 				}
 				.item-text{
