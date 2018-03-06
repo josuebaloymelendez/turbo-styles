@@ -1,12 +1,16 @@
 import React, { Component } from 'react';
 import {events_count} from './constants';
-import UIeventsController from './events/ui-events';
 
 import EventsList from './events/events-list';
 import EventItem from './events/event-item';
 
+import UIeventsController from './events/ui-events';
+import UIeventsControllerAlt from './events/ui-events-alt';
+
 import SlickSlider from './slicked/slider';
 import UISlick from './slicked/ui-slick';
+
+
 import './core.css';
 
 class App extends Component {
@@ -14,6 +18,7 @@ class App extends Component {
 		super();
 		this.state = {
 			events:{
+				altEvents: "alt-1",
 				date:{
 					color: "green",
 					shape: "square",
@@ -45,10 +50,10 @@ class App extends Component {
 			slick:{
 				fade: false,
 				status: false,
-				arrows: false,
-				dots: true,
+				arrows: true,
+				dots: false,
 				adaptiveHeight: true,
-				centerMode: true,
+				centerMode: false,
 				vp:{
 					large: 1024,
 					mid: 768,
@@ -114,7 +119,6 @@ class App extends Component {
 					</div>
 				</div>
 				<UIeventsController
-					changeProps={this.state.events}
 					changeState={this.changeState}
 				/>
 				<div className="homepage-row">
@@ -130,6 +134,20 @@ class App extends Component {
 						changeState={this.changeState}
 					/>
 				</div>
+
+				<div className="homepage-row">
+					<div className="homepage-row-inner">
+						<EventsList
+							sectionName="Unconventional events styles"
+							eventsType={`events-container-alt ${this.state.events.altEvents}`}
+							eventsProps={this.state.events}
+							itemsNum={events_count}
+						/>
+					</div>
+				</div>
+				<UIeventsControllerAlt
+					changeState={this.changeState}
+				/>
 			</div>
 		);
 	}

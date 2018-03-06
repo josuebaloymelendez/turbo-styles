@@ -18,7 +18,7 @@ export default class UIslickController extends Component{
 	render(){
 		return(
 			<div className="ui-container">
-				<div ui-column>
+				<div className="ui-column">
 					<div className="ui-buttons">
 						<h2 className="ui-title">Number of slides on large display</h2>
 						<UIButton

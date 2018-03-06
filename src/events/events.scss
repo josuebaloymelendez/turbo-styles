@@ -45,6 +45,7 @@
 			}
 			.item-summary{
 				width: calc(100% - #{$date-width + $date-margin});
+				transition: all .2s ease-out;
 				.item-name{
 					>a{
 						color: inherit;

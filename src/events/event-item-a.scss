@@ -151,17 +151,19 @@
 	}
 	.items-list{
 		.item{
+			position: relative;
 			font-family: serif;
 			margin-top: $date-height / 2;
-			padding: 10px;
+			padding: 10px 20px;
 			border-radius: 15px;
+			box-sizing: border-box;
 			background-color: lighten($yellow-ono, 30%);
 			color: darken($yellow-ono, 30%);
 			&-date{
 				@include center-date;
-				position: relative;
-				top: -$date-height / 2;
-				float: left;
+				position: absolute;
+				top: -#{$date-height / 2};
+				left: 0;
 				background-color: $yellow-ono;
 				color: $yellow-ono-over;
 				width: $date-width;
@@ -188,6 +190,7 @@
 					text:{
 						align: center;
 					}
+					min-height: 2rem;
 					margin:{
 						top: 0;
 						bottom: 15px;

@@ -137,10 +137,12 @@
 .alt-3 .section-title {
   color: #b1b381; }
 .alt-3 .items-list .item {
+  position: relative;
   font-family: serif;
   margin-top: 50px;
-  padding: 10px;
+  padding: 10px 20px;
   border-radius: 15px;
+  box-sizing: border-box;
   background-color: #ecede0;
   color: #5f613a; }
   .alt-3 .items-list .item-date {
@@ -148,9 +150,9 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    position: relative;
+    position: absolute;
     top: -50px;
-    float: left;
+    left: 0;
     background-color: #b1b381;
     color: black;
     width: 100px;
@@ -169,6 +171,7 @@
     font-size: 1rem; }
     .alt-3 .items-list .item-summary .item-name {
       text-align: center;
+      min-height: 2rem;
       margin-top: 0;
       margin-bottom: 15px;
       margin-left: 100px;
