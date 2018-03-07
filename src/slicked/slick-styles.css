@@ -1,0 +1,26 @@
+.baby {
+  display: flex;
+  color: white;
+  background-color: #365484;
+  text-align: center;
+  justify-content: center;
+  padding-top: 100px;
+  padding-bottom: 100px; }
+
+.bobby {
+  color: white;
+  background-color: #0f0f0f;
+  text-align: center;
+  padding-top: 50px;
+  padding-bottom: 50px; }
+
+.slick-slider {
+  position: relative; }
+  .slick-slider .slick-arrow {
+    z-index: 10; }
+    .slick-slider .slick-arrow.slick-prev {
+      left: 10px; }
+    .slick-slider .slick-arrow.slick-next {
+      right: 10px; }
+
+/*# sourceMappingURL=slick-styles.css.map */

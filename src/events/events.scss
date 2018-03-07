@@ -35,16 +35,13 @@
 		}
 		.item{
 			.item-date{
-				widht: $date-width;
-				height: $date-height;
-				margin: 0 $date-margin 0 0;
 				transition: all .2s ease-out;
 				&:before, &:after{
 					transition: all .2s ease-in;
 				}
 			}
 			.item-summary{
-				width: calc(100% - #{$date-width + $date-margin});
+				// width: calc(100% - #{$date-width + $date-margin});
 				transition: all .2s ease-out;
 				.item-name{
 					>a{

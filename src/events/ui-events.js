@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import UIButton from '../ui_components/ui-button';
+import './events.css';
 
 class UIeventsController extends Component{
 	constructor(){
@@ -9,7 +10,7 @@ class UIeventsController extends Component{
 		}
 	}
 	render(){
-		let  date_shape = ["square", "circle", "rombus","rombus-horizontal", "folded", "cube", "hexagon", "mosaic", "flag", "prism","clip","caca"],
+		let  date_shape = ["square", "circle", "rombus","rombus-horizontal", "folded", "cube", "hexagon", "mosaic", "flag", "prism","clip"],
 				date_shapeBtns = [];
 		for(let i=0; i<date_shape.length; i++){
 			let active = i === 0 ? "active" : "";

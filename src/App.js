@@ -9,7 +9,8 @@ import UIeventsControllerAlt from './events/ui-events-alt';
 
 import SlickSlider from './slicked/slider';
 import UISlick from './slicked/ui-slick';
-//import './core.css';
+
+import './styles/core.css';
 
 class App extends Component {
 	constructor(){
@@ -138,7 +139,7 @@ class App extends Component {
 						<EventsList
 							sectionName="Unconventional events styles"
 							eventsType={`events-container-alt ${this.state.events.altEvents}`}
-							eventsProps={this.state.events}
+							eventsProps={this.state.events.unstyled}
 							itemsNum={events_count}
 						/>
 					</div>

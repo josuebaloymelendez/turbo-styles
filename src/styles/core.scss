@@ -58,7 +58,6 @@ body {
 }
 
 .ui-container {
-	display: flex;
 	box-sizing: border-box;
 	width: 100%;
 	margin-top: 25px;
@@ -69,10 +68,13 @@ body {
 	align-items: flex-start;
 	justify-content: space-between;
 	flex-wrap: wrap;
-
-	.ui-column {
-		width: calc(50% - 50px);
-
+	@media(min-width: 1024px){
+		display: flex;
+		.ui-column {
+			width: calc(50% - 50px);
+		}
+	}
+	.ui-column{
 		.ui-buttons + .ui-buttons {
 			margin-top: 20px;
 			padding-top: 20px;

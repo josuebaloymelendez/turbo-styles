@@ -10,8 +10,6 @@ export default class UIeventsController extends Component{
 		})
 	}
 	render(){
-		
-
 		return(
 			<div className="ui-container">
 				<div className="ui-column">
@@ -32,6 +30,20 @@ export default class UIeventsController extends Component{
 							innerText="Card with floating date bubble"
 							actionClick={()=>{this._changeAlt("alt-3", "altEvents")}}
 						/>
+						<UIButton
+							defaultClassName="style-button"
+							innerText="Capsuled date floating"
+							actionClick={()=>{this._changeAlt("alt-4", "altEvents")}}
+						/>
+						<UIButton
+							defaultClassName="style-button"
+							innerText="Capsuled date floating"
+							actionClick={()=>{this._changeAlt("alt-5", "altEvents")}}
+						/>
+						<div className="output-code">
+		      			<h3 className="code-title">SCSS Code:</h3>
+		      			<img className="code-img" alt="" src=""/>
+		      		</div>
 					</div>
 				</div>
 			</div>

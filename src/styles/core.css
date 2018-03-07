@@ -1,0 +1,92 @@
+body {
+  font-size: 16px;
+  font-family: sans-serif;
+  margin: 0;
+  margin-bottom: 300px;
+  padding: 0; }
+
+.homepage-row {
+  width: 100%; }
+  .homepage-row:dark {
+    background-color: black; }
+  .homepage-row .homepage-row-inner {
+    width: 100%;
+    max-width: 1024px;
+    margin-right: auto;
+    margin-left: auto; }
+
+.section-title {
+  margin-top: 25px;
+  margin-bottom: 25px;
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 2.5rem; }
+  .section-title > a {
+    color: inherit;
+    text-decoration: none; }
+    .section-title > a:hover {
+      text-decoration: underline; }
+  .section-title.dark-grey {
+    color: #323232; }
+
+.ui-container {
+  box-sizing: border-box;
+  width: 100%;
+  margin-top: 25px;
+  margin-bottom: 50px;
+  padding: 25px;
+  border-bottom: 25px solid #4a8153;
+  background-color: #0f0f0f;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap; }
+  @media (min-width: 1024px) {
+    .ui-container {
+      display: flex; }
+      .ui-container .ui-column {
+        width: calc(50% - 50px); } }
+  .ui-container .ui-column .ui-buttons + .ui-buttons {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid gainsboro; }
+  .ui-container .ui-buttons {
+    display: flex;
+    font-size: 1rem;
+    justify-content: space-between;
+    flex-wrap: wrap; }
+    .ui-container .ui-buttons .ui-title {
+      width: 100%;
+      margin-top: 0;
+      color: white;
+      font-size: inherit;
+      text-align: center; }
+    .ui-container .ui-buttons .style-button {
+      width: calc(25% - 30px);
+      margin: 10px;
+      padding: 10px;
+      border: 2px solid #4a8153;
+      color: #0f0f0f;
+      background-color: gainsboro;
+      font-size: .75rem;
+      font-weight: 700;
+      text-transform: uppercase; }
+      .ui-container .ui-buttons .style-button:hover {
+        background-color: #dbdbdb; }
+      .ui-container .ui-buttons .style-button.active {
+        color: white;
+        background-color: #4a8153; }
+    .ui-container .ui-buttons .output-code {
+      width: 100%;
+      padding: 30px;
+      border-radius: 15px;
+      color: white;
+      background-color: rgba(255, 255, 255, 0.2);
+      margin-top: 25px; }
+      .ui-container .ui-buttons .output-code .code-title {
+        margin-top: 0;
+        margin-bottom: 15px; }
+      .ui-container .ui-buttons .output-code .code-img {
+        display: block;
+        width: 100%; }
+
+/*# sourceMappingURL=core.css.map */

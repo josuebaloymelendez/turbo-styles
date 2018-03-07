@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './event-item-a.scss';
+import './event-item-a.css';
 
 class EventItem extends Component{
 	constructor(props){
