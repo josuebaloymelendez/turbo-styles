@@ -61,7 +61,7 @@ body {
       font-size: inherit;
       text-align: center; }
     .ui-container .ui-buttons .style-button {
-      width: calc(25% - 30px);
+      width: calc(50% - 30px);
       margin: 10px;
       padding: 10px;
       border: 2px solid #4a8153;
@@ -70,6 +70,9 @@ body {
       font-size: .75rem;
       font-weight: 700;
       text-transform: uppercase; }
+      @media (min-width: 768px) {
+        .ui-container .ui-buttons .style-button {
+          width: calc(25% - 30px); } }
       .ui-container .ui-buttons .style-button:hover {
         background-color: #dbdbdb; }
       .ui-container .ui-buttons .style-button.active {

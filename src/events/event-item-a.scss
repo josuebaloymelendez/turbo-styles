@@ -8,30 +8,26 @@
 	justify-content: center;
 	flex: {
 		direction: column;
-	};
+	}
 }
-
-@mixin square-date {
+@mixin square-date($mult: 1){
 	@include center-date;
-	width: $date-height;
-	height: $date-width;
+	width: $date-height * $mult;
+	height: $date-width * $mult;
 	flex: none;
 	margin: {
 		right: $date-margin;
-	};
+	}
 }
-
 @mixin summary-rest-of-width{
 	width: calc(100% - #{$date-width - $date-margin});
 }
-
 
 .alt-1 {
 	$triangle-size: $date-width / 2;
 	.section-title {
 		color: $betty-blue;
 	}
-
 	.items-list {
 		.item {
 			position: relative;
@@ -68,7 +64,7 @@
 				}
 			}
 			&-summary {
-				width: calc()
+				@include summary-rest-of-width;
 				position: relative;
 				z-index: 10;
 				display: flex;
@@ -81,7 +77,7 @@
 				flex: 1;
 				@include pseudo-both {
 					position: absolute;
-					left: #{$date-width / 2 * -1};
+					left: #{$date-width / 2 * -1}
 				}
 				.item-name {
 					margin: 0;
@@ -174,22 +170,20 @@
 				@include square-date;
 				position: absolute;
 				top: -#{$date-height / 2};
-				left: 0;
-				background-color: $yellow-ono;
-				color: $yellow-ono-over;
-				width: $date-width;
-				height: $date-height;
+				left: 10px;
 				border-radius: 50%;
-				color: $yellow-ono-over;
 				background-color: $yellow-ono;
-				float: left;
+				color: darken($yellow-ono, 40%);
 				font: {
 					size: 1.5rem;
 					weight: 700;
-				};
+				}
 				.event-day {
-					height: 1.7rem;
 					font-size: 2rem;
+					height: 1.8rem;
+				}
+				.event-month{
+					text-transform: uppercase;
 				}
 			}
 			&-summary {
@@ -199,20 +193,23 @@
 				flex-direction: column;
 				font: {
 					size: 1rem;
-				};
+				}
+				color: darken($yellow-ono, 40%);
 				.item-name {
 					text: {
 						align: center;
 					}
-					min-height: 2rem;
+					min-height: 2.9rem;
 					margin:{
 						top: 0;
-						bottom: 15px;
-						left: $date-width;
-					};
+						bottom: 8px;
+					}
+					padding-left: $date-width;
+					padding-bottom: 8px;
+					border-bottom: 1px solid darken($yellow-ono, 40%);
 					font: {
-						size: inherit;
-					};
+						size: 1.1rem;
+					}
 				}
 			}
 		}
@@ -320,6 +317,132 @@
 					b{
 						font-weight: 400;
 					}
+				}
+			}
+		}
+	}
+}
+
+.alt-6{
+	$inclination: 15deg;
+	.section-title{
+		transform: skewX(-#{$inclination}) rotate(#{$inclination});
+		display: inline-block;
+		padding: 15px;
+		background-color: $orange-mocha;
+		color: $jack-white;
+		margin-top: 75px;
+		margin-bottom: 50px;
+		@include pseudo-both{
+			position: absolute;
+		}
+		&:before{
+			top: 6px;
+			right: -9px;
+			width: 7px;
+			height: 100%;
+			background-color: lighten($orange-mocha, 16%);
+			transform: skewY(#{$inclination * 4});
+		}
+		&:after{
+			bottom: -12px;
+			right: -4px;
+			width: 100%;
+			height: 10px;
+			background-color: lighten($orange-mocha, 8%);
+			transform: skewX(#{$inclination *2});
+			
+		}
+	}
+	.items-list{
+		.item{
+			font-size: 1rem;
+			position: relative;
+			&-date{
+				@include square-date;
+				position: relative;
+				z-index: 10;
+				left: 25px;
+				transform: skewX(-#{$inclination}) rotate(#{$inclination});
+				background-color: darken($orange-mocha, 8%);
+				color: $jack-white;
+				font:{
+					size: 1.5em;
+					weight: 700;
+				}
+				.event-day{
+					font-size: 2em;
+					height: 1em;
+				}
+				.event-month{
+					text-transform: uppercase;
+				}
+				@include pseudo-both{
+					position: absolute;
+				}
+				&:before{
+					top: 6px;
+					right: -9px;
+					width: 7px;
+					height: 100%;
+					background-color: lighten($orange-mocha, 16%);
+					transform: skewY(#{$inclination * 4});
+				}
+				&:after{
+					bottom: -12px;
+					right: -4px;
+					width: 100%;
+					height: 10px;
+					background-color: lighten($orange-mocha, 8%);
+					transform: skewX(#{$inclination *2});
+					
+				}
+			}
+			&-summary{
+				margin-bottom: 60px;
+				text-align: right;
+				padding:{
+					top: 55px;
+					left: 20px;
+					right: 20px;
+					bottom: 25px;
+				}
+				box-sizing: border-box;
+				transform: skewX(-#{$inclination}) rotate(#{$inclination});
+				background-color: $orange-mocha;
+				color: $jack-white;
+				.item-name{
+					margin:{
+						top: 0;
+						bottom: 10px;
+					}
+					border-bottom: 1px solid $jack-white;
+					padding-bottom: 10px;
+					font-size: inherit;
+				}
+				.item-text{
+					display: block;
+					b{ font-weight: 400; }
+				}
+				@include pseudo-both{
+					position: absolute;
+				}
+				&:before{
+					top: 10px;
+					right: -14px;
+					width: 12px;
+					height: 100%;
+					background-color: lighten($orange-mocha, 16%);
+					transform: skewY(#{$inclination * 4});
+				}
+				&:after{
+					bottom: -22px;
+					right: -7px;
+					width: 100%;
+					height: 20px;
+					background-color: lighten($orange-mocha, 8%);
+					transform: skewX(#{$inclination *2});
+					
 				}
 			}
 		}
@@ -478,6 +601,7 @@
 				}
 
 				&.hexagon {
+					margin-right: $date-margin;
 					position: relative;
 					display: flex;
 					background-color: transparent !important;
@@ -563,16 +687,12 @@
 
 				&.prism {
 					@include square-date;
-
 					position: relative;
 					left: -20px;
 					transform: skewY(-15deg);
-
 					@include pseudo-both {
 						position: absolute;
 					}
-
-
 					&:after {
 						top: 5px;
 						left: 100%;
@@ -581,7 +701,6 @@
 						background-color: darken($al-green, 15%);
 						transform: skewY(30deg);
 					}
-
 					&:before {
 						top: 100%;
 						left: 10px;
@@ -590,89 +709,69 @@
 						background-color: lighten($al-green, 15%);
 						transform: skewX(60deg);
 					}
-
 					.event-day, .event-month {
 						text-shadow: 3px 3px 0 rgba($jack-black, 0.3);
 					}
 				}
-
 				&.clip {
 					width: $date-width / 2;
 					height: $date-height;
 					margin-right: $date-margin;
 					padding-left: 15px;
-
 					@include mask {
 						@include rectangle-triangle(4, $date-height, $al-green, $date-width / 3);
-
 						top: 0;
 						left: 100%;
 					}
 				}
-
 				.event-day, .event-month {
 					transition: all .2s ease-out;
 				}
-
 				.event-day {
-					font: {
-						//size: 1.5em;
-					};
 					height: 1em;
 				}
 			}
-
 			.item-date, .item-summary {
 				///// Colors
 				font-size: 1.3rem;
-
 				&.green {
 					color: $al-green-over;
 					background-color: $al-green;
 				}
-
 				&.red {
 					color: $red-fox-over;
 					background-color: $red-fox;
 				}
-
 				&.blue {
 					color: $betty-blue-over;
 					background-color: $betty-blue;
 				}
-
 				&.yellow {
 					color: $yellow-ono-over;
 					background-color: $yellow-ono;
 				}
-
 				// Color
 				&.light {
 					color: rgba($jack-black, 0.75);
 					background-color: lighten($jack-black, 90%);
 				}
-
 				&.dark {
 					color: $jack-white;
 					background-color: $dark-grey;
 				}
 			}
-
 			.item-summary {
 				width: calc(100% - #{$date-margin + $date-width});
 				padding: 10px;
 				transition: all .2s ease-in;
 				font-size: 1rem;
-
 				// Shape
 				&.round {
 					border-radius: 15px;
 				}
-
 				&.corner {
 					border-radius: 0;
 				}
-
 				&.stroke {
 					box-sizing: border-box;
 					border: 2px solid $al-green;
@@ -680,26 +779,21 @@
 					color: $al-green;
 					background-color: transparent;
 				}
-
 				.item-name {
 					font-size: inherit;
 					margin: {
 						top: 0;
 						bottom: .5em;
-					};
+					}
 				}
-
 				&.prism {
 					position: relative;
 					border-radius: 0;
 					background-color: darken($al-green, 15%);
 					transform: skewY(15deg);
-
 					@include pseudo-both {
 						position: absolute;
 					}
-
-
 					&:before {
 						right: 9px;
 						bottom: -11px;
@@ -708,7 +802,6 @@
 						background-color: $al-green;
 						transform: skewX(-60deg);
 					}
-
 					&:after {
 						top: 6px;
 						left: -20px;
@@ -717,24 +810,19 @@
 						background-color: lighten($al-green, 15%);
 						transform: skewY(-30deg);
 					}
-
 					.item-name, .item-text {
 						text-shadow: 2px 2px 0 rgba($jack-black, 0.3);
 					}
 				}
-
 				&.clip {
 					height: $date-height;
 					margin-left: $date-width / 3;
-
 					@include mask {
 						@include rectangle-triangle(2, $date-height, $al-green, $date-width / 3);
-
 						top: 0;
 						right: 100%;
 					}
 				}
-
 				.item-text {
 					display: block;
 					width: 100%;
@@ -747,50 +835,42 @@
 
 .slick-events {
 	margin-bottom: 50px;
-
 	.item {
 		margin: 0 15px;
 		padding: 10px;
 		color: $light-grey;
 		background-color: $dark-grey;
 		font-family: serif;
-
 		&-date {
 			font: {
 				size: 2rem;
 				weight: 700;
-			};
+			}
 			margin-bottom: 10px;
 			text-align: center;
-
 			span + span {
 				margin-left: .5rem;
 			}
 		}
-
 		&-summary {
 			padding: 10px;
 			border-radius: 10px;
 			color: $jack-black;
 			background-color: $light-grey;
 			text-align: center;
-
 			.item-name {
 				margin: {
 					top: 0;
 					bottom: 8px;
-				};
-
+				}
 				> a {
 					color: inherit;
 					text-decoration: none;
-
 					&:hover {
 						text-decoration: underl	ine;
 					}
 				}
 			}
-
 			.item-text {
 				display: block;
 			}

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import UIButton from '../ui_components/ui-button';
+import CodeLoader from '../code_loader/code-loader';
 import './events.css';
 
 class UIeventsController extends Component{
@@ -13,7 +14,7 @@ class UIeventsController extends Component{
 		let  date_shape = ["square", "circle", "rombus","rombus-horizontal", "folded", "cube", "hexagon", "mosaic", "flag", "prism","clip"],
 				date_shapeBtns = [];
 		for(let i=0; i<date_shape.length; i++){
-			let active = i === 0 ? "active" : "";
+			//let active = i === 0 ? "active" : "";
 			let numstring = i<10 ? "0"+(i+1) : i+"";
 			date_shapeBtns.push(
 				<UIButton
@@ -31,10 +32,19 @@ class UIeventsController extends Component{
 	      		<div className="ui-buttons" id="date_shape_btn">
 		      		<h2 className="ui-title">Events date shapes & colours</h2>
 		      		{date_shapeBtns}
+
 		      		<div className="output-code">
 		      			<h3 className="code-title">SCSS Code:</h3>
 		      			<img className="code-img" alt="" src={this.state.codeImageUrl}/>
 		      		</div>
+
+		      		<CodeLoader
+		      			codeTitle="SCSS Code:"
+		      			codeDescription="Codigo bonite"
+		      			codePath="baby.txt"
+		      			codeNotes="Codigo notes"
+		      		/>
+
 	      		</div>
 				</div>
 				<div className="ui-column">
@@ -54,19 +64,22 @@ class UIeventsController extends Component{
 		      		>Colored summary</button>
 	      		</div>
 	      		<div className="ui-buttons">
-		      		<h2 className="ui-title">Events summary shape</h2>
-		      		<button
-		      			className="style-button"
-		      			onClick={() => { this._changeSummStroke('prism')}}
-		      		>Prism summary</button>
+	      			<h2 className="ui-title">Stroke</h2>
 		      		<button
 		      			className="style-button"
 		      			onClick={() => { this._changeSummStroke('stroke')}}
 		      		>Stroke summary</button>
 		      		<button
 		      			className="style-button"
-		      			onClick={() => { this._changeSummShape('round')}}
+		      			onClick={() => { this._changeSummStroke('round')}}
 		      		>Round summary</button>
+	      		</div>
+	      		<div className="ui-buttons">
+		      		<h2 className="ui-title">Events summary shape</h2>
+		      		<button
+		      			className="style-button"
+		      			onClick={() => { this._changeSummShape('prism')}}
+		      		>Prism summary</button>
 		      		<button
 		      			className="style-button"
 		      			onClick={() => { this._changeSummShape('clip')}}
@@ -80,8 +93,6 @@ class UIeventsController extends Component{
 		);
 	}
 	_changeShape(value, image){
-		let poppy = document.getElementById('date_shape_btn').getElementsByClassName('style-button');
-		//console.log(poppy);
 		this.props.changeState(value,  (state, value) => {
 			let obj = state.events;
 			obj.date.shape = value;

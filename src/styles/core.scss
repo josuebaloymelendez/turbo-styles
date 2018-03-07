@@ -5,58 +5,50 @@ body {
 	font: {
 		size: 16px;
 		family: sans-serif;
-	};
+	}
 	margin: 0;
 	margin-bottom: 300px;
 	padding: 0;
 }
-
 .homepage-row {
 	width: 100%;
-
 	&:dark {
 		background-color: black;
 	}
-
 	.homepage-row-inner {
 		width: 100%;
 		max-width: 1024px;
 		margin: {
 			right: auto;
 			left: auto;
-		};
+		}
 	}
 }
-
 .section-title {
 	margin: {
 		top: 25px;
 		bottom: 25px;
-	};
+	}
 	text: {
 		transform: uppercase;
 		align: center;
-	};
+	}
 	font: {
 		size: 2.5rem;
-	};
-
+	}
 	> a {
 		color: inherit;
 		text: {
 			decoration: none;
-		};
-
+		}
 		&:hover {
 			text-decoration: underline;
 		}
 	}
-
 	&.dark-grey {
 		color: $dark-grey;
 	}
 }
-
 .ui-container {
 	box-sizing: border-box;
 	width: 100%;
@@ -81,7 +73,6 @@ body {
 			border-top: 1px solid $light-grey;
 		}
 	}
-
 	.ui-buttons {
 		display: flex;
 		font-size: 1rem;
@@ -95,9 +86,11 @@ body {
 			font-size: inherit;
 			text-align: center;
 		}
-
 		.style-button {
-			width: calc(25% - 30px);
+			width: calc(50% - 30px);
+			@media(min-width: 768px){
+				width: calc(25% - 30px);
+			}
 			margin: 10px;
 			padding: 10px;
 			border: 2px solid $al-green;
@@ -106,21 +99,18 @@ body {
 			font: {
 				size: .75rem;
 				weight: 700;
-			};
+			}
 			text: {
 				transform: uppercase;
-			};
-
+			}
 			&:hover {
 				background-color: lighten($jack-black, 80%);
 			}
-
 			&.active {
 				color: $jack-white;
 				background-color: $al-green;
 			}
 		}
-
 		.output-code {
 			width: 100%;
 			padding: 30px;
@@ -129,15 +119,13 @@ body {
 			background-color: rgba($jack-white, 0.2);
 			margin: {
 				top: 25px;
-			};
-
+			}
 			.code-title {
 				margin: {
 					top: 0;
 					bottom: 15px;
-				};
+				}
 			}
-
 			.code-img {
 				display: block;
 				width: 100%;

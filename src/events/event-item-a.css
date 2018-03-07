@@ -1,61 +1,785 @@
-/*
-Error: Invalid CSS after "				position": expected ";", was ": relative;"
-        on line 72 of /Users/reinholdm/turbo/my-app/src/events/event-item-a.scss
+.alt-1 .section-title {
+  color: #365484; }
+.alt-1 .items-list .item {
+  position: relative;
+  display: flex; }
+  .alt-1 .items-list .item:before {
+    content: "";
+    display: block;
+    width: 0;
+    height: 0;
+    border-top: 50px solid transparent;
+    border-left: 50px solid gainsboro;
+    border-bottom: 50px solid transparent;
+    position: absolute;
+    top: 0;
+    left: 100%; }
+  .alt-1 .items-list .item-date {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100px;
+    height: 100px;
+    flex: none;
+    margin-right: 10px;
+    position: relative;
+    width: 100px;
+    height: 100px;
+    color: white;
+    flex: none; }
+    .alt-1 .items-list .item-date:before, .alt-1 .items-list .item-date:after {
+      content: "";
+      display: block;
+      position: absolute;
+      z-index: 1;
+      left: 0; }
+    .alt-1 .items-list .item-date:before {
+      width: 0;
+      height: 0;
+      border-right: 50px solid transparent;
+      border-bottom: 50px solid #365484;
+      border-left: 50px solid transparent;
+      top: 0; }
+    .alt-1 .items-list .item-date:after {
+      width: 0;
+      height: 0;
+      border-top: 50px solid #365484;
+      border-right: 50px solid transparent;
+      border-left: 50px solid transparent;
+      bottom: 0; }
+    .alt-1 .items-list .item-date .event-day, .alt-1 .items-list .item-date .event-month {
+      position: relative;
+      z-index: 2; }
+  .alt-1 .items-list .item-summary {
+    width: calc(100% - 90px);
+    position: relative;
+    z-index: 10;
+    display: flex;
+    height: 100px;
+    padding: 0 10px;
+    background-color: gainsboro;
+    font-size: .75rem;
+    flex-direction: column;
+    justify-content: center;
+    flex: 1; }
+    .alt-1 .items-list .item-summary:before, .alt-1 .items-list .item-summary:after {
+      content: "";
+      display: block;
+      position: absolute;
+      left: -50px; }
+    .alt-1 .items-list .item-summary .item-name {
+      margin: 0;
+      font-size: inherit; }
+    .alt-1 .items-list .item-summary:before {
+      border-style: solid;
+      border-width: 0 50px 50px 0;
+      border-color: transparent gainsboro transparent transparent;
+      top: 0; }
+    .alt-1 .items-list .item-summary:after {
+      border-style: solid;
+      border-width: 0 0 50px 50px;
+      border-color: transparent transparent gainsboro transparent;
+      bottom: 0; }
 
-67: 					z-index: 2;
-68: 				}
-69: 			}
-70: 			&-summary {
-71: 				width: calc()
-72: 				position: relative;
-73: 				z-index: 10;
-74: 				display: flex;
-75: 				height: $date-height;
-76: 				padding: 0 10px;
-77: 				background-color: $light-grey;
+.alt-2 .section-title {
+  color: #bb3e53; }
+.alt-2 .items-list .item {
+  display: flex;
+  color: white;
+  font-family: serif;
+  font-size: 16px; }
+  .alt-2 .items-list .item-date {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100px;
+    height: 100px;
+    flex: none;
+    margin-right: 10px;
+    position: relative;
+    width: 50px;
+    height: 100px;
+    background-color: #bb3e53;
+    font-size: 1.5rem;
+    font-weight: 700;
+    flex: none;
+    position: relative; }
+    .alt-2 .items-list .item-date:before {
+      content: "";
+      display: block;
+      position: absolute;
+      border-style: solid;
+      border-width: 100px 50px 0 0;
+      border-color: #bb3e53 transparent transparent transparent;
+      top: 0;
+      left: 100%; }
+    .alt-2 .items-list .item-date .event-day {
+      height: 1em; }
+    .alt-2 .items-list .item-date .event-day, .alt-2 .items-list .item-date .event-month {
+      position: relative;
+      text-indent: .8em; }
+  .alt-2 .items-list .item-summary {
+    width: calc(100% - 90px);
+    display: flex;
+    box-sizing: border-box;
+    margin-left: 45px;
+    padding-right: 15px;
+    background-color: #bb3e53;
+    font-size: .8rem;
+    flex-direction: column;
+    justify-content: center;
+    position: relative; }
+    .alt-2 .items-list .item-summary:before {
+      content: "";
+      display: block;
+      position: absolute;
+      border-style: solid;
+      border-width: 0 0 100px 50px;
+      border-color: transparent transparent #bb3e53 transparent;
+      top: 0;
+      right: 100%; }
+    .alt-2 .items-list .item-summary .item-name {
+      margin: 0;
+      font-size: inherit; }
 
-Backtrace:
-/Users/reinholdm/turbo/my-app/src/events/event-item-a.scss:72
-/Applications/Koala.app/Contents/Resources/app.nw/rubygems/gems/sass-3.5.2/lib/sass/scss/parser.rb:1278:in `expected'
-/Applications/Koala.app/Contents/Resources/app.nw/rubygems/gems/sass-3.5.2/lib/sass/scss/parser.rb:1208:in `expected'
-/Applications/Koala.app/Contents/Resources/app.nw/rubygems/gems/sass-3.5.2/lib/sass/scss/parser.rb:1203:in `tok!'
-/Applications/Koala.app/Contents/Resources/app.nw/rubygems/gems/sass-3.5.2/lib/sass/scss/parser.rb:804:in `block in try_declaration'
-/Applications/Koala.app/Contents/Resources/app.nw/rubygems/gems/sass-3.5.2/lib/sass/scss/parser.rb:1254:in `call'
-/Applications/Koala.app/Contents/Resources/app.nw/rubygems/gems/sass-3.5.2/lib/sass/scss/parser.rb:1254:in `rethrow'
-/Applications/Koala.app/Contents/Resources/app.nw/rubygems/gems/sass-3.5.2/lib/sass/scss/parser.rb:809:in `try_declaration'
-/Applications/Koala.app/Contents/Resources/app.nw/rubygems/gems/sass-3.5.2/lib/sass/scss/parser.rb:732:in `declaration_or_ruleset'
-/Applications/Koala.app/Contents/Resources/app.nw/rubygems/gems/sass-3.5.2/lib/sass/scss/parser.rb:697:in `block_child'
-/Applications/Koala.app/Contents/Resources/app.nw/rubygems/gems/sass-3.5.2/lib/sass/scss/parser.rb:686:in `block_contents'
-/Applications/Koala.app/Contents/Resources/app.nw/rubygems/gems/sass-3.5.2/lib/sass/scss/parser.rb:678:in `block'
-/Applications/Koala.app/Contents/Resources/app.nw/rubygems/gems/sass-3.5.2/lib/sass/scss/parser.rb:747:in `declaration_or_ruleset'
-/Applications/Koala.app/Contents/Resources/app.nw/rubygems/gems/sass-3.5.2/lib/sass/scss/parser.rb:697:in `block_child'
-/Applications/Koala.app/Contents/Resources/app.nw/rubygems/gems/sass-3.5.2/lib/sass/scss/parser.rb:689:in `block_contents'
-/Applications/Koala.app/Contents/Resources/app.nw/rubygems/gems/sass-3.5.2/lib/sass/scss/parser.rb:678:in `block'
-/Applications/Koala.app/Contents/Resources/app.nw/rubygems/gems/sass-3.5.2/lib/sass/scss/parser.rb:747:in `declaration_or_ruleset'
-/Applications/Koala.app/Contents/Resources/app.nw/rubygems/gems/sass-3.5.2/lib/sass/scss/parser.rb:697:in `block_child'
-/Applications/Koala.app/Contents/Resources/app.nw/rubygems/gems/sass-3.5.2/lib/sass/scss/parser.rb:686:in `block_contents'
-/Applications/Koala.app/Contents/Resources/app.nw/rubygems/gems/sass-3.5.2/lib/sass/scss/parser.rb:678:in `block'
-/Applications/Koala.app/Contents/Resources/app.nw/rubygems/gems/sass-3.5.2/lib/sass/scss/parser.rb:747:in `declaration_or_ruleset'
-/Applications/Koala.app/Contents/Resources/app.nw/rubygems/gems/sass-3.5.2/lib/sass/scss/parser.rb:697:in `block_child'
-/Applications/Koala.app/Contents/Resources/app.nw/rubygems/gems/sass-3.5.2/lib/sass/scss/parser.rb:689:in `block_contents'
-/Applications/Koala.app/Contents/Resources/app.nw/rubygems/gems/sass-3.5.2/lib/sass/scss/parser.rb:678:in `block'
-/Applications/Koala.app/Contents/Resources/app.nw/rubygems/gems/sass-3.5.2/lib/sass/scss/parser.rb:670:in `ruleset'
-/Applications/Koala.app/Contents/Resources/app.nw/rubygems/gems/sass-3.5.2/lib/sass/scss/parser.rb:696:in `block_child'
-/Applications/Koala.app/Contents/Resources/app.nw/rubygems/gems/sass-3.5.2/lib/sass/scss/parser.rb:689:in `block_contents'
-/Applications/Koala.app/Contents/Resources/app.nw/rubygems/gems/sass-3.5.2/lib/sass/scss/parser.rb:137:in `stylesheet'
-/Applications/Koala.app/Contents/Resources/app.nw/rubygems/gems/sass-3.5.2/lib/sass/scss/parser.rb:41:in `parse'
-/Applications/Koala.app/Contents/Resources/app.nw/rubygems/gems/sass-3.5.2/lib/sass/engine.rb:414:in `_to_tree'
-/Applications/Koala.app/Contents/Resources/app.nw/rubygems/gems/sass-3.5.2/lib/sass/engine.rb:389:in `_render_with_sourcemap'
-/Applications/Koala.app/Contents/Resources/app.nw/rubygems/gems/sass-3.5.2/lib/sass/engine.rb:307:in `render_with_sourcemap'
-/Applications/Koala.app/Contents/Resources/app.nw/rubygems/gems/sass-3.5.2/lib/sass/exec/sass_scss.rb:391:in `run'
-/Applications/Koala.app/Contents/Resources/app.nw/rubygems/gems/sass-3.5.2/lib/sass/exec/sass_scss.rb:63:in `process_result'
-/Applications/Koala.app/Contents/Resources/app.nw/rubygems/gems/sass-3.5.2/lib/sass/exec/base.rb:52:in `parse'
-/Applications/Koala.app/Contents/Resources/app.nw/rubygems/gems/sass-3.5.2/lib/sass/exec/base.rb:19:in `parse!'
-/Applications/Koala.app/Contents/Resources/app.nw/rubygems/gems/sass-3.5.2/bin/sass:13:in `<top (required)>'
-/Applications/Koala.app/Contents/Resources/app.nw/bin/sass:22:in `load'
-/Applications/Koala.app/Contents/Resources/app.nw/bin/sass:22:in `<main>'
-*/
-body:before {
-  white-space: pre;
-  font-family: monospace;
-  content: "Error: Invalid CSS after \"				position\": expected \";\", was \": relative;\"\A         on line 72 of /Users/reinholdm/turbo/my-app/src/events/event-item-a.scss\A \A 67: 					z-index: 2;\A 68: 				}\A 69: 			}\A 70: 			&-summary {\A 71: 				width: calc()\A 72: 				position: relative;\A 73: 				z-index: 10;\A 74: 				display: flex;\A 75: 				height: $date-height;\A 76: 				padding: 0 10px;\A 77: 				background-color: $light-grey;"; }
+.alt-3 .section-title {
+  color: #b1b381; }
+.alt-3 .items-list .item {
+  position: relative;
+  font-family: serif;
+  margin-top: 50px;
+  padding: 10px 20px;
+  border-radius: 15px;
+  box-sizing: border-box;
+  background-color: #ecede0;
+  font-family: serif; }
+  .alt-3 .items-list .item-date {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100px;
+    height: 100px;
+    flex: none;
+    margin-right: 10px;
+    position: absolute;
+    top: -50px;
+    left: 10px;
+    border-radius: 50%;
+    background-color: #b1b381;
+    color: #404127;
+    font-size: 1.5rem;
+    font-weight: 700; }
+    .alt-3 .items-list .item-date .event-day {
+      font-size: 2rem;
+      height: 1.8rem; }
+    .alt-3 .items-list .item-date .event-month {
+      text-transform: uppercase; }
+  .alt-3 .items-list .item-summary {
+    z-index: 5;
+    display: flex;
+    width: 100% !important;
+    flex-direction: column;
+    font-size: 1rem;
+    color: #404127; }
+    .alt-3 .items-list .item-summary .item-name {
+      text-align: center;
+      min-height: 2.9rem;
+      margin-top: 0;
+      margin-bottom: 8px;
+      padding-left: 100px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #404127;
+      font-size: 1.1rem; }
+
+.alt-4 .section-title {
+  color: #323480; }
+.alt-4 .items-list .item {
+  position: relative; }
+  .alt-4 .items-list .item-date {
+    top: 25px;
+    width: 110px;
+    position: absolute;
+    display: block;
+    justify-content: center;
+    background-color: #323480;
+    color: white;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    border-radius: 40px;
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-align: center; }
+    .alt-4 .items-list .item-date span + span {
+      margin-left: 8px; }
+  .alt-4 .items-list .item-summary {
+    border-radius: 20px;
+    width: calc(100% - 50px);
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 75px;
+    padding-right: 20px;
+    box-sizing: border-box;
+    margin-left: auto;
+    background-color: gainsboro;
+    font-size: .9rem; }
+    .alt-4 .items-list .item-summary .item-name {
+      margin: 0;
+      font-size: inherit; }
+    .alt-4 .items-list .item-summary .item-text {
+      display: block; }
+
+.alt-5 {
+  font-family: serif; }
+  .alt-5 .section-title {
+    color: #446964; }
+  .alt-5 .items-list .item {
+    position: relative;
+    padding: 5px 5px 5px 20px;
+    box-sizing: border-box;
+    background-color: #446964; }
+    .alt-5 .items-list .item-date {
+      position: absolute;
+      top: 60px;
+      left: -38px;
+      font-size: 1.5rem;
+      color: white;
+      transform: rotate(90deg);
+      width: 120px;
+      text-align: center; }
+      .alt-5 .items-list .item-date span + span {
+        margin-left: 8px; }
+    .alt-5 .items-list .item-summary {
+      min-height: 120px;
+      width: calc(100% - 40px);
+      margin: 10px auto 10px auto;
+      background-color: gainsboro;
+      font-size: 1rem;
+      padding: 15px;
+      box-sizing: border-box; }
+      .alt-5 .items-list .item-summary .item-name {
+        font-size: inherit;
+        margin-top: 0;
+        margin-bottom: 0; }
+      .alt-5 .items-list .item-summary .item-text {
+        display: block; }
+        .alt-5 .items-list .item-summary .item-text b {
+          font-weight: 400; }
+
+.alt-6 .section-title {
+  transform: skewX(-15deg) rotate(15deg);
+  display: inline-block;
+  padding: 15px;
+  background-color: #c2501e;
+  color: white;
+  margin-top: 75px;
+  margin-bottom: 50px; }
+  .alt-6 .section-title:before, .alt-6 .section-title:after {
+    content: "";
+    display: block;
+    position: absolute; }
+  .alt-6 .section-title:before {
+    top: 6px;
+    right: -9px;
+    width: 7px;
+    height: 100%;
+    background-color: #e47c4e;
+    transform: skewY(60deg); }
+  .alt-6 .section-title:after {
+    bottom: -12px;
+    right: -4px;
+    width: 100%;
+    height: 10px;
+    background-color: #de612b;
+    transform: skewX(30deg); }
+.alt-6 .items-list .item {
+  font-size: 1rem;
+  position: relative; }
+  .alt-6 .items-list .item-date {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100px;
+    height: 100px;
+    flex: none;
+    margin-right: 10px;
+    position: relative;
+    z-index: 10;
+    left: 25px;
+    transform: skewX(-15deg) rotate(15deg);
+    background-color: #9f4119;
+    color: white;
+    font-size: 1.5em;
+    font-weight: 700; }
+    .alt-6 .items-list .item-date .event-day {
+      font-size: 2em;
+      height: 1em; }
+    .alt-6 .items-list .item-date .event-month {
+      text-transform: uppercase; }
+    .alt-6 .items-list .item-date:before, .alt-6 .items-list .item-date:after {
+      content: "";
+      display: block;
+      position: absolute; }
+    .alt-6 .items-list .item-date:before {
+      top: 6px;
+      right: -9px;
+      width: 7px;
+      height: 100%;
+      background-color: #e47c4e;
+      transform: skewY(60deg); }
+    .alt-6 .items-list .item-date:after {
+      bottom: -12px;
+      right: -4px;
+      width: 100%;
+      height: 10px;
+      background-color: #de612b;
+      transform: skewX(30deg); }
+  .alt-6 .items-list .item-summary {
+    margin-bottom: 60px;
+    text-align: right;
+    padding-top: 55px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 25px;
+    box-sizing: border-box;
+    transform: skewX(-15deg) rotate(15deg);
+    background-color: #c2501e;
+    color: white; }
+    .alt-6 .items-list .item-summary .item-name {
+      margin-top: 0;
+      margin-bottom: 10px;
+      border-bottom: 1px solid white;
+      padding-bottom: 10px;
+      font-size: inherit; }
+    .alt-6 .items-list .item-summary .item-text {
+      display: block; }
+      .alt-6 .items-list .item-summary .item-text b {
+        font-weight: 400; }
+    .alt-6 .items-list .item-summary:before, .alt-6 .items-list .item-summary:after {
+      content: "";
+      display: block;
+      position: absolute; }
+    .alt-6 .items-list .item-summary:before {
+      top: 10px;
+      right: -14px;
+      width: 12px;
+      height: 100%;
+      background-color: #e47c4e;
+      transform: skewY(60deg); }
+    .alt-6 .items-list .item-summary:after {
+      bottom: -22px;
+      right: -7px;
+      width: 100%;
+      height: 20px;
+      background-color: #de612b;
+      transform: skewX(30deg); }
+
+.events-container .section-title {
+  color: #4a8153; }
+.events-container .items-list .item {
+  display: flex;
+  align-items: stretch; }
+  .events-container .items-list .item .item-date {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100%;
+    text-transform: uppercase;
+    font-size: 1.25rem;
+    font-weight: 700; }
+    .events-container .items-list .item .item-date .event-day {
+      font-size: 2rem; }
+    .events-container .items-list .item .item-date.square {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      width: 100px;
+      height: 100px;
+      flex: none;
+      margin-right: 10px; }
+    .events-container .items-list .item .item-date.circle {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      width: 100px;
+      height: 100px;
+      flex: none;
+      margin-right: 10px;
+      border-radius: 50%; }
+    .events-container .items-list .item .item-date.rombus {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      width: 100px;
+      height: 100px;
+      flex: none;
+      margin-right: 10px;
+      position: relative;
+      background-color: transparent !important; }
+      .events-container .items-list .item .item-date.rombus:before, .events-container .items-list .item .item-date.rombus:after {
+        content: "";
+        display: block;
+        position: absolute;
+        z-index: -5;
+        left: 0; }
+      .events-container .items-list .item .item-date.rombus:before {
+        width: 0;
+        height: 0;
+        border-right: 50px solid transparent;
+        border-bottom: 50px solid #4a8153;
+        border-left: 50px solid transparent;
+        top: 0; }
+      .events-container .items-list .item .item-date.rombus:after {
+        width: 0;
+        height: 0;
+        border-top: 50px solid #37613e;
+        border-right: 50px solid transparent;
+        border-left: 50px solid transparent;
+        bottom: 0; }
+      .events-container .items-list .item .item-date.rombus .event-day, .events-container .items-list .item .item-date.rombus .event-month {
+        position: relative; }
+    .events-container .items-list .item .item-date.rombus-horizontal {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      width: 100px;
+      height: 100px;
+      flex: none;
+      margin-right: 10px;
+      position: relative;
+      background-color: transparent !important; }
+      .events-container .items-list .item .item-date.rombus-horizontal:before, .events-container .items-list .item .item-date.rombus-horizontal:after {
+        content: "";
+        display: block;
+        position: absolute;
+        z-index: -5;
+        top: 0; }
+      .events-container .items-list .item .item-date.rombus-horizontal:before {
+        width: 0;
+        height: 0;
+        border-top: 50px solid transparent;
+        border-right: 50px solid #4a8153;
+        border-bottom: 50px solid transparent;
+        left: 0; }
+      .events-container .items-list .item .item-date.rombus-horizontal:after {
+        width: 0;
+        height: 0;
+        border-top: 50px solid transparent;
+        border-left: 50px solid #37613e;
+        border-bottom: 50px solid transparent;
+        right: 0; }
+      .events-container .items-list .item .item-date.rombus-horizontal .event-day, .events-container .items-list .item .item-date.rombus-horizontal .event-month {
+        position: relative; }
+    .events-container .items-list .item .item-date.folded {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      width: 100px;
+      height: 100px;
+      flex: none;
+      margin-right: 10px;
+      position: relative; }
+      .events-container .items-list .item .item-date.folded:before, .events-container .items-list .item .item-date.folded:after {
+        content: "";
+        display: block;
+        position: absolute;
+        top: calc(100% + 2px); }
+      .events-container .items-list .item .item-date.folded:before {
+        border-style: solid;
+        border-width: 0 15px 15px 0;
+        border-color: transparent #6dab77 transparent transparent;
+        left: 0; }
+      .events-container .items-list .item .item-date.folded:after {
+        border-style: solid;
+        border-width: 15px 15px 0 0;
+        border-color: #6dab77 transparent transparent transparent;
+        right: 0; }
+    .events-container .items-list .item .item-date.cube {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      width: 100px;
+      height: 100px;
+      flex: none;
+      margin-right: 10px;
+      position: relative; }
+      .events-container .items-list .item .item-date.cube:before, .events-container .items-list .item .item-date.cube:after {
+        content: "";
+        display: block;
+        position: absolute; }
+      .events-container .items-list .item .item-date.cube:before {
+        top: 7px;
+        left: -20px;
+        width: 20px;
+        height: 100%;
+        background-color: #417149;
+        transform: skewY(-35deg); }
+      .events-container .items-list .item .item-date.cube:after {
+        right: 11px;
+        bottom: -14px;
+        width: 100%;
+        height: 14px;
+        background-color: #53915d;
+        transform: skewX(-55deg); }
+      .events-container .items-list .item .item-date.cube .event-day, .events-container .items-list .item .item-date.cube .event-month {
+        text-shadow: -2px 2px 0 rgba(15, 15, 15, 0.3); }
+    .events-container .items-list .item .item-date.hexagon {
+      margin-right: 10px;
+      position: relative;
+      display: flex;
+      background-color: transparent !important;
+      flex-direction: column; }
+      .events-container .items-list .item .item-date.hexagon:before, .events-container .items-list .item .item-date.hexagon:after {
+        content: "";
+        display: block; }
+      .events-container .items-list .item .item-date.hexagon:before {
+        width: 0;
+        height: 0;
+        border-right: 50px solid transparent;
+        border-bottom: 50px solid #4a8153;
+        border-left: 50px solid transparent;
+        border-bottom-width: 25px; }
+      .events-container .items-list .item .item-date.hexagon:after {
+        width: 0;
+        height: 0;
+        border-top: 50px solid #4a8153;
+        border-right: 50px solid transparent;
+        border-left: 50px solid transparent;
+        border-top-width: 25px; }
+      .events-container .items-list .item .item-date.hexagon .event-day, .events-container .items-list .item .item-date.hexagon .event-month {
+        display: block;
+        width: 100%;
+        background-color: #4a8153;
+        text-align: center; }
+    .events-container .items-list .item .item-date.mosaic {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      width: 100px;
+      height: 100px;
+      flex: none;
+      margin-right: 10px;
+      position: relative; }
+      .events-container .items-list .item .item-date.mosaic:before, .events-container .items-list .item .item-date.mosaic:after {
+        content: "";
+        display: block;
+        position: absolute;
+        z-index: 5;
+        width: 50px;
+        height: 50px;
+        background-color: #417149; }
+      .events-container .items-list .item .item-date.mosaic:before {
+        top: 0;
+        left: 0; }
+      .events-container .items-list .item .item-date.mosaic:after {
+        right: 0;
+        bottom: 0; }
+      .events-container .items-list .item .item-date.mosaic .event-day, .events-container .items-list .item .item-date.mosaic .event-month {
+        z-index: 10; }
+    .events-container .items-list .item .item-date.flag {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      width: 100px;
+      height: 100px;
+      flex: none;
+      margin-right: 10px;
+      position: relative;
+      box-sizing: border-box; }
+      .events-container .items-list .item .item-date.flag:before, .events-container .items-list .item .item-date.flag:after {
+        content: "";
+        display: block;
+        position: absolute; }
+      .events-container .items-list .item .item-date.flag:before {
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 10px;
+        background-color: #2e5034; }
+      .events-container .items-list .item .item-date.flag:after {
+        width: 0;
+        height: 0;
+        border-top: 50px solid #4a8153;
+        border-right: 50px solid transparent;
+        border-left: 50px solid transparent;
+        top: 100%;
+        border-top-width: 15px; }
+    .events-container .items-list .item .item-date.prism {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      width: 100px;
+      height: 100px;
+      flex: none;
+      margin-right: 10px;
+      position: relative;
+      left: -20px;
+      transform: skewY(-15deg); }
+      .events-container .items-list .item .item-date.prism:before, .events-container .items-list .item .item-date.prism:after {
+        content: "";
+        display: block;
+        position: absolute; }
+      .events-container .items-list .item .item-date.prism:after {
+        top: 5px;
+        left: 100%;
+        width: 20px;
+        height: 100%;
+        background-color: #2e5034;
+        transform: skewY(30deg); }
+      .events-container .items-list .item .item-date.prism:before {
+        top: 100%;
+        left: 10px;
+        width: 100%;
+        height: 10px;
+        background-color: #6dab77;
+        transform: skewX(60deg); }
+      .events-container .items-list .item .item-date.prism .event-day, .events-container .items-list .item .item-date.prism .event-month {
+        text-shadow: 3px 3px 0 rgba(15, 15, 15, 0.3); }
+    .events-container .items-list .item .item-date.clip {
+      width: 50px;
+      height: 100px;
+      margin-right: 10px;
+      padding-left: 15px;
+      position: relative; }
+      .events-container .items-list .item .item-date.clip:before {
+        content: "";
+        display: block;
+        position: absolute;
+        border-style: solid;
+        border-width: 100px 0 0 33.3333333333px;
+        border-color: transparent transparent transparent #4a8153;
+        top: 0;
+        left: 100%; }
+    .events-container .items-list .item .item-date .event-day, .events-container .items-list .item .item-date .event-month {
+      transition: all .2s ease-out; }
+    .events-container .items-list .item .item-date .event-day {
+      height: 1em; }
+  .events-container .items-list .item .item-date, .events-container .items-list .item .item-summary {
+    font-size: 1.3rem; }
+    .events-container .items-list .item .item-date.green, .events-container .items-list .item .item-summary.green {
+      color: white;
+      background-color: #4a8153; }
+    .events-container .items-list .item .item-date.red, .events-container .items-list .item .item-summary.red {
+      color: white;
+      background-color: #bb3e53; }
+    .events-container .items-list .item .item-date.blue, .events-container .items-list .item .item-summary.blue {
+      color: white;
+      background-color: #365484; }
+    .events-container .items-list .item .item-date.yellow, .events-container .items-list .item .item-summary.yellow {
+      color: black;
+      background-color: #b1b381; }
+    .events-container .items-list .item .item-date.light, .events-container .items-list .item .item-summary.light {
+      color: rgba(15, 15, 15, 0.75);
+      background-color: whitesmoke; }
+    .events-container .items-list .item .item-date.dark, .events-container .items-list .item .item-summary.dark {
+      color: white;
+      background-color: #323232; }
+  .events-container .items-list .item .item-summary {
+    width: calc(100% - 110px);
+    padding: 10px;
+    transition: all .2s ease-in;
+    font-size: 1rem; }
+    .events-container .items-list .item .item-summary.round {
+      border-radius: 15px; }
+    .events-container .items-list .item .item-summary.corner {
+      border-radius: 0; }
+    .events-container .items-list .item .item-summary.stroke {
+      box-sizing: border-box;
+      border: 2px solid #4a8153;
+      border-radius: 0;
+      color: #4a8153;
+      background-color: transparent; }
+    .events-container .items-list .item .item-summary .item-name {
+      font-size: inherit;
+      margin-top: 0;
+      margin-bottom: .5em; }
+    .events-container .items-list .item .item-summary.prism {
+      position: relative;
+      border-radius: 0;
+      background-color: #2e5034;
+      transform: skewY(15deg); }
+      .events-container .items-list .item .item-summary.prism:before, .events-container .items-list .item .item-summary.prism:after {
+        content: "";
+        display: block;
+        position: absolute; }
+      .events-container .items-list .item .item-summary.prism:before {
+        right: 9px;
+        bottom: -11px;
+        width: 100%;
+        height: 11px;
+        background-color: #4a8153;
+        transform: skewX(-60deg); }
+      .events-container .items-list .item .item-summary.prism:after {
+        top: 6px;
+        left: -20px;
+        width: 20px;
+        height: 100%;
+        background-color: #6dab77;
+        transform: skewY(-30deg); }
+      .events-container .items-list .item .item-summary.prism .item-name, .events-container .items-list .item .item-summary.prism .item-text {
+        text-shadow: 2px 2px 0 rgba(15, 15, 15, 0.3); }
+    .events-container .items-list .item .item-summary.clip {
+      height: 100px;
+      margin-left: 33.3333333333px;
+      position: relative; }
+      .events-container .items-list .item .item-summary.clip:before {
+        content: "";
+        display: block;
+        position: absolute;
+        border-style: solid;
+        border-width: 0 33.3333333333px 100px 0;
+        border-color: transparent #4a8153 transparent transparent;
+        top: 0;
+        right: 100%; }
+    .events-container .items-list .item .item-summary .item-text {
+      display: block;
+      width: 100%;
+      font-size: .8em; }
+
+.slick-events {
+  margin-bottom: 50px; }
+  .slick-events .item {
+    margin: 0 15px;
+    padding: 10px;
+    color: gainsboro;
+    background-color: #323232;
+    font-family: serif; }
+    .slick-events .item-date {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      text-align: center; }
+      .slick-events .item-date span + span {
+        margin-left: .5rem; }
+    .slick-events .item-summary {
+      padding: 10px;
+      border-radius: 10px;
+      color: #0f0f0f;
+      background-color: gainsboro;
+      text-align: center; }
+      .slick-events .item-summary .item-name {
+        margin-top: 0;
+        margin-bottom: 8px; }
+        .slick-events .item-summary .item-name > a {
+          color: inherit;
+          text-decoration: none; }
+          .slick-events .item-summary .item-name > a:hover {
+            text-decoration: underl	ine; }
+      .slick-events .item-summary .item-text {
+        display: block; }
+
+/*# sourceMappingURL=event-item-a.css.map */
