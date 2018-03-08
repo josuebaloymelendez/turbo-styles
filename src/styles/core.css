@@ -88,6 +88,13 @@ body {
       .ui-container .ui-buttons .output-code .code-title {
         margin-top: 0;
         margin-bottom: 15px; }
+      .ui-container .ui-buttons .output-code .code-box {
+        width: 100%;
+        display: block;
+        padding: 15px;
+        box-sizing: border-box;
+        background-color: black;
+        color: white; }
       .ui-container .ui-buttons .output-code .code-img {
         display: block;
         width: 100%; }

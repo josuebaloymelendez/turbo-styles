@@ -8,10 +8,24 @@ class UIeventsController extends Component{
 		super();
 		this.state = {
 			codeImageUrl : "events_images/images/code-image_01.png",
+			codePath: "https://gist.githubusercontent.com/Turbosaurio/df14756d2a5a730c7dd93f4904a5f2aa/raw/837a8554117a23a7b02fa950d16a1978dce3de9b/babby.scss"
 		}
 	}
 	render(){
 		let  date_shape = ["square", "circle", "rombus","rombus-horizontal", "folded", "cube", "hexagon", "mosaic", "flag", "prism","clip"],
+				date_path = [
+					"df14756d2a5a730c7dd93f4904a5f2aa/raw/e6f265e1e85446f329e0218f3600a7b584fc23eb/babby.scss",
+					"c0cb78fb408bbcd2e5f0867b125c54f4/raw/ee17987052f3c649e883df11da83d3926929717f/jungen.scss",
+					"df14756d2a5a730c7dd93f4904a5f2aa/raw/e6f265e1e85446f329e0218f3600a7b584fc23eb/babby.scss",
+					"c0cb78fb408bbcd2e5f0867b125c54f4/raw/ee17987052f3c649e883df11da83d3926929717f/jungen.scss",
+					"df14756d2a5a730c7dd93f4904a5f2aa/raw/e6f265e1e85446f329e0218f3600a7b584fc23eb/babby.scss",
+					"c0cb78fb408bbcd2e5f0867b125c54f4/raw/ee17987052f3c649e883df11da83d3926929717f/jungen.scss",
+					"df14756d2a5a730c7dd93f4904a5f2aa/raw/e6f265e1e85446f329e0218f3600a7b584fc23eb/babby.scss",
+					"c0cb78fb408bbcd2e5f0867b125c54f4/raw/ee17987052f3c649e883df11da83d3926929717f/jungen.scss",
+					"df14756d2a5a730c7dd93f4904a5f2aa/raw/e6f265e1e85446f329e0218f3600a7b584fc23eb/babby.scss",
+					"c0cb78fb408bbcd2e5f0867b125c54f4/raw/ee17987052f3c649e883df11da83d3926929717f/jungen.scss",
+					"df14756d2a5a730c7dd93f4904a5f2aa/raw/e6f265e1e85446f329e0218f3600a7b584fc23eb/babby.scss"
+				],
 				date_shapeBtns = [];
 		for(let i=0; i<date_shape.length; i++){
 			//let active = i === 0 ? "active" : "";
@@ -22,7 +36,7 @@ class UIeventsController extends Component{
 					defaultClassName="style-button"
 					buttonStatus=""
 					innerText={`${date_shape[i]} date shape`}
-					actionClick={()=>{this._changeShape(date_shape[i], numstring)}}
+					actionClick={()=>{this._changeShape(date_shape[i], numstring,date_path[i])}}
 				/>
 			)
 		}
@@ -33,16 +47,11 @@ class UIeventsController extends Component{
 		      		<h2 className="ui-title">Events date shapes & colours</h2>
 		      		{date_shapeBtns}
 
-		      		<div className="output-code">
-		      			<h3 className="code-title">SCSS Code:</h3>
-		      			<img className="code-img" alt="" src={this.state.codeImageUrl}/>
-		      		</div>
-
 		      		<CodeLoader
 		      			codeTitle="SCSS Code:"
-		      			codeDescription="Codigo bonite"
-		      			codePath="baby.txt"
-		      			codeNotes="Codigo notes"
+		      			codeDescription="Codigue description"
+		      			codePath={this.state.codePath}
+		      			codeNotes="Codigue notes"
 		      		/>
 
 	      		</div>
@@ -92,15 +101,14 @@ class UIeventsController extends Component{
       	</div>
 		);
 	}
-	_changeShape(value, image){
+	_changeShape(value, image, path){
 		this.props.changeState(value,  (state, value) => {
 			let obj = state.events;
 			obj.date.shape = value;
 			return obj;
 		});
-		let path = "events_images/images/code-image_", extension = ".png";
-		this.setState({codeImageUrl: path+image+extension});
-
+		let gist = "https://gist.githubusercontent.com/Turbosaurio/";
+		this.setState({codePath: gist+path});
 	}
 	_changeSummColor(value){
 		this.props.changeState(value,  (state, value) => {
