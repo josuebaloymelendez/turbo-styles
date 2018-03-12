@@ -383,7 +383,7 @@
 .events-container .items-list .item {
   display: flex;
   align-items: stretch; }
-  .events-container .items-list .item .item-date {
+  .events-container .items-list .item-date {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -392,9 +392,9 @@
     text-transform: uppercase;
     font-size: 1.25rem;
     font-weight: 700; }
-    .events-container .items-list .item .item-date .event-day {
+    .events-container .items-list .item-date .event-day {
       font-size: 2rem; }
-    .events-container .items-list .item .item-date.square {
+    .events-container .items-list .item-date.square {
       display: flex;
       align-items: center;
       justify-content: center;
@@ -403,7 +403,7 @@
       height: 100px;
       flex: none;
       margin-right: 10px; }
-    .events-container .items-list .item .item-date.circle {
+    .events-container .items-list .item-date.circle {
       display: flex;
       align-items: center;
       justify-content: center;
@@ -413,7 +413,7 @@
       flex: none;
       margin-right: 10px;
       border-radius: 50%; }
-    .events-container .items-list .item .item-date.rombus {
+    .events-container .items-list .item-date.rhombus-v {
       display: flex;
       align-items: center;
       justify-content: center;
@@ -424,29 +424,29 @@
       margin-right: 10px;
       position: relative;
       background-color: transparent !important; }
-      .events-container .items-list .item .item-date.rombus:before, .events-container .items-list .item .item-date.rombus:after {
+      .events-container .items-list .item-date.rhombus-v:before, .events-container .items-list .item-date.rhombus-v:after {
         content: "";
         display: block;
         position: absolute;
         z-index: -5;
         left: 0; }
-      .events-container .items-list .item .item-date.rombus:before {
+      .events-container .items-list .item-date.rhombus-v:before {
         width: 0;
         height: 0;
         border-right: 50px solid transparent;
         border-bottom: 50px solid #4a8153;
         border-left: 50px solid transparent;
         top: 0; }
-      .events-container .items-list .item .item-date.rombus:after {
+      .events-container .items-list .item-date.rhombus-v:after {
         width: 0;
         height: 0;
         border-top: 50px solid #37613e;
         border-right: 50px solid transparent;
         border-left: 50px solid transparent;
         bottom: 0; }
-      .events-container .items-list .item .item-date.rombus .event-day, .events-container .items-list .item .item-date.rombus .event-month {
+      .events-container .items-list .item-date.rhombus-v .event-day, .events-container .items-list .item-date.rhombus-v .event-month {
         position: relative; }
-    .events-container .items-list .item .item-date.rombus-horizontal {
+    .events-container .items-list .item-date.rhombus-h {
       display: flex;
       align-items: center;
       justify-content: center;
@@ -457,29 +457,29 @@
       margin-right: 10px;
       position: relative;
       background-color: transparent !important; }
-      .events-container .items-list .item .item-date.rombus-horizontal:before, .events-container .items-list .item .item-date.rombus-horizontal:after {
+      .events-container .items-list .item-date.rhombus-h:before, .events-container .items-list .item-date.rhombus-h:after {
         content: "";
         display: block;
         position: absolute;
         z-index: -5;
         top: 0; }
-      .events-container .items-list .item .item-date.rombus-horizontal:before {
+      .events-container .items-list .item-date.rhombus-h:before {
         width: 0;
         height: 0;
         border-top: 50px solid transparent;
         border-right: 50px solid #4a8153;
         border-bottom: 50px solid transparent;
         left: 0; }
-      .events-container .items-list .item .item-date.rombus-horizontal:after {
+      .events-container .items-list .item-date.rhombus-h:after {
         width: 0;
         height: 0;
         border-top: 50px solid transparent;
         border-left: 50px solid #37613e;
         border-bottom: 50px solid transparent;
         right: 0; }
-      .events-container .items-list .item .item-date.rombus-horizontal .event-day, .events-container .items-list .item .item-date.rombus-horizontal .event-month {
+      .events-container .items-list .item-date.rhombus-h .event-day, .events-container .items-list .item-date.rhombus-h .event-month {
         position: relative; }
-    .events-container .items-list .item .item-date.folded {
+    .events-container .items-list .item-date.folded {
       display: flex;
       align-items: center;
       justify-content: center;
@@ -489,22 +489,22 @@
       flex: none;
       margin-right: 10px;
       position: relative; }
-      .events-container .items-list .item .item-date.folded:before, .events-container .items-list .item .item-date.folded:after {
+      .events-container .items-list .item-date.folded:before, .events-container .items-list .item-date.folded:after {
         content: "";
         display: block;
         position: absolute;
         top: calc(100% + 2px); }
-      .events-container .items-list .item .item-date.folded:before {
+      .events-container .items-list .item-date.folded:before {
         border-style: solid;
         border-width: 0 15px 15px 0;
         border-color: transparent #6dab77 transparent transparent;
         left: 0; }
-      .events-container .items-list .item .item-date.folded:after {
+      .events-container .items-list .item-date.folded:after {
         border-style: solid;
         border-width: 15px 15px 0 0;
         border-color: #6dab77 transparent transparent transparent;
         right: 0; }
-    .events-container .items-list .item .item-date.cube {
+    .events-container .items-list .item-date.cube {
       display: flex;
       align-items: center;
       justify-content: center;
@@ -514,55 +514,55 @@
       flex: none;
       margin-right: 10px;
       position: relative; }
-      .events-container .items-list .item .item-date.cube:before, .events-container .items-list .item .item-date.cube:after {
+      .events-container .items-list .item-date.cube:before, .events-container .items-list .item-date.cube:after {
         content: "";
         display: block;
         position: absolute; }
-      .events-container .items-list .item .item-date.cube:before {
+      .events-container .items-list .item-date.cube:before {
         top: 7px;
         left: -20px;
         width: 20px;
         height: 100%;
         background-color: #417149;
         transform: skewY(-35deg); }
-      .events-container .items-list .item .item-date.cube:after {
+      .events-container .items-list .item-date.cube:after {
         right: 11px;
         bottom: -14px;
         width: 100%;
         height: 14px;
         background-color: #53915d;
         transform: skewX(-55deg); }
-      .events-container .items-list .item .item-date.cube .event-day, .events-container .items-list .item .item-date.cube .event-month {
+      .events-container .items-list .item-date.cube .event-day, .events-container .items-list .item-date.cube .event-month {
         text-shadow: -2px 2px 0 rgba(15, 15, 15, 0.3); }
-    .events-container .items-list .item .item-date.hexagon {
+    .events-container .items-list .item-date.hexagon {
       margin-right: 10px;
       position: relative;
       display: flex;
       background-color: transparent !important;
       flex-direction: column; }
-      .events-container .items-list .item .item-date.hexagon:before, .events-container .items-list .item .item-date.hexagon:after {
+      .events-container .items-list .item-date.hexagon:before, .events-container .items-list .item-date.hexagon:after {
         content: "";
         display: block; }
-      .events-container .items-list .item .item-date.hexagon:before {
+      .events-container .items-list .item-date.hexagon:before {
         width: 0;
         height: 0;
         border-right: 50px solid transparent;
         border-bottom: 50px solid #4a8153;
         border-left: 50px solid transparent;
         border-bottom-width: 25px; }
-      .events-container .items-list .item .item-date.hexagon:after {
+      .events-container .items-list .item-date.hexagon:after {
         width: 0;
         height: 0;
         border-top: 50px solid #4a8153;
         border-right: 50px solid transparent;
         border-left: 50px solid transparent;
         border-top-width: 25px; }
-      .events-container .items-list .item .item-date.hexagon .event-day, .events-container .items-list .item .item-date.hexagon .event-month {
+      .events-container .items-list .item-date.hexagon .event-day, .events-container .items-list .item-date.hexagon .event-month {
         display: block;
         width: 100%;
         background-color: #4a8153;
         text-align: center; }
-    .events-container .items-list .item .item-date.mosaic {
+    .events-container .items-list .item-date.mosaic {
       display: flex;
       align-items: center;
       justify-content: center;
@@ -572,7 +572,7 @@
       flex: none;
       margin-right: 10px;
       position: relative; }
-      .events-container .items-list .item .item-date.mosaic:before, .events-container .items-list .item .item-date.mosaic:after {
+      .events-container .items-list .item-date.mosaic:before, .events-container .items-list .item-date.mosaic:after {
         content: "";
         display: block;
         position: absolute;
@@ -580,15 +580,15 @@
         width: 50px;
         height: 50px;
         background-color: #417149; }
-      .events-container .items-list .item .item-date.mosaic:before {
+      .events-container .items-list .item-date.mosaic:before {
         top: 0;
         left: 0; }
-      .events-container .items-list .item .item-date.mosaic:after {
+      .events-container .items-list .item-date.mosaic:after {
         right: 0;
         bottom: 0; }
-      .events-container .items-list .item .item-date.mosaic .event-day, .events-container .items-list .item .item-date.mosaic .event-month {
+      .events-container .items-list .item-date.mosaic .event-day, .events-container .items-list .item-date.mosaic .event-month {
         z-index: 10; }
-    .events-container .items-list .item .item-date.flag {
+    .events-container .items-list .item-date.flag {
       display: flex;
       align-items: center;
       justify-content: center;
@@ -599,17 +599,17 @@
       margin-right: 10px;
       position: relative;
       box-sizing: border-box; }
-      .events-container .items-list .item .item-date.flag:before, .events-container .items-list .item .item-date.flag:after {
+      .events-container .items-list .item-date.flag:before, .events-container .items-list .item-date.flag:after {
         content: "";
         display: block;
         position: absolute; }
-      .events-container .items-list .item .item-date.flag:before {
+      .events-container .items-list .item-date.flag:before {
         top: 0;
         left: 0;
         width: 100%;
         height: 10px;
         background-color: #2e5034; }
-      .events-container .items-list .item .item-date.flag:after {
+      .events-container .items-list .item-date.flag:after {
         width: 0;
         height: 0;
         border-top: 50px solid #4a8153;
@@ -617,7 +617,7 @@
         border-left: 50px solid transparent;
         top: 100%;
         border-top-width: 15px; }
-    .events-container .items-list .item .item-date.prism {
+    .events-container .items-list .item-date.prism {
       display: flex;
       align-items: center;
       justify-content: center;
@@ -629,33 +629,33 @@
       position: relative;
       left: -20px;
       transform: skewY(-15deg); }
-      .events-container .items-list .item .item-date.prism:before, .events-container .items-list .item .item-date.prism:after {
+      .events-container .items-list .item-date.prism:before, .events-container .items-list .item-date.prism:after {
         content: "";
         display: block;
         position: absolute; }
-      .events-container .items-list .item .item-date.prism:after {
+      .events-container .items-list .item-date.prism:after {
         top: 5px;
         left: 100%;
         width: 20px;
         height: 100%;
         background-color: #2e5034;
         transform: skewY(30deg); }
-      .events-container .items-list .item .item-date.prism:before {
+      .events-container .items-list .item-date.prism:before {
         top: 100%;
         left: 10px;
         width: 100%;
         height: 10px;
         background-color: #6dab77;
         transform: skewX(60deg); }
-      .events-container .items-list .item .item-date.prism .event-day, .events-container .items-list .item .item-date.prism .event-month {
+      .events-container .items-list .item-date.prism .event-day, .events-container .items-list .item-date.prism .event-month {
         text-shadow: 3px 3px 0 rgba(15, 15, 15, 0.3); }
-    .events-container .items-list .item .item-date.clip {
+    .events-container .items-list .item-date.clip {
       width: 50px;
       height: 100px;
       margin-right: 10px;
       padding-left: 15px;
       position: relative; }
-      .events-container .items-list .item .item-date.clip:before {
+      .events-container .items-list .item-date.clip:before {
         content: "";
         display: block;
         position: absolute;
@@ -664,9 +664,9 @@
         border-color: transparent transparent transparent #4a8153;
         top: 0;
         left: 100%; }
-    .events-container .items-list .item .item-date .event-day, .events-container .items-list .item .item-date .event-month {
+    .events-container .items-list .item-date .event-day, .events-container .items-list .item-date .event-month {
       transition: all .2s ease-out; }
-    .events-container .items-list .item .item-date .event-day {
+    .events-container .items-list .item-date .event-day {
       height: 1em; }
   .events-container .items-list .item .item-date, .events-container .items-list .item .item-summary {
     font-size: 1.3rem; }

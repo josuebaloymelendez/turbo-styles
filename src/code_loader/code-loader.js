@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+import CodeMirror from 'react-codemirror';
+import "./codemirror.css";
 
 export default class CodeLoader extends Component{
 	constructor(){
@@ -36,14 +38,39 @@ export default class CodeLoader extends Component{
 	render(){
 		let {codeTitle, codeDescription, codePath, codeNotes} = this.props;
 		this._getResults(codePath);
-		//console.log(this.state.code);
+		let options = {
+			lineNumbers: true,
+			mode: CSS,
+			value: this.state.code,
+			theme: "3024-night"
+		};
+		let code = <CodeMirror options={options} />;
+		let code2 = <code className="code-box">{this.state.code}</code>;
 		return(
 			<div className="output-code">
 				<h3 className="code-title">{codeTitle}</h3>
 				<p className="code-description">{codeDescription}</p>
-				<code className="code-box">{this.state.code}</code>
+				<div><small>SCSS code:</small></div>
+				{code}
 				<p className="code-notes">{codeNotes}</p>
 			</div>
+		);
+	}
+}
+
+
+export class CodeLoaderFS extends Component{
+	render(){
+		const fs = require('fs');
+		console.log(fs);
+		// try{
+		// 	this.fs.copySync('/events-files/blank.txt', '/events-files/blank.txt');
+		// 	console.log('success');
+		// } catch (err){
+		// 	console.log(err);
+		// }
+		return(
+			<div>fs loader</div>
 		);
 	}
 }

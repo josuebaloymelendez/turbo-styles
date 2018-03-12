@@ -449,6 +449,7 @@
 	}
 }
 
+
 .events-container {
 	.section-title {
 		color: $al-green;
@@ -457,7 +458,7 @@
 		.item {
 			display: flex;
 			align-items: stretch;
-			.item-date {
+			&-date {
 				@include center-date;
 				height: 100%;
 				text: {
@@ -479,11 +480,10 @@
 
 				&.circle {
 					@include square-date;
-
 					border-radius: 50%;
 				}
 
-				&.rombus {
+				&.rhombus-v {
 					@include square-date;
 
 					position: relative;
@@ -513,7 +513,7 @@
 					}
 				}
 
-				&.rombus-horizontal {
+				&.rhombus-h {
 					@include square-date;
 
 					position: relative;

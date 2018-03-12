@@ -40,11 +40,6 @@ export default class UIeventsController extends Component{
 							innerText="Box with vertical date"
 							actionClick={()=>{this._changeAlt("alt-5", "altEvents")}}
 						/>
-						<UIButton
-							defaultClassName="style-button"
-							innerText="Isometric view"
-							actionClick={()=>{this._changeAlt("alt-6", "altEvents")}}
-						/>
 						<div className="output-code">
 		      			<h3 className="code-title">SCSS Code:</h3>
 		      			<img className="code-img" alt="" src=""/>
