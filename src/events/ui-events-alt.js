@@ -40,10 +40,6 @@ export default class UIeventsController extends Component{
 							innerText="Box with vertical date"
 							actionClick={()=>{this._changeAlt("alt-5", "altEvents")}}
 						/>
-						<div className="output-code">
-		      			<h3 className="code-title">SCSS Code:</h3>
-		      			<img className="code-img" alt="" src=""/>
-		      		</div>
 					</div>
 				</div>
 			</div>

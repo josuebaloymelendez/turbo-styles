@@ -45,7 +45,6 @@ class App extends Component {
 					}
 				},
 			},
-
 			slick:{
 				fade: false,
 				status: false,
@@ -53,16 +52,8 @@ class App extends Component {
 				dots: false,
 				adaptiveHeight: true,
 				centerMode: false,
-				vp:{
-					large: 1024,
-					mid: 768,
-					small: 320
-				},
-				total:{
-					large: 3,
-					mid: 2,
-					small: 1
-				}
+				slidesToShow: 3,
+				vertical: false
 			}
 		}
 		this.changeState = this.changeState.bind(this);
@@ -73,29 +64,6 @@ class App extends Component {
 		this.setState({objeto});
 	}
 	render() {
-		let sliderSettings = {
-			slidesToShow: this.state.slick.total.large,
-			fade: this.state.slick.fade,
-			arrows: this.state.slick.arrows,
-			dots: this.state.slick.dots,
-			focusOnSelect: true,
-			adaptiveHeight: this.state.slick.adaptiveHeight,
-			centerMode: this.state.slick.centerMode,
-			responsive: [
-				{
-					breakpoing: this.state.slick.vp.large,
-					settings:{
-						slidesToShow: this.state.slick.total.mid
-					}
-				},
-				{
-					breakpoing: this.state.slick.vp.mid,
-					settings:{
-						slidesToShow: this.state.slick.total.small
-					}
-				}
-			]
-		};
 		let eventsSlicked = [];
 		for(let i = 1; i <= 10; i++ ){
 			eventsSlicked.push(
@@ -106,7 +74,6 @@ class App extends Component {
 		}
 		return (
 			<div className="App">
-
 				<div className="homepage-row">
 					<div className="homepage-row-inner">
 						<EventsList
@@ -124,11 +91,12 @@ class App extends Component {
 					<div className="homepage-row-inner">
 						<h2 className="section-title dark-grey"><a href="/">Slicked Events</a></h2>
 						<SlickSlider
-							settings={sliderSettings}
+							settings={this.state.slick}
 							slickedContents={eventsSlicked}
 						/>
 					</div>
 					<UISlick
+						slidesNum={4}
 						slickSettings={this.state.slick}
 						changeState={this.changeState}
 					/>

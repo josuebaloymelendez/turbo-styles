@@ -2,9 +2,10 @@ import React, {Component} from 'react';
 import UIButton from '../ui_components/ui-button';
 
 export default class UIslickController extends Component{
-	_changeSlickTotal(key, value){
+
+	_changeSlidesToShow(value){
 		this.props.changeState(value,  (state, value) => {
-			let obj = state.slick.total[key] = value;
+			let obj = state.slick.slidesToShow= value;
 			return obj;
 		});
 	}
@@ -15,54 +16,62 @@ export default class UIslickController extends Component{
 			return obj;
 		});
 	}
+
 	render(){
+		let slidesNumButtons = [];
+		for(let i=1; i <= this.props.slidesNum; i++){
+			slidesNumButtons.push(
+				<UIButton
+					defaultClassName="style-button"
+					innerText={i}
+					actionClick={() =>{this._changeSlidesToShow(i)}}
+				/>
+			);
+		}
+
 		return(
 			<div className="ui-container">
 				<div className="ui-column">
 					<div className="ui-buttons">
-						<h2 className="ui-title">Number of slides on large display</h2>
-						<UIButton
-							defaultClassName="style-button"
-							innerText="1"
-							actionClick={() => {this._changeSlickTotal('large',1)}}
-						/>
-						<UIButton
-							defaultClassName="style-button"
-							innerText="2"
-							actionClick={() => {this._changeSlickTotal('large',2)}}
-						/>
-						<UIButton
-							defaultClassName="style-button"
-							innerText="3"
-							actionClick={() => {this._changeSlickTotal('large',3)}}
-						/>
-						<UIButton
-							defaultClassName="style-button"
-							innerText="4"
-							actionClick={() => {this._changeSlickTotal('large',4)}}
-						/>
+						<h2 className="ui-title">Change slidesToShow</h2>
+						{slidesNumButtons}
 					</div>
+				</div>
+				<div className="ui-column">
 					<div className="ui-buttons">
-						<h2 className="ui-title">Number of slides on large display</h2>
+						<h2 className="ui-title">Toggle slick extras</h2>
 						<UIButton
 							defaultClassName="style-button"
-							innerText="Dots"
+							innerText="dots"
 							actionClick={()=>{this._toggleProperty('dots')}}
 						/>
 						<UIButton
 							defaultClassName="style-button"
-							innerText="Fade"
+							innerText="fade"
 							actionClick={()=>{this._toggleProperty('fade')}}
 						/>
 						<UIButton
 							defaultClassName="style-button"
-							innerText="Arrows"
+							innerText="arrows"
 							actionClick={()=>{this._toggleProperty('arrows')}}
+						/>
+					</div>
+					<div className="ui-buttons">
+						<h2 className="ui-title">Toggle slick behavior</h2>
+						<UIButton
+							defaultClassName="style-button"
+							innerText="centerMode"
+							actionClick={()=>{this._toggleProperty('centerMode')}}
 						/>
 						<UIButton
 							defaultClassName="style-button"
-							innerText="Center Mode"
-							actionClick={()=>{this._toggleProperty('centerMode')}}
+							innerText="vertical"
+							actionClick={()=>{this._toggleProperty('vertical')}}
+						/>
+						<UIButton
+							defaultClassName="style-button"
+							innerText="adaptiveHeight"
+							actionClick={()=>{this._toggleProperty('adaptiveHeight')}}
 						/>
 					</div>
 				</div>

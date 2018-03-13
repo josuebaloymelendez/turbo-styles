@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import UIButton from '../ui_components/ui-button';
-import CodeLoader,{CodeLoaderFS} from '../code_loader/code-loader';
+import {CodeLoader, CodeLoaderFS} from '../code_loader/code-loader';
 import './events.css';
 
 class UIeventsController extends Component{
@@ -111,6 +111,7 @@ class UIeventsController extends Component{
 		      			codePath={this.state.codePath}
 		      			codeNotes={this.state.codeNotes}
 		      		/>
+		      		<CodeLoaderFS/>
 
 	      		</div>
 				</div>
@@ -154,7 +155,7 @@ class UIeventsController extends Component{
 		      			onClick={() => { this._changeSummShape('clip')}}
 		      		>Clip summary</button>
 	      		</div>
-	      		
+
 	      		<div className="ui-buttons">
 		      		<h2 className="ui-title">Events summary extras</h2>
 	      		</div>

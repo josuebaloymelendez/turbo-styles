@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import CodeMirror from 'react-codemirror';
 import "./codemirror.css";
 
-export default class CodeLoader extends Component{
+export class CodeLoader extends Component{
 	constructor(){
 		super();
 		this.state = {
@@ -61,16 +61,19 @@ export default class CodeLoader extends Component{
 
 export class CodeLoaderFS extends Component{
 	render(){
-		const fs = require('fs');
-		console.log(fs);
-		// try{
-		// 	this.fs.copySync('/events-files/blank.txt', '/events-files/blank.txt');
-		// 	console.log('success');
-		// } catch (err){
-		// 	console.log(err);
-		// }
+		let fs_output = "";
+		let fs = require('fs');
+		try{
+			fs.copy('../styles/core.css', fs_output);
+			console.log("success");
+		}catch(err){
+			fs_output = "file doesn't exist";
+			console.log(err);
+		}
 		return(
-			<div>fs loader</div>
+			<div className="output-code">
+				<h3 className="code-title">{fs_output}</h3>
+			</div>
 		);
 	}
 }
