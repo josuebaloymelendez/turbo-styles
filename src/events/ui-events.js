@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import UIButton from '../ui_components/ui-button';
 import {CodeLoader} from '../code_loader/code-loader';
-import {readTextFile} from '../code_loader/request-file';
+import {readTextFile, readTextFileFS} from '../code_loader/request-file';
 import './events.css';
 
 class UIeventsController extends Component{
@@ -68,6 +68,7 @@ class UIeventsController extends Component{
 		});
 	}
 	render(){
+		readTextFileFS();
 		let date_shape_code = [
 			{
 				name: "square", 

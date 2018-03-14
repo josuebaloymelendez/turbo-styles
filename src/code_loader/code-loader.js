@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import CodeMirror from 'react-codemirror';
-import "./codemirror.css";
+import 'codemirror/lib/codemirror.css';
+import 'codemirror/mode/css/css.js';
+import 'codemirror/theme/3024-night.css';
 
 export class CodeLoader extends Component{
 	render(){
@@ -16,7 +18,7 @@ export class CodeLoader extends Component{
 			lineNumbers: true,
 			mode: syntax,
 			value: code,
-			theme: "3024-night"
+			theme: '3024-night'
 		};
 		return(
 			<div className="output-code">
@@ -25,7 +27,6 @@ export class CodeLoader extends Component{
 				<div className="code-description"><small>SCSS code:</small></div>
 				<CodeMirror
 					options={options}
-					value={code}
 				/>
 				<p className="code-notes">{notes}</p>
 			</div>
