@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import CodeMirror from 'react-codemirror';
+import {Controlled as CodeMirror} from 'react-codemirror2';
 import "./codemirror.css";
 
 export class CodeLoader extends Component{
