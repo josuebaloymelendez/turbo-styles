@@ -12,10 +12,12 @@ class UIeventsController extends Component{
 				name: 'square',
 				description: 'Square shaped event date, $date-width and $date-height can be redefined, the rest of the summary ocuppies the rest of the width',
 				notes: 'Background color and fonts color need further styling ',
-				code: this._getCode("https://gist.githubusercontent.com/Turbosaurio/df14756d2a5a730c7dd93f4904a5f2aa/raw/c76048807e9ad96b9657c6449d2b2eec2141f727/circle.scss"),
-				syntax: "CSS"
+				code: "Loading...",
+				syntax: "sass"
 			}
 		}
+
+		this._getCode("https://gist.githubusercontent.com/Turbosaurio/df14756d2a5a730c7dd93f4904a5f2aa/raw/c76048807e9ad96b9657c6449d2b2eec2141f727/circle.scss");
 	}
 	_getCode(path){
 		readTextFile(path)
@@ -37,14 +39,12 @@ class UIeventsController extends Component{
 			name: value.name,
 			description: value.description,
 			notes: value.notes,
-			code: this._getCode(value.path),
-			syntax: "CSS"
+			code: "Loading...",
+			syntax: "sass"
 		}});
+
+		this._getCode(value.path);
 	}
-
-
-
-
 
 	_changeSummColor(value){
 		this.props.changeState(value,  (state, value) => {
@@ -140,7 +140,7 @@ class UIeventsController extends Component{
 					defaultClassName="style-button"
 					buttonStatus=""
 					innerText={`${date_shape_code[i].name} date shape`}
-					actionClick={()=>{this._changeShape(date_shape_code[i])}}
+					actionClick={() => {this._changeShape(date_shape_code[i])}}
 				/>
 			)
 		}

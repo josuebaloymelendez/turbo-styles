@@ -11,10 +11,12 @@ export default class UIeventsController extends Component{
 				name: 'alt-1',
 				description: "Rhombus cuts summary",
 				notes: "Changes the whole item",
-				code: this._getCode("https://gist.githubusercontent.com/Turbosaurio/df14756d2a5a730c7dd93f4904a5f2aa/raw/c76048807e9ad96b9657c6449d2b2eec2141f727/circle.scss"),
-				syntax: "CSS"
+				code: "Loading...",
+				syntax: "sass"
 			}
 		}
+
+		this._getCode("https://gist.githubusercontent.com/Turbosaurio/df14756d2a5a730c7dd93f4904a5f2aa/raw/c76048807e9ad96b9657c6449d2b2eec2141f727/circle.scss");
 	}
 	_getCode(path){
 		readTextFile(path)
@@ -34,9 +36,11 @@ export default class UIeventsController extends Component{
 			name: value.name,
 			description: value.description,
 			notes: value.notes,
-			code: this._getCode(value.path),
-			syntax: "CSS"
+			code: "loading...",
+			syntax: "sass"
 		}});
+
+		this._getCode(value.path);
 	}
 	render(){
 		let event_alts = [
@@ -79,7 +83,7 @@ export default class UIeventsController extends Component{
 					defaultClassName="style-button"
 					buttonStatus=""
 					innerText={`${event_alts[i].name} event item shape`}
-					actionClick={() =>{this._changeAlt(event_alts[i])}}
+					actionClick={() => {this._changeAlt(event_alts[i])}}
 				/>
 			);
 		}
