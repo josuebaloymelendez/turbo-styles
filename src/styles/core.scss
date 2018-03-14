@@ -126,17 +126,10 @@ body {
 					bottom: 15px;
 				}
 			}
-			.code-box{
-				width: 100%;
-				display: block;
-				padding: 15px;
-				box-sizing: border-box;
-				background-color: black;
-				color: white;
-			}
-			.code-img {
-				display: block;
-				width: 100%;
+			.code-description{
+				& + .code-description{
+					margin-bottom: 15px;
+				}
 			}
 		}
 	}

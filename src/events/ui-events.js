@@ -1,29 +1,51 @@
 import React, { Component } from 'react';
 import UIButton from '../ui_components/ui-button';
-import {CodeLoader, CodeLoaderFS} from '../code_loader/code-loader';
+import {CodeLoader} from '../code_loader/code-loader';
+import {readTextFile} from '../code_loader/request-file';
 import './events.css';
 
 class UIeventsController extends Component{
 	constructor(){
 		super();
 		this.state = {
-			codeName: 'square',
-			codeDescription: 'Square shaped event date, $date-width and $date-height can be redefined, the rest of the summary ocuppies the rest of the width',
-			codeNotes: 'Background color and fonts color need further styling ',
-			codePath: "https://gist.githubusercontent.com/Turbosaurio/df14756d2a5a730c7dd93f4904a5f2aa/raw/c76048807e9ad96b9657c6449d2b2eec2141f727/circle.scss"
+			codeState : {
+				name: 'square',
+				description: 'Square shaped event date, $date-width and $date-height can be redefined, the rest of the summary ocuppies the rest of the width',
+				notes: 'Background color and fonts color need further styling ',
+				code: this._getCode("https://gist.githubusercontent.com/Turbosaurio/df14756d2a5a730c7dd93f4904a5f2aa/raw/c76048807e9ad96b9657c6449d2b2eec2141f727/circle.scss"),
+				syntax: "CSS"
+			}
 		}
 	}
-	_changeShape(value, path){
-		this.props.changeState(value,  (state, value) => {
-			let obj = state.events;
-			obj.date.shape = value;
-			return obj;
-		});
-		let initialPath = "https://gist.githubusercontent.com/Turbosaurio/";
-		this.setState({
-			codePath: initialPath+path
+	_getCode(path){
+		readTextFile(path)
+		.then((result) => {
+			this.setState({ codeState: {...this.state.codeState, code: result }})
+		})
+		.catch((error) => {
+			this.setState({ codeState: {...this.state.codeState, code: "not-found" }})
 		});
 	}
+
+
+	_changeShape(value){
+		this.props.changeState(value,  (state, value) => {
+			let obj = state.events.date.shape = value.name;
+			return obj;
+		});
+		this.setState({codeState:{
+			name: value.name,
+			description: value.description,
+			notes: value.notes,
+			code: this._getCode(value.path),
+			syntax: "CSS"
+		}});
+	}
+
+
+
+
+
 	_changeSummColor(value){
 		this.props.changeState(value,  (state, value) => {
 			let obj = state.events;
@@ -48,53 +70,66 @@ class UIeventsController extends Component{
 	render(){
 		let date_shape_code = [
 			{
-				shape: 'square', 
-				description: 'Square shaped event date, $date-width and $date-height can be redefined, the rest of the summary ocuppies the rest of the width',
-				notes: 'Background color and fonts color need further styling ',
-				codeUrl: "df14756d2a5a730c7dd93f4904a5f2aa/raw/c76048807e9ad96b9657c6449d2b2eec2141f727/circle.scss"}, 
+				name: "square", 
+				description: "Square shaped event date, $date-width and $date-height can be redefined, the rest of the summary ocuppies the rest of the width",
+				notes: "Background color and fonts color need further styling ",
+				path: "https://gist.githubusercontent.com/Turbosaurio/df14756d2a5a730c7dd93f4904a5f2aa/raw/c76048807e9ad96b9657c6449d2b2eec2141f727/circle.scss"}, 
 			{
-				shape: 'circle', 
-				codeUrl: "df14756d2a5a730c7dd93f4904a5f2aa/raw/c76048807e9ad96b9657c6449d2b2eec2141f727/circle.scss"},
+				name: "circle", 
+				description: "Simple circle shaped made with border radius, has flex none",
+				notes: "Background color and fonts color need further styling ",
+				path: "https://gist.githubusercontent.com/Turbosaurio/df14756d2a5a730c7dd93f4904a5f2aa/raw/c76048807e9ad96b9657c6449d2b2eec2141f727/circle.scss"},
 			{
-				shape: 'rhombus-v', 
-				codeUrl: "df14756d2a5a730c7dd93f4904a5f2aa/raw/e6f265e1e85446f329e0218f3600a7b584fc23eb/babby.scss"}, 
+				name: "rhombus-v", 
+				description: "Simple rhombus shaped divided vertically made with border radius, has flex none",
+				notes: "Background color and fonts color need further styling ",
+				path: "http://asdasd.com"}, 
 			{
-				shape: 'rhombus-h', 
-				codeUrl: "c0cb78fb408bbcd2e5f0867b125c54f4/raw/ee17987052f3c649e883df11da83d3926929717f/jungen.scss"},
+				name: "rhombus-h", 
+				description: "Simple rhombus shaped divided horizontally made with border radius, has flex none",
+				notes: "Background color and fonts color need further styling ",
+				path: ""},
 			{
-				shape: 'folded', 
-				codeUrl: "df14756d2a5a730c7dd93f4904a5f2aa/raw/e6f265e1e85446f329e0218f3600a7b584fc23eb/babby.scss"}, 
+				name: "folded", 
+				description: "Simple circle shaped made with border radius, has flex none",
+				notes: "Background color and fonts color need further styling ",
+				path: "https://gist.githubusercontent.com/Turbosaurio/df14756d2a5a730c7dd93f4904a5f2aa/raw/e6f265e1e85446f329e0218f3600a7b584fc23eb/babby.scss"}, 
 			{
-				shape: 'cube', 
-				codeUrl: "c0cb78fb408bbcd2e5f0867b125c54f4/raw/ee17987052f3c649e883df11da83d3926929717f/jungen.scss"},
+				name: "cube", 
+				description: "Simple circle shaped made with border radius, has flex none",
+				notes: "Background color and fonts color need further styling ",
+				path: "https://gist.githubusercontent.com/Turbosaurio/c0cb78fb408bbcd2e5f0867b125c54f4/raw/ee17987052f3c649e883df11da83d3926929717f/jungen.scss"},
 			{
-				shape: 'hexagon', 
-				codeUrl: "df14756d2a5a730c7dd93f4904a5f2aa/raw/e6f265e1e85446f329e0218f3600a7b584fc23eb/babby.scss"}, 
+				name: "hexagon", 
+				description: "Simple circle shaped made with border radius, has flex none",
+				notes: "Background color and fonts color need further styling ",
+				path: "https://gist.githubusercontent.com/Turbosaurio/df14756d2a5a730c7dd93f4904a5f2aa/raw/e6f265e1e85446f329e0218f3600a7b584fc23eb/babby.scss"}, 
 			{
-				shape: 'mosaic', 
-				codeUrl: "c0cb78fb408bbcd2e5f0867b125c54f4/raw/ee17987052f3c649e883df11da83d3926929717f/jungen.scss"},
+				name: "mosaic", 
+				description: "Simple circle shaped made with border radius, has flex none",
+				notes: "Background color and fonts color need further styling ",
+				path: "https://gist.githubusercontent.com/Turbosaurio/c0cb78fb408bbcd2e5f0867b125c54f4/raw/ee17987052f3c649e883df11da83d3926929717f/jungen.scss"},
 			{
-				shape: 'flag', 
-				codeUrl: "df14756d2a5a730c7dd93f4904a5f2aa/raw/e6f265e1e85446f329e0218f3600a7b584fc23eb/babby.scss"}, 
+				name: "flag", 
+				description: "Simple circle shaped made with border radius, has flex none",
+				notes: "Background color and fonts color need further styling ",
+				path: "https://gist.githubusercontent.com/Turbosaurio/df14756d2a5a730c7dd93f4904a5f2aa/raw/e6f265e1e85446f329e0218f3600a7b584fc23eb/babby.scss"}, 
 			{
-				shape: 'prism', 
-				codeUrl: "c0cb78fb408bbcd2e5f0867b125c54f4/raw/ee17987052f3c649e883df11da83d3926929717f/jungen.scss"}
+				name: "prism", 
+				description: "Simple circle shaped made with border radius, has flex none",
+				notes: "Background color and fonts color need further styling ",
+				path: "https://gist.githubusercontent.com/Turbosaurio/c0cb78fb408bbcd2e5f0867b125c54f4/raw/ee17987052f3c649e883df11da83d3926929717f/jungen.scss"}
 		];
 
 		let date_shapeBtns = [];
 		for(let i=0; i<date_shape_code.length; i++){
-			//let active = i === 0 ? "active" : "";
-			let numstring = i<10 ? "0"+(i+1) : i+"";
 			date_shapeBtns.push(
 				<UIButton
 					key={i}
 					defaultClassName="style-button"
 					buttonStatus=""
-					innerText={`${date_shape_code[i].shape} date shape`}
-					actionClick={()=>{this._changeShape(
-						date_shape_code[i].shape, 
-						date_shape_code[i].codeUrl
-					)}}
+					innerText={`${date_shape_code[i].name} date shape`}
+					actionClick={()=>{this._changeShape(date_shape_code[i])}}
 				/>
 			)
 		}
@@ -102,18 +137,10 @@ class UIeventsController extends Component{
 			<div className="ui-container">
 				<div className="ui-column">
 	      		<div className="ui-buttons" id="date_shape_btn">
-		      		<h2 className="ui-title">Events date shapes & colours</h2>
+		      		<h2 className="ui-title">Events date shapes</h2>
 		      		{date_shapeBtns}
-
-		      		<CodeLoader
-		      			codeTitle={this.state.codeName}
-		      			codeDescription={this.state.codeDescription}
-		      			codePath={this.state.codePath}
-		      			codeNotes={this.state.codeNotes}
-		      		/>
-		      		<CodeLoaderFS/>
-
-	      		</div>
+		      		<CodeLoader codeState={this.state.codeState} />
+		      	</div>
 				</div>
 				<div className="ui-column">
 

@@ -22,6 +22,7 @@ export default class UIslickController extends Component{
 		for(let i=1; i <= this.props.slidesNum; i++){
 			slidesNumButtons.push(
 				<UIButton
+					key={i}
 					defaultClassName="style-button"
 					innerText={i}
 					actionClick={() =>{this._changeSlidesToShow(i)}}
