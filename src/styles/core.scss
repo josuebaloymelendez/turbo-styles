@@ -76,7 +76,7 @@ body {
 	.ui-buttons {
 		display: flex;
 		font-size: 1rem;
-		justify-content: space-between;
+		justify-content: flex-start;
 		flex-wrap: wrap;
 
 		.ui-title {

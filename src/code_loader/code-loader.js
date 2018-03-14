@@ -10,7 +10,7 @@ export class CodeLoader extends Component{
 			notes,
 			code, 
 			syntax
-		} = this.props.codeState;
+		} = this.props.codeSCSS;
 
 		let options = {
 			lineNumbers: true,
@@ -32,23 +32,3 @@ export class CodeLoader extends Component{
 		);
 	}
 }
-
-
-// export class CodeLoaderFS extends Component{
-// 	render(){
-// 		let fs_output = "";
-// 		let fs = require('fs');
-// 		try{
-// 			fs.copy('../styles/core.css', fs_output);
-// 			console.log("success");
-// 		}catch(err){
-// 			fs_output = "file doesn't exist";
-// 			console.log(err);
-// 		}
-// 		return(
-// 			<div className="output-code">
-// 				<h3 className="code-title">{fs_output}</h3>
-// 			</div>
-// 		);
-// 	}
-// }

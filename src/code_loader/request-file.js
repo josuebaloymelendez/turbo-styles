@@ -15,13 +15,3 @@ export let readTextFile = (path) =>{
 		request.send();
 	});
 }
-
-export let getResults = (path) =>{
-	readTextFile(path)
-		.then((result)=>{
-			return result;
-		})
-		.catch((error)=>{
-			return error;
-		});
-}
