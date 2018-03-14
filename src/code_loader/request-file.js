@@ -1,3 +1,5 @@
+
+
 export let readTextFile = (path) =>{
 	return new Promise((resolve,reject)=>{
 		let request = new XMLHttpRequest();
@@ -14,4 +16,8 @@ export let readTextFile = (path) =>{
 		}
 		request.send();
 	});
+}
+
+export let readTextFileFS = (path) =>{
+	
 }
