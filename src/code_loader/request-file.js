@@ -15,7 +15,3 @@ export let readTextFile = (path) =>{
 		request.send();
 	});
 }
-
-export let readTextFileFS = (path) =>{
-	
-}

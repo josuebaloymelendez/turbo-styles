@@ -15,18 +15,18 @@ export default class UIeventsController extends Component{
 				syntax: "sass"
 			}
 		}
-
-		this._getCode("https://gist.githubusercontent.com/Turbosaurio/df14756d2a5a730c7dd93f4904a5f2aa/raw/c76048807e9ad96b9657c6449d2b2eec2141f727/circle.scss");
 	}
-	_getCode(path){
+
+	_getCode(path, key, keyResult){
 		readTextFile(path)
 		.then((result) => {
-			this.setState({ codeSCSS: {...this.state.codeSCSS, code: result }})
+			this.setState({ [key]: {...this.state[key], [keyResult]: result }});
 		})
 		.catch((error) => {
-			this.setState({ codeSCSS: {...this.state.codeSCSS, code: "not-found" }})
+			this.setState({ [key]: {...this.state[key], [keyResult]: "not-found" }})
 		});
 	}
+
 	_changeAlt(value){
 		this.props.changeState(value, (state, value) => {
 			let obj = state.events.unconventional.name = value.name;
@@ -39,9 +39,9 @@ export default class UIeventsController extends Component{
 			code: "loading...",
 			syntax: "sass"
 		}});
-
-		this._getCode(value.path);
+		this._getCode(value.path,"codeSCSS","code");
 	}
+
 	render(){
 		let event_alts = [
 			{
@@ -82,7 +82,7 @@ export default class UIeventsController extends Component{
 					key={i}
 					defaultClassName="style-button"
 					buttonStatus=""
-					innerText={`${event_alts[i].name} event item shape`}
+					innerText={event_alts[i].name}
 					actionClick={() => {this._changeAlt(event_alts[i])}}
 				/>
 			);

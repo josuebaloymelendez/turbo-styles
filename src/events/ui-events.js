@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import UIButton from '../ui_components/ui-button';
 import {CodeLoader} from '../code_loader/code-loader';
-import {readTextFile, readTextFileFS} from '../code_loader/request-file';
+import {readTextFile} from '../code_loader/request-file';
 import './events.css';
 
 class UIeventsController extends Component{
@@ -12,66 +12,44 @@ class UIeventsController extends Component{
 				name: 'square',
 				description: 'Square shaped event date, $date-width and $date-height can be redefined, the rest of the summary ocuppies the rest of the width',
 				notes: 'Background color and fonts color need further styling ',
-				code: "Loading...",
+				code: 'Loading....',
 				syntax: "sass"
 			},
 			summaryCode:{
 				name: 'square',
 				description: 'Square shaped event date, $date-width and $date-height can be redefined, the rest of the summary ocuppies the rest of the width',
 				notes: 'Background color and fonts color need further styling ',
-				code: "Loading...",
+				code: 'Loading....',
 				syntax: "sass"
 			}
 		}
-
-		this._getCode("https://gist.githubusercontent.com/Turbosaurio/df14756d2a5a730c7dd93f4904a5f2aa/raw/c76048807e9ad96b9657c6449d2b2eec2141f727/circle.scss","dateCode"),
-		this._getCode("https://gist.githubusercontent.com/Turbosaurio/df14756d2a5a730c7dd93f4904a5f2aa/raw/c76048807e9ad96b9657c6449d2b2eec2141f727/circle.scss","summaryCode"),
 	}
-	_getCode(path, key){
+
+	_getCode(path, key, keyResult){
 		readTextFile(path)
 		.then((result) => {
-			this.setState({ [key]: {...this.state[key], code: result }})
+			this.setState({ [key]: {...this.state[key], [keyResult]: result }});
 		})
 		.catch((error) => {
-			this.setState({ [key]: {...this.state[key], code: "not-found" }})
+			this.setState({ [key]: {...this.state[key], [keyResult]: "not-found" }})
 		});
 	}
 
-
-	_changeDateShape(value){
-		this.props.changeState(value,  (state, value) => {
-			let obj = state.events.conventional.date.shape = value.name;
+	_changeShape(value, key){
+		this.props.changeState(value, (state, value) => {
+			let obj = state.events.conventional[key].shape =value.name;
 			return obj;
 		});
-		this.setState({dateCode:{
+		this.setState({[value+"Code"]:{
 			name: value.name,
 			description: value.description,
 			notes: value.notes,
-			code: "Loading...",
 			syntax: "sass"
 		}});
-
-		this._getCode(value.path,"dateCode");
-	}
-
-	_changeSummaryShape(value){
-		this.props.changeState(value,  (state, value) => {
-			let obj = state.events.conventional.summary.shape = value.name;
-			return obj;
-		});
-		this.setState({summaryCode:{
-			name: value.name,
-			description: value.description,
-			notes: value.notes,
-			code: "Loading...",
-			syntax: "sass"
-		}});
-		
-		this._getCode(value.path, "summaryCode"),
+		this._getCode(value.path, key+"Code", "code");
 	}
 
 	render(){
-		readTextFileFS();
 		let date_shape_code = [
 			{
 				name: "square", 
@@ -182,9 +160,12 @@ class UIeventsController extends Component{
 				name: "folded",
 				description: "abc",
 				notes: "123",
-				path: "asdasd"
+				path: "https://gist.githubusercontent.com/Turbosaurio/c0cb78fb408bbcd2e5f0867b125c54f4/raw/ee17987052f3c649e883df11da83d3926929717f/jungen.scss"
 			}
 		];
+
+		// this._getCode(date_shape_code[0].path, "date", "code");
+		// this._getCode(summary_shape_code[0].path, "summary", "code");
 
 		let date_shapeBtns = [];
 		for(let i = 0; i < date_shape_code.length; i++){
@@ -193,8 +174,8 @@ class UIeventsController extends Component{
 					key={i}
 					defaultClassName="style-button"
 					buttonStatus=""
-					innerText={`${date_shape_code[i].name} date shape`}
-					actionClick={()=>{this._changeShape(date_shape_code[i])}}
+					innerText={date_shape_code[i].name}
+					actionClick={()=>{this._changeShape(date_shape_code[i],"date", "code")}}
 				/>
 			)
 		}
@@ -205,8 +186,8 @@ class UIeventsController extends Component{
 					key={i}
 					defaultClassName="style-button"
 					buttonStatus=""
-					innerText={`${summary_shape_code[i].name} summary shape`}
-					actionClick={()=>{this._changeSummaryShape(summary_shape_code[i])}}
+					innerText={summary_shape_code[i].name}
+					actionClick={()=>{this._changeShape(summary_shape_code[i],"summary", "code")}}
 				/>
 			)
 		}
@@ -227,71 +208,6 @@ class UIeventsController extends Component{
 		      		<CodeLoader codeToOutput={this.state.summaryCode} />
 	      		</div>
 				</div>
-			      	{/*
-		      		<button
-		      			className="style-button"
-		      			onClick={() => { this._changeSummShape('square')}}
-		      		>Square summary</button>
-		      		<button
-		      			className="style-button"
-		      			onClick={() => { this._changeSummShape('round')}}
-		      		>Round summary</button>
-		      		<button
-		      			className="style-button"
-		      			onClick={() => { this._changeSummShape('stroke')}}
-		      		>Stroked summary</button>
-		      		<button
-		      			className="style-button"
-		      			onClick={() => { this._changeSummShape('round-stroke')}}
-		      		>Round and stroked summary</button>
-		      		<button
-		      			className="style-button"
-		      			onClick={() => { this._changeSummShape('prism')}}
-		      		>Prism summary</button>
-		      		<button
-		      			className="style-button"
-		      			onClick={() => { this._changeSummShape('clip')}}
-		      		>Clip summary</button>
-		      		<button
-		      			className="style-button"
-		      			onClick={() => { this._changeSummShape('folded')}}
-		      		>Folded summary</button>
-			      	*/}
-
-
-					{/*
-	      		<div className="ui-buttons">
-		      		<h2 className="ui-title">Events summary colours</h2>
-		      		<button
-		      			className="style-button"
-		      			onClick={() => { this._changeSummColor('dark')}}
-		      		>Dark summary</button>
-		      		<button
-		      			className="style-button"
-		      			onClick={() => { this._changeSummColor('light')}}
-		      		>Light summary</button>
-		      		<button
-		      			className="style-button"
-		      			onClick={() => { this._changeSummColor('green')}}
-		      		>Colored summary</button>
-	      		</div>
-
-	      		<div className="ui-buttons">
-	      			<h2 className="ui-title">Stroke</h2>
-		      		<button
-		      			className="style-button"
-		      			onClick={() => { this._changeSummStroke('stroke')}}
-		      		>Stroke summary</button>
-		      		<button
-		      			className="style-button"
-		      			onClick={() => { this._changeSummStroke('round')}}
-		      		>Round summary</button>
-	      		</div>
-					*/}
-
-
-
-
       	</div>
 		);
 	}

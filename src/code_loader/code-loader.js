@@ -6,7 +6,7 @@ import 'codemirror/theme/3024-night.css';
 
 export class CodeLoader extends Component{
 	render(){
-		console.log("check for changes!",this.props.codeSCSS);
+		//console.log("check for changes!",this.props.codeSCSS);
 		let {
 			name,
 			description,
