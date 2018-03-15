@@ -9,6 +9,7 @@ class UIeventsController extends Component{
 		super();
 		this.state = {
 			codeSCSS : {
+
 				name: 'square',
 				description: 'Square shaped event date, $date-width and $date-height can be redefined, the rest of the summary ocuppies the rest of the width',
 				notes: 'Background color and fonts color need further styling ',
@@ -28,9 +29,9 @@ class UIeventsController extends Component{
 	}
 
 
-	_changeShape(value){
+	_changeDateShape(value){
 		this.props.changeState(value,  (state, value) => {
-			let obj = state.events.date.shape = value.name;
+			let obj = state.events.conventional.date.shape = value.name;
 			return obj;
 		});
 		this.setState({codeSCSS:{
@@ -42,31 +43,13 @@ class UIeventsController extends Component{
 		}});
 	}
 
-
-
-
-
-	_changeSummColor(value){
-		this.props.changeState(value,  (state, value) => {
-			let obj = state.events;
-			obj.summary.color = value;
-			return obj;
-		});
-	}
 	_changeSummShape(value){
 		this.props.changeState(value,  (state, value) => {
-			let obj = state.events;
-			obj.summary.shape = value;
+			let obj = state.events.conventional.summary.shape = value;
 			return obj;
 		});
 	}
-	_changeSummStroke(value){
-		this.props.changeState(value,  (state, value) => {
-			let obj = state.events;
-			obj.summary.stroke = value;
-			return obj;
-		});
-	}
+
 	render(){
 		readTextFileFS();
 		let date_shape_code = [
@@ -140,7 +123,7 @@ class UIeventsController extends Component{
 					defaultClassName="style-button"
 					buttonStatus=""
 					innerText={`${date_shape_code[i].name} date shape`}
-					actionClick={()=>{this._changeShape(date_shape_code[i])}}
+					actionClick={()=>{this._changeDateShape(date_shape_code[i])}}
 				/>
 			)
 		}
@@ -154,7 +137,7 @@ class UIeventsController extends Component{
 		      	</div>
 				</div>
 				<div className="ui-column">
-
+					{/*
 	      		<div className="ui-buttons">
 		      		<h2 className="ui-title">Events summary colours</h2>
 		      		<button
@@ -182,6 +165,10 @@ class UIeventsController extends Component{
 		      			onClick={() => { this._changeSummStroke('round')}}
 		      		>Round summary</button>
 	      		</div>
+					*/}
+
+
+
 	      		<div className="ui-buttons">
 		      		<h2 className="ui-title">Events summary shape</h2>
 		      		<button
