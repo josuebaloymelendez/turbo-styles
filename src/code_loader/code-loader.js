@@ -1,11 +1,12 @@
 import React, {Component} from 'react';
-import CodeMirror from 'react-codemirror';
+import {Controlled as CodeMirror} from 'react-codemirror2';
 import 'codemirror/lib/codemirror.css';
-import 'codemirror/mode/css/css.js';
+import 'codemirror/mode/sass/sass.js';
 import 'codemirror/theme/3024-night.css';
 
 export class CodeLoader extends Component{
 	render(){
+		console.log("check for changes!",this.props.codeSCSS);
 		let {
 			name,
 			description,
@@ -17,7 +18,6 @@ export class CodeLoader extends Component{
 		let options = {
 			lineNumbers: true,
 			mode: syntax,
-			value: code,
 			theme: '3024-night'
 		};
 		return(
@@ -27,6 +27,7 @@ export class CodeLoader extends Component{
 				<div className="code-description"><small>SCSS code:</small></div>
 				<CodeMirror
 					options={options}
+					value={code}
 				/>
 				<p className="code-notes">{notes}</p>
 			</div>
