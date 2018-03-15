@@ -14,8 +14,9 @@ export default class EventsList extends Component{
 			);
 		}
 		return(
-			<div id="events_container" className={this.props.eventsType}>
+			<div className={`events-container ${this.props.eventsType}`}>
 				<h2 className="section-title"><a href="/">{this.props.sectionName}</a></h2>
+				<div className="section-summary">{this.props.eventsSummary}</div>
 				<div className="items-list">{items_list}</div>
 			</div>
 		)

@@ -2,11 +2,14 @@
 @import "../styles/colors";
 @import "events_partials/events-settings";
 
-@mixin center-date {
+
+$primary-color: $red-fox;
+
+@mixin center-date{
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	flex: {
+	flex:{
 		direction: column;
 	}
 }
@@ -15,55 +18,54 @@
 	width: $date-height * $mult;
 	height: $date-width * $mult;
 	flex: none;
-	margin: {
+	margin:{
 		right: $date-margin;
 	}
 }
 @mixin summary-rest-of-width{
 	width: calc(100% - #{$date-width - $date-margin});
 }
-
-.alt-1 {
+.alt-1{
 	$triangle-size: $date-width / 2;
-	.section-title {
+	.section-title{
 		color: $betty-blue;
 	}
-	.items-list {
-		.item {
+	.items-list{
+		.item{
 			position: relative;
 			display: flex;
-			@include pseudo {
+			@include pseudo{
 				@include triangle-eq(4, #{$date-height / 2}, $light-grey);
 				position: absolute;
 				top: 0;
 				left: 100%;
 			}
-			&-date {
+			&-date{
 				@include square-date;
 				position: relative;
 				width: $date-width;
 				height: $date-height;
 				color: $jack-white;
 				flex: none;
-				@include pseudo-both {
+				@include pseudo-both{
 					position: absolute;
 					z-index: 1;
 					left: 0;
 				}
-				&:before {
+				&:before{
 					@include triangle-eq(3, #{$date-height / 2}, $betty-blue);
 					top: 0;
 				}
-				&:after {
+				&:after{
 					@include triangle-eq(1, #{$date-height / 2}, $betty-blue);
 					bottom: 0;
 				}
-				.event-day, .event-month {
+				.event-day, .event-month{
 					position: relative;
 					z-index: 2;
 				}
 			}
-			&-summary {
+			&-summary{
 				@include summary-rest-of-width;
 				position: relative;
 				z-index: 10;
@@ -75,19 +77,19 @@
 				flex-direction: column;
 				justify-content: center;
 				flex: 1;
-				@include pseudo-both {
+				@include pseudo-both{
 					position: absolute;
 					left: #{$date-width / 2 * -1}
 				}
-				.item-name {
+				.item-name{
 					margin: 0;
 					font-size: inherit;
 				}
-				&:before {
+				&:before{
 					@include rectangle-triangle(2, #{$date-width / 2}, $light-grey);
 					top: 0;
 				}
-				&:after {
+				&:after{
 					@include rectangle-triangle(3, #{$date-width / 2}, $light-grey);
 					bottom: 0;
 				}
@@ -95,18 +97,17 @@
 		}
 	}
 }
-
-.alt-2 {
-	.section-title {
+.alt-2{
+	.section-title{
 		color: $red-fox;
 	}
-	.items-list {
-		.item {
+	.items-list{
+		.item{
 			display: flex;
 			color: $jack-white;
 			font-family: serif;
 			font-size: 16px;
-			&-date {
+			&-date{
 				@include square-date;
 				position: relative;
 				width: $date-width * 0.5;
@@ -115,20 +116,20 @@
 				font-size: 1.5rem;
 				font-weight: 700;
 				flex: none;
-				@include mask {
+				@include mask{
 					@include rectangle-triangle(1, $date-height, $red-fox, 50px);
 					top: 0;
 					left: 100%;
 				}
-				.event-day {
+				.event-day{
 					height: 1em;
 				}
-				.event-day, .event-month {
+				.event-day, .event-month{
 					position: relative;
 					text-indent: .8em;
 				}
 			}
-			&-summary {
+			&-summary{
 				@include summary-rest-of-width;
 				display: flex;
 				box-sizing: border-box;
@@ -138,12 +139,12 @@
 				font-size: .8rem;
 				flex-direction: column;
 				justify-content: center;
-				@include mask {
+				@include mask{
 					@include rectangle-triangle(3, $date-height, $red-fox, 50px);
 					top: 0;
 					right: 100%;
 				}
-				.item-name {
+				.item-name{
 					margin: 0;
 					font-size: inherit;
 				}
@@ -151,9 +152,8 @@
 		}
 	}
 }
-
-.alt-3 {
-	.section-title {
+.alt-3{
+	.section-title{
 		color: $yellow-ono;
 	}
 	.items-list{
@@ -166,7 +166,7 @@
 			box-sizing: border-box;
 			background-color: lighten($yellow-ono, 30%);
 			font-family: serif;
-			&-date {
+			&-date{
 				@include square-date;
 				position: absolute;
 				top: -#{$date-height / 2};
@@ -174,11 +174,11 @@
 				border-radius: 50%;
 				background-color: $yellow-ono;
 				color: darken($yellow-ono, 40%);
-				font: {
+				font:{
 					size: 1.5rem;
 					weight: 700;
 				}
-				.event-day {
+				.event-day{
 					font-size: 2rem;
 					height: 1.8rem;
 				}
@@ -186,17 +186,17 @@
 					text-transform: uppercase;
 				}
 			}
-			&-summary {
+			&-summary{
 				z-index: 5;
 				display: flex;
 				width: 100% !important;
 				flex-direction: column;
-				font: {
+				font:{
 					size: 1rem;
 				}
 				color: darken($yellow-ono, 40%);
-				.item-name {
-					text: {
+				.item-name{
+					text:{
 						align: center;
 					}
 					min-height: 2.9rem;
@@ -207,7 +207,7 @@
 					padding-left: $date-width;
 					padding-bottom: 8px;
 					border-bottom: 1px solid darken($yellow-ono, 40%);
-					font: {
+					font:{
 						size: 1.1rem;
 					}
 				}
@@ -215,7 +215,6 @@
 		}
 	}
 }
-
 .alt-4{
 	.section-title{
 		color: $electro-purple;
@@ -322,7 +321,6 @@
 		}
 	}
 }
-
 .alt-6{
 	$inclination: 15deg;
 	.section-title{
@@ -448,382 +446,351 @@
 		}
 	}
 }
-
-
-.events-container {
-	.section-title {
-		color: $al-green;
+.events-container.conventional{
+	.section-title{
+		color: $primary-color;
 	}
-	.items-list {
-		.item {
+	.items-list{
+		.item{
 			display: flex;
 			align-items: stretch;
-			&-date {
+			&-date{
 				@include center-date;
-				height: 100%;
-				text: {
+				text:{
 					transform: uppercase;
 				}
-				font: {
+				font:{
 					size: 1.25rem;
 					weight: 700;
 				}
-
-				.event-day {
+				.event-day{
 					font-size: 2rem;
 				}
-
 				///// Shapes
-				&.square {
+				&.square{
 					@include square-date;
 				}
-
-				&.circle {
+				&.circle{
 					@include square-date;
 					border-radius: 50%;
 				}
-
-				&.rhombus-v {
+				&.rhombus-v{
 					@include square-date;
-
 					position: relative;
 					background-color: transparent !important;
-
-					@include pseudo-both {
+					@include pseudo-both{
 						position: absolute;
 						z-index: -5;
 						left: 0;
 					}
-
-
-					&:before {
-						@include triangle-eq(3, #{$date-width / 2}, $al-green);
-
+					&:before{
+						@include triangle-eq(3, #{$date-width / 2}, $primary-color);
 						top: 0;
 					}
-
-					&:after {
-						@include triangle-eq(1, #{$date-width / 2}, darken($al-green, 10%));
-
+					&:after{
+						@include triangle-eq(1, #{$date-width / 2}, darken($primary-color, 10%));
 						bottom: 0;
 					}
-
-					.event-day, .event-month {
+					.event-day, .event-month{
 						position: relative;
 					}
 				}
-
-				&.rhombus-h {
+				&.rhombus-h{
 					@include square-date;
-
 					position: relative;
 					background-color: transparent !important;
-
-					@include pseudo-both {
+					@include pseudo-both{
 						position: absolute;
 						z-index: -5;
 						top: 0;
 					}
-
-
-					&:before {
-						@include triangle-eq(2, #{$date-width / 2}, $al-green);
-
+					&:before{
+						@include triangle-eq(2, #{$date-width / 2}, $primary-color);
 						left: 0;
 					}
-
-					&:after {
-						@include triangle-eq(4, #{$date-width / 2}, darken($al-green, 10%));
-
+					&:after{
+						@include triangle-eq(4, #{$date-width / 2}, darken($primary-color, 10%));
 						right: 0;
 					}
-
-					.event-day, .event-month {
+					.event-day, .event-month{
 						position: relative;
 					}
 				}
-
-				&.folded {
+				&.folded{
+					$triangle-size: 15px;
 					@include square-date;
-
 					position: relative;
-
-					@include pseudo-both {
+					@include pseudo-both{
 						position: absolute;
 						top: calc(100% + 2px);
 					}
-
-
-					&:before {
-						@include rectangle-triangle(2, 15px, lighten($al-green, 15%));
-
+					&:before{
+						@include rectangle-triangle(2, $triangle-size, lighten($primary-color, 15%));
 						left: 0;
 					}
-
-					&:after {
-						@include rectangle-triangle(1, 15px, lighten($al-green, 15%));
-
+					&:after{
+						@include rectangle-triangle(1, $triangle-size, lighten($primary-color, 15%));
 						right: 0;
 					}
 				}
-
-				&.cube {
+				&.cube{
 					@include square-date;
-
 					position: relative;
-
-					@include pseudo-both {
+					@include pseudo-both{
 						position: absolute;
 					}
-
-
-					&:before {
+					&:before{
 						top: 7px;
 						left: -20px;
 						width: 20px;
 						height: 100%;
-						background-color: darken($al-green, 5%);
+						background-color: darken($primary-color, 5%);
 						transform: skewY(-35deg);
 					}
-
-					&:after {
+					&:after{
 						right: 11px;
 						bottom: -14px;
 						width: 100%;
 						height: 14px;
-						background-color: lighten($al-green, 5%);
+						background-color: lighten($primary-color, 5%);
 						transform: skewX(-55deg);
 					}
-
-					.event-day, .event-month {
+					.event-day, .event-month{
 						text-shadow: -2px 2px 0 rgba($jack-black, 0.3);
 					}
 				}
-
-				&.hexagon {
+				&.hexagon{
 					margin-right: $date-margin;
 					position: relative;
 					display: flex;
 					background-color: transparent !important;
 					flex-direction: column;
-
 					@include pseudo-both;
-
-					&:before {
-						@include triangle-eq(3, #{$date-width / 2}, $al-green);
-
+					&:before{
+						@include triangle-eq(3, #{$date-width / 2}, $primary-color);
 						border-bottom-width: 25px;
 					}
-
-					&:after {
-						@include triangle-eq(1, #{$date-width / 2}, $al-green);
-
+					&:after{
+						@include triangle-eq(1, #{$date-width / 2}, $primary-color);
 						border-top-width: 25px;
 					}
-
-					.event-day, .event-month {
+					.event-day, .event-month{
 						display: block;
 						width: 100%;
-						background-color: $al-green;
+						background-color: $primary-color;
 						text-align: center;
 					}
 				}
-
-				&.mosaic {
+				&.mosaic{
 					@include square-date;
-
 					position: relative;
-
-					@include pseudo-both {
+					@include pseudo-both{
 						position: absolute;
 						z-index: 5;
 						width: $date-width / 2;
 						height: $date-height / 2;
-						background-color: darken($al-green, 5%);
+						background-color: darken($primary-color, 5%);
 					}
-
-
-					&:before {
+					&:before{
 						top: 0;
 						left: 0;
 					}
-
-					&:after {
+					&:after{
 						right: 0;
 						bottom: 0;
 					}
-
-					.event-day, .event-month {
+					.event-day, .event-month{
 						z-index: 10;
 					}
 				}
-
-				&.flag {
+				&.flag{
 					@include square-date;
-
 					position: relative;
 					box-sizing: border-box;
-
-					@include pseudo-both {
+					@include pseudo-both{
 						position: absolute;
 					}
-
-
-					&:before {
+					&:before{
 						top: 0;
 						left: 0;
 						width: 100%;
 						height: 10px;
-						background-color: darken($al-green, 15%);
+						background-color: darken($primary-color, 15%);
 					}
-
-					&:after {
-						@include triangle-eq(1, $date-width / 2, $al-green);
-
+					&:after{
+						@include triangle-eq(1, $date-width / 2, $primary-color);
 						top: 100%;
 						border-top-width: 15px;
 					}
 				}
-
-				&.prism {
+				&.prism{
 					@include square-date;
 					position: relative;
 					left: -20px;
 					transform: skewY(-15deg);
-					@include pseudo-both {
+					margin-top: 15px;
+					@include pseudo-both{
 						position: absolute;
 					}
-					&:after {
+					&:after{
 						top: 5px;
 						left: 100%;
 						width: 20px;
 						height: 100%;
-						background-color: darken($al-green, 15%);
+						background-color: darken($primary-color, 15%);
 						transform: skewY(30deg);
 					}
-					&:before {
+					&:before{
 						top: 100%;
 						left: 10px;
 						width: 100%;
 						height: 10px;
-						background-color: lighten($al-green, 15%);
+						background-color: lighten($primary-color, 15%);
 						transform: skewX(60deg);
 					}
-					.event-day, .event-month {
+					.event-day, .event-month{
 						text-shadow: 3px 3px 0 rgba($jack-black, 0.3);
 					}
 				}
-				&.clip {
+				&.clip{
 					width: $date-width / 2;
 					height: $date-height;
 					margin-right: $date-margin;
 					padding-left: 15px;
-					@include mask {
-						@include rectangle-triangle(4, $date-height, $al-green, $date-width / 3);
+					@include mask{
+						@include rectangle-triangle(4, $date-height, $primary-color, $date-width / 3);
 						top: 0;
 						left: 100%;
 					}
 				}
-				.event-day, .event-month {
+				.event-day, .event-month{
 					transition: all .2s ease-out;
 				}
-				.event-day {
+				.event-day{
 					height: 1em;
 				}
 			}
-			.item-date, .item-summary {
+			.item-date, .item-summary{
 				///// Colors
 				font-size: 1.3rem;
-				&.green {
-					color: $al-green-over;
-					background-color: $al-green;
+				&.green{
+					color: $jack-white;
+					background-color: $primary-color;
 				}
-				&.red {
+				&.red{
 					color: $red-fox-over;
 					background-color: $red-fox;
 				}
-				&.blue {
+				&.blue{
 					color: $betty-blue-over;
 					background-color: $betty-blue;
 				}
-				&.yellow {
+				&.yellow{
 					color: $yellow-ono-over;
 					background-color: $yellow-ono;
 				}
 				// Color
-				&.light {
+				&.light{
 					color: rgba($jack-black, 0.75);
 					background-color: lighten($jack-black, 90%);
 				}
-				&.dark {
+				&.dark{
 					color: $jack-white;
 					background-color: $dark-grey;
 				}
 			}
-			.item-summary {
+			.item-summary{
 				width: calc(100% - #{$date-margin + $date-width});
 				padding: 10px;
 				transition: all .2s ease-in;
 				font-size: 1rem;
-				// Shape
-				&.round {
-					border-radius: 15px;
-				}
-				&.corner {
-					border-radius: 0;
-				}
-				&.stroke {
-					box-sizing: border-box;
-					border: 2px solid $al-green;
-					border-radius: 0;
-					color: $al-green;
-					background-color: transparent;
-				}
-				.item-name {
+				.item-name{
 					font-size: inherit;
-					margin: {
+					margin:{
 						top: 0;
 						bottom: .5em;
 					}
 				}
-				&.prism {
+				// Shape
+				&.square{
+					border-radius: 0;
+					color: $jack-white;
+					background-color: $primary-color;
+				}
+				&.round{
+					border-radius: 15px;
+					background-color: $primary-color;
+					color: $jack-white;
+				}
+				&.round-stroke{
+					border-radius: 15px;
+					border: 2px solid $primary-color;
+					background-color: $jack-white;
+					color: $primary-color;
+				}
+				&.stroke{
+					box-sizing: border-box;
+					border: 2px solid $primary-color;
+					border-radius: 0;
+					color: $primary-color;
+					background-color: transparent;
+				}
+				&.prism{
 					position: relative;
 					border-radius: 0;
-					background-color: darken($al-green, 15%);
+					background-color: darken($primary-color, 15%);
 					transform: skewY(15deg);
-					@include pseudo-both {
+					margin-top: 15px;
+					@include pseudo-both{
 						position: absolute;
 					}
-					&:before {
+					&:before{
 						right: 9px;
 						bottom: -11px;
 						width: 100%;
 						height: 11px;
-						background-color: $al-green;
+						background-color: $primary-color;
 						transform: skewX(-60deg);
 					}
-					&:after {
+					&:after{
 						top: 6px;
 						left: -20px;
 						width: 20px;
 						height: 100%;
-						background-color: lighten($al-green, 15%);
+						background-color: lighten($primary-color, 15%);
 						transform: skewY(-30deg);
 					}
-					.item-name, .item-text {
+					.item-name, .item-text{
 						text-shadow: 2px 2px 0 rgba($jack-black, 0.3);
 					}
 				}
-				&.clip {
-					height: $date-height;
+				&.clip{
+					height: $date-height - 20px;
 					margin-left: $date-width / 3;
-					@include mask {
-						@include rectangle-triangle(2, $date-height, $al-green, $date-width / 3);
+					@include mask{
+						@include rectangle-triangle(2, $date-height, $primary-color, $date-width / 3);
 						top: 0;
 						right: 100%;
 					}
 				}
-				.item-text {
+				&.folded{
+					$triangle-size: 25px;
+					position: relative;
+					margin-bottom: $triangle-size;
+					@include pseudo-both{
+						position: absolute;
+						top: calc(100% + 2px);
+					}
+					&:before{
+						@include rectangle-triangle(2, $triangle-size, lighten($primary-color, 15%));
+						left: 0;
+					}
+					&:after{
+						@include rectangle-triangle(1, $triangle-size, lighten($primary-color, 15%));
+						right: 0;
+					}
+				}
+				.item-text{
 					display: block;
 					width: 100%;
 					font-size: .8em;
@@ -832,46 +799,45 @@
 		}
 	}
 }
-
-.slick-events {
+.slick-events{
 	margin-bottom: 50px;
-	.item {
+	.item{
 		margin: 0 15px;
 		padding: 10px;
 		color: $light-grey;
 		background-color: $dark-grey;
 		font-family: serif;
-		&-date {
-			font: {
+		&-date{
+			font:{
 				size: 2rem;
 				weight: 700;
 			}
 			margin-bottom: 10px;
 			text-align: center;
-			span + span {
+			span + span{
 				margin-left: .5rem;
 			}
 		}
-		&-summary {
+		&-summary{
 			padding: 10px;
 			border-radius: 10px;
 			color: $jack-black;
 			background-color: $light-grey;
 			text-align: center;
-			.item-name {
-				margin: {
+			.item-name{
+				margin:{
 					top: 0;
 					bottom: 8px;
 				}
-				> a {
+				> a{
 					color: inherit;
 					text-decoration: none;
-					&:hover {
+					&:hover{
 						text-decoration: underl	ine;
 					}
 				}
 			}
-			.item-text {
+			.item-text{
 				display: block;
 			}
 		}

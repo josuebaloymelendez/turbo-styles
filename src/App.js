@@ -81,7 +81,8 @@ class App extends Component {
 					<div className="homepage-row-inner">
 						<EventsList
 							sectionName="Conventional events styles"
-							eventsType="events-container"
+							eventsType="conventional"
+							eventsSummary="Change date and summary shapes independently"
 							itemsNum={events_count}
 							itemStyle={this.state.events.conventional}
 						/>
@@ -90,6 +91,24 @@ class App extends Component {
 				<UIeventsController
 					changeState={this.changeState}
 				/>
+
+
+				<div className="homepage-row">
+					<div className="homepage-row-inner">
+						<EventsList
+							sectionName="Unconventional events styles"
+							eventsType={this.state.events.unconventional.name}
+							eventsSummary="Change date and summary shapes together"
+							itemsNum={events_count}
+							itemStyle={this.state.events.unconventional}
+						/>
+					</div>
+				</div>
+				<UIeventsControllerAlt
+					changeState={this.changeState}
+				/>
+
+
 				<div className="homepage-row">
 					<div className="homepage-row-inner">
 						<h2 className="section-title dark-grey"><a href="/">Slicked Events</a></h2>
@@ -106,19 +125,6 @@ class App extends Component {
 				</div>
 				{/*
 				*/}
-				<div className="homepage-row">
-					<div className="homepage-row-inner">
-						<EventsList
-							sectionName="Unconventional events styles"
-							eventsType={`events-container-alt ${this.state.events.unconventional.name}`}
-							itemsNum={events_count}
-							itemStyle={this.state.events.unconventional}
-						/>
-					</div>
-				</div>
-				<UIeventsControllerAlt
-					changeState={this.changeState}
-				/>
 			</div>
 		);
 	}

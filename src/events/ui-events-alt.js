@@ -89,7 +89,7 @@ export default class UIeventsController extends Component{
 					<div className="ui-buttons">
 					<h2 className="ui-title">Number of slides on large display</h2>
 						{event_alts_buttons}
-						<CodeLoader codeSCSS={this.state.codeSCSS} />
+						<CodeLoader codeToOutput={this.state.codeSCSS} />
 					</div>
 				</div>
 			</div>

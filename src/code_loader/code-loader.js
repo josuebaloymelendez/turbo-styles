@@ -12,7 +12,7 @@ export class CodeLoader extends Component{
 			notes,
 			code, 
 			syntax
-		} = this.props.codeSCSS;
+		} = this.props.codeToOutput;
 
 		let options = {
 			lineNumbers: true,

@@ -8,23 +8,29 @@ class UIeventsController extends Component{
 	constructor(){
 		super();
 		this.state = {
-			codeSCSS : {
-
+			dateCode:{
 				name: 'square',
 				description: 'Square shaped event date, $date-width and $date-height can be redefined, the rest of the summary ocuppies the rest of the width',
 				notes: 'Background color and fonts color need further styling ',
-				code: this._getCode("https://gist.githubusercontent.com/Turbosaurio/df14756d2a5a730c7dd93f4904a5f2aa/raw/c76048807e9ad96b9657c6449d2b2eec2141f727/circle.scss"),
+				code: this._getCode("https://gist.githubusercontent.com/Turbosaurio/df14756d2a5a730c7dd93f4904a5f2aa/raw/c76048807e9ad96b9657c6449d2b2eec2141f727/circle.scss", "dateCode"),
+				syntax: "CSS"
+			},
+			summaryCode:{
+				name: 'square',
+				description: 'Square shaped event date, $date-width and $date-height can be redefined, the rest of the summary ocuppies the rest of the width',
+				notes: 'Background color and fonts color need further styling ',
+				code: this._getCode("https://gist.githubusercontent.com/Turbosaurio/df14756d2a5a730c7dd93f4904a5f2aa/raw/c76048807e9ad96b9657c6449d2b2eec2141f727/circle.scss","summaryCode"),
 				syntax: "CSS"
 			}
 		}
 	}
-	_getCode(path){
+	_getCode(path, key){
 		readTextFile(path)
 		.then((result) => {
-			this.setState({ codeSCSS: {...this.state.codeSCSS, code: result }})
+			this.setState({ [key]: {...this.state[key], code: result }})
 		})
 		.catch((error) => {
-			this.setState({ codeSCSS: {...this.state.codeSCSS, code: "not-found" }})
+			this.setState({ [key]: {...this.state[key], code: "not-found" }})
 		});
 	}
 
@@ -34,20 +40,27 @@ class UIeventsController extends Component{
 			let obj = state.events.conventional.date.shape = value.name;
 			return obj;
 		});
-		this.setState({codeSCSS:{
+		this.setState({dateCode:{
 			name: value.name,
 			description: value.description,
 			notes: value.notes,
-			code: this._getCode(value.path),
+			code: this._getCode(value.path, "dateCode"),
 			syntax: "CSS"
 		}});
 	}
 
-	_changeSummShape(value){
+	_changeSummaryShape(value){
 		this.props.changeState(value,  (state, value) => {
-			let obj = state.events.conventional.summary.shape = value;
+			let obj = state.events.conventional.summary.shape = value.name;
 			return obj;
 		});
+		this.setState({summaryCode:{
+			name: value.name,
+			description: value.description,
+			notes: value.notes,
+			code: this._getCode(value.path, "summaryCode"),
+			syntax: "CSS"
+		}});
 	}
 
 	render(){
@@ -112,6 +125,57 @@ class UIeventsController extends Component{
 				description: "Simple circle shaped made with border radius, has flex none",
 				notes: "Background color and fonts color need further styling ",
 				path: "https://gist.githubusercontent.com/Turbosaurio/c0cb78fb408bbcd2e5f0867b125c54f4/raw/ee17987052f3c649e883df11da83d3926929717f/jungen.scss"
+			},
+			{
+				name: "clip", 
+				description: "Simple circle shaped made with border radius, has flex none",
+				notes: "Background color and fonts color need further styling ",
+				path: "https://gist.githubusercontent.com/Turbosaurio/c0cb78fb408bbcd2e5f0867b125c54f4/raw/ee17987052f3c649e883df11da83d3926929717f/jungen.scss"
+			}
+		];
+
+		let summary_shape_code = [
+			{
+				name: "square",
+				description: "abc",
+				notes: "123",
+				path: "asdasd"
+			},
+			{
+				name: "round",
+				description: "abc",
+				notes: "123",
+				path: "asdasd"
+			},
+			{
+				name: "stroke",
+				description: "abc",
+				notes: "123",
+				path: "asdasd"
+			},
+			{
+				name: "round-stroke",
+				description: "abc",
+				notes: "123",
+				path: "asdasd"
+			},
+			{
+				name: "prism",
+				description: "abc",
+				notes: "123",
+				path: "asdasd"
+			},
+			{
+				name: "clip",
+				description: "abc",
+				notes: "123",
+				path: "asdasd"
+			},
+			{
+				name: "folded",
+				description: "abc",
+				notes: "123",
+				path: "asdasd"
 			}
 		];
 
@@ -127,16 +191,67 @@ class UIeventsController extends Component{
 				/>
 			)
 		}
+		let summary_shapeBtns = [];
+		for(let i = 0; i < summary_shape_code.length; i++){
+			summary_shapeBtns.push(
+				<UIButton
+					key={i}
+					defaultClassName="style-button"
+					buttonStatus=""
+					innerText={`${summary_shape_code[i].name} summary shape`}
+					actionClick={()=>{this._changeSummaryShape(summary_shape_code[i])}}
+				/>
+			)
+		}
+
 		return(
 			<div className="ui-container">
 				<div className="ui-column">
 	      		<div className="ui-buttons" id="date_shape_btn">
 		      		<h2 className="ui-title">Events date shapes</h2>
 		      		{date_shapeBtns}
-		      		<CodeLoader codeSCSS={this.state.codeSCSS} />
+		      		<CodeLoader codeToOutput={this.state.dateCode} />
 		      	</div>
 				</div>
 				<div className="ui-column">
+	      		<div className="ui-buttons">
+		      		<h2 className="ui-title">Events summary shape</h2>
+		      		{summary_shapeBtns}
+		      		<CodeLoader codeToOutput={this.state.summaryCode} />
+	      		</div>
+				</div>
+			      	{/*
+		      		<button
+		      			className="style-button"
+		      			onClick={() => { this._changeSummShape('square')}}
+		      		>Square summary</button>
+		      		<button
+		      			className="style-button"
+		      			onClick={() => { this._changeSummShape('round')}}
+		      		>Round summary</button>
+		      		<button
+		      			className="style-button"
+		      			onClick={() => { this._changeSummShape('stroke')}}
+		      		>Stroked summary</button>
+		      		<button
+		      			className="style-button"
+		      			onClick={() => { this._changeSummShape('round-stroke')}}
+		      		>Round and stroked summary</button>
+		      		<button
+		      			className="style-button"
+		      			onClick={() => { this._changeSummShape('prism')}}
+		      		>Prism summary</button>
+		      		<button
+		      			className="style-button"
+		      			onClick={() => { this._changeSummShape('clip')}}
+		      		>Clip summary</button>
+		      		<button
+		      			className="style-button"
+		      			onClick={() => { this._changeSummShape('folded')}}
+		      		>Folded summary</button>
+			      	*/}
+
+
 					{/*
 	      		<div className="ui-buttons">
 		      		<h2 className="ui-title">Events summary colours</h2>
@@ -169,23 +284,7 @@ class UIeventsController extends Component{
 
 
 
-	      		<div className="ui-buttons">
-		      		<h2 className="ui-title">Events summary shape</h2>
-		      		<button
-		      			className="style-button"
-		      			onClick={() => { this._changeSummShape('prism')}}
-		      		>Prism summary</button>
-		      		<button
-		      			className="style-button"
-		      			onClick={() => { this._changeSummShape('clip')}}
-		      		>Clip summary</button>
-	      		</div>
 
-	      		<div className="ui-buttons">
-		      		<h2 className="ui-title">Events summary extras</h2>
-	      		</div>
-
-				</div>
       	</div>
 		);
 	}

@@ -1,40 +1,39 @@
-#events_un_container {
-  color: black; }
-
-#events_container .items-list:not(.slicked) {
+.events-container .section-summary {
+  margin-bottom: 25px;
+  text-align: center;
+  font-size: 1rem;
+  font-style: italic;
+  color: #646464; }
+.events-container .items-list {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center; }
   @media (max-width: 768px) {
-    #events_container .items-list:not(.slicked) .item {
+    .events-container .items-list .item {
       width: calc(100% / 1 + 40px);
       margin: 20px; } }
   @media (min-width: 768px) and (max-width: 1024px) {
-    #events_container .items-list:not(.slicked) .item {
+    .events-container .items-list .item {
       width: calc(100% / 2 + 40px);
       margin-bottom: 20px; } }
   @media (min-width: 1024px) {
-    #events_container .items-list:not(.slicked) .item {
+    .events-container .items-list .item {
       width: calc(100% / 3 - 40px);
       margin-bottom: 20px; } }
   @media (min-width: 1024px) {
-    #events_container .items-list:not(.slicked) {
+    .events-container .items-list {
       justify-content: space-between; } }
-#events_container .items-list .item .item-date {
-  transition: all .2s ease-out; }
-  #events_container .items-list .item .item-date:before, #events_container .items-list .item .item-date:after {
-    transition: all .2s ease-in; }
-#events_container .items-list .item .item-summary {
-  transition: all .2s ease-out; }
-  #events_container .items-list .item .item-summary .item-name > a {
-    color: inherit;
-    text-decoration: none; }
-    #events_container .items-list .item .item-summary .item-name > a:hover {
-      text-decoration: underline; }
-@media (min-width: 1024px) {
-  #events_container .items-list .item.row-only-large {
-    flex-direction: row;
-    text-align: left; } }
+  .events-container .items-list .item .item-date {
+    transition: all .2s ease-out; }
+    .events-container .items-list .item .item-date:before, .events-container .items-list .item .item-date:after {
+      transition: all .2s ease-in; }
+  .events-container .items-list .item .item-summary {
+    transition: all .2s ease-out; }
+    .events-container .items-list .item .item-summary .item-name > a {
+      color: inherit;
+      text-decoration: none; }
+      .events-container .items-list .item .item-summary .item-name > a:hover {
+        text-decoration: underline; }
 
 /*# sourceMappingURL=events.css.map */

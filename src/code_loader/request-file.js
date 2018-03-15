@@ -1,5 +1,3 @@
-
-
 export let readTextFile = (path) =>{
 	return new Promise((resolve,reject)=>{
 		let request = new XMLHttpRequest();
