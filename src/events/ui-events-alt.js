@@ -27,7 +27,7 @@ export default class UIeventsController extends Component{
 	}
 	_changeAlt(value){
 		this.props.changeState(value, (state, value) => {
-			let obj = state.events.altEvents = value.name;
+			let obj = state.events.unconventional.name = value.name;
 			return obj;
 		})
 		this.setState({ codeSCSS:{

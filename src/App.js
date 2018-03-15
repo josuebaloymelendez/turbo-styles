@@ -17,20 +17,23 @@ class App extends Component {
 		super();
 		this.state = {
 			events:{
-				altEvents: "alt-1",
-				date:{
-					color: "green",
-					shape: "square",
-					month:{
-						length: "short"
+				conventional:{
+					name: "regular",
+					date:{
+						color: "green",
+						shape: "square",
+						month:{
+							length: "short"
+						}
+					},
+					summary:{
+						shape: "corner",
+						color: "green",
+						stroke: "no-stroke"
 					}
 				},
-				summary:{
-					shape: "corner",
-					color: "green",
-					stroke: "no-stroke"
-				},
-				unstyled:{
+				unconventional:{
+					name: "alt-1",
 					date:{
 						color: "",
 						shape: "",
@@ -43,7 +46,7 @@ class App extends Component {
 						color: "",
 						stroke: ""
 					}
-				},
+				}
 			},
 			slick:{
 				fade: false,
@@ -68,7 +71,7 @@ class App extends Component {
 		for(let i = 1; i <= 10; i++ ){
 			eventsSlicked.push(
 				<div key={i}>
-					<EventItem monthLenght="short"/>
+					<EventItem itemStyle={this.state.events.unconventional}/>
 				</div>
 			);
 		}
@@ -79,8 +82,8 @@ class App extends Component {
 						<EventsList
 							sectionName="Conventional events styles"
 							eventsType="events-container"
-							eventsProps={this.state.events}
 							itemsNum={events_count}
+							itemStyle={this.state.events.conventional}
 						/>
 					</div>
 				</div>
@@ -101,14 +104,15 @@ class App extends Component {
 						changeState={this.changeState}
 					/>
 				</div>
-
+				{/*
+				*/}
 				<div className="homepage-row">
 					<div className="homepage-row-inner">
 						<EventsList
 							sectionName="Unconventional events styles"
-							eventsType={`events-container-alt ${this.state.events.altEvents}`}
-							eventsProps={this.state.events.unstyled}
+							eventsType={`events-container-alt ${this.state.events.unconventional.name}`}
 							itemsNum={events_count}
+							itemStyle={this.state.events.unconventional}
 						/>
 					</div>
 				</div>
