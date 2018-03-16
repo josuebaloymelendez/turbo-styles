@@ -8,7 +8,7 @@ export default class UIslickController extends Component{
 			let obj = state.slick.slidesToShow= value;
 			return obj;
 		});
-	}
+	}   
 	_toggleProperty(key){
 		let toggle = this.props.slickSettings[key] ? false : true;
 		this.props.changeState(toggle, (state, toggle)=>{
