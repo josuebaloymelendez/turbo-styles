@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 import './event-item-a.css';
+import {eventContent} from '../constants/dates';
+
 
 class EventItem extends Component{
 	constructor(props){
 		super(props);
-		let 	item_name = ["Very unnecesary long name for the event as it usually do", "A standard name for event", "Short name"],
-				monthsLong = ["January","February","March","April","May","June","July","August","September","October","November","December"],
-				monthsShort = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
-		let 	r_name = item_name[Math.ceil(Math.random()*item_name.length - 1)],
+		let {name, monthL, monthS} = eventContent;
+		let 	r_name = name[Math.ceil(Math.random()*name.length - 1)],
 				r_day = Math.round(Math.random()*30 + 1),
-		 		r_month = this.props.itemStyle.date.month.length !== "short" ? 	monthsLong[Math.ceil(Math.random()*monthsLong.length - 1)] : monthsShort[Math.ceil(Math.random()*monthsShort.length - 1)];
+		 		r_month = this.props.itemStyle.date.month.length !== "short" ? 	monthL[Math.ceil(Math.random()*monthL.length - 1)] : monthS[Math.ceil(Math.random()*monthS.length - 1)];
 		this.state ={ name: r_name, day: r_day, month: r_month }
 	}
 	render(){

@@ -12,7 +12,7 @@ body {
 }
 .homepage-row {
 	width: 100%;
-	&:dark {
+	&.dark {
 		background-color: black;
 	}
 	.homepage-row-inner {
@@ -87,13 +87,14 @@ body {
 			text-align: center;
 		}
 		.style-button {
-			width: calc(50% - 30px);
+			width: calc(50% - 10px);
 			@media(min-width: 768px){
 				width: calc(25% - 30px);
 			}
 			margin: 10px;
 			padding: 10px;
-			border: 2px solid $al-green;
+			border: none;
+			background-color: $jack-white;
 			color: $jack-black;
 			background-color: $light-grey;
 			font: {

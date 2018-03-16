@@ -15,3 +15,13 @@ export let readTextFile = (path) =>{
 		request.send();
 	});
 }
+
+export let getCode = (path, key, keyResult, external) =>{
+	readTextFile(path)
+	.then((result) => {
+		external.setState({ [key]: {...external.state[key], [keyResult]: result }});
+	})
+	.catch((error) => {
+		external.setState({ [key]: {...external.state[key], [keyResult]: "not-found" }})
+	});
+}
