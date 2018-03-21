@@ -1,7 +1,0 @@
-{
-"version": 3,
-"mappings": "AAEA,aAAc;EACb,QAAQ,EAAE,QAAQ;EAElB,0BAAa;IAKZ,OAAO,EAAE,EAAE;IAEX,qCAAa;MACZ,IAAI,EAAE,IAAI;IAGX,qCAAa;MACZ,KAAK,EAAE,IAAI",
-"sources": ["slick-styles.scss"],
-"names": [],
-"file": "slick-styles.css"
-}
