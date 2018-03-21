@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route } from 'react-router-dom'
+import { Route, Link } from 'react-router-dom'
 import {events_count} from './constants';
 
 import EventsContainer from './events/events-container';
@@ -13,7 +13,11 @@ import UISlick from './slicked/ui-slick';
 
 import './styles/core.css';
 
-
+const News = () => (
+	<div>
+	    <h2>Lalalalalal test</h2>
+	  </div>
+);
 
 class Main extends Component {
 
@@ -70,7 +74,7 @@ class Main extends Component {
 		let objeto = fun(this.state, keyValue);
 		this.setState({objeto});
 	}
-	
+
 	render(){
 		let eventsSlicked = [];
 		for(let i = 1; i <= 10; i++ ){
@@ -142,11 +146,27 @@ class Main extends Component {
 }
 
 class App extends Component {
-
 	render() {
-		
 		return (
-			<Route exact path="/" component={Main}/>
+			<div>
+				<ul>
+					<li>
+						<Link to="/">Home</Link>
+					</li>
+					<li>
+						<Link to="/events">Events</Link>
+					</li>
+					<li>
+						<Link to="/news">News</Link>
+					</li>
+				</ul>
+
+				<hr />
+
+				<Route exact path="/" component={Main}/>
+				<Route path="/events" component={Main} />
+				<Route path="/news" component={News} />
+			</div>
 		);
 	}
 }
