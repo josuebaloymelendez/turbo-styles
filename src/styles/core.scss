@@ -5,60 +5,51 @@ body {
 	font: {
 		size: 16px;
 		family: sans-serif;
-	};
+	}
 	margin: 0;
 	margin-bottom: 300px;
 	padding: 0;
 }
-
 .homepage-row {
 	width: 100%;
-
-	&:dark {
+	&.dark {
 		background-color: black;
 	}
-
 	.homepage-row-inner {
 		width: 100%;
 		max-width: 1024px;
 		margin: {
 			right: auto;
 			left: auto;
-		};
+		}
 	}
 }
-
 .section-title {
 	margin: {
 		top: 25px;
 		bottom: 25px;
-	};
+	}
 	text: {
 		transform: uppercase;
 		align: center;
-	};
+	}
 	font: {
 		size: 2.5rem;
-	};
-
+	}
 	> a {
 		color: inherit;
 		text: {
 			decoration: none;
-		};
-
+		}
 		&:hover {
 			text-decoration: underline;
 		}
 	}
-
 	&.dark-grey {
 		color: $dark-grey;
 	}
 }
-
 .ui-container {
-	display: flex;
 	box-sizing: border-box;
 	width: 100%;
 	margin-top: 25px;
@@ -69,21 +60,23 @@ body {
 	align-items: flex-start;
 	justify-content: space-between;
 	flex-wrap: wrap;
-
-	.ui-column {
-		width: calc(50% - 50px);
-
+	@media(min-width: 1024px){
+		display: flex;
+		.ui-column {
+			width: calc(50% - 50px);
+		}
+	}
+	.ui-column{
 		.ui-buttons + .ui-buttons {
 			margin-top: 20px;
 			padding-top: 20px;
 			border-top: 1px solid $light-grey;
 		}
 	}
-
 	.ui-buttons {
 		display: flex;
 		font-size: 1rem;
-		justify-content: space-between;
+		justify-content: flex-start;
 		flex-wrap: wrap;
 
 		.ui-title {
@@ -93,32 +86,32 @@ body {
 			font-size: inherit;
 			text-align: center;
 		}
-
 		.style-button {
-			width: calc(25% - 30px);
+			width: calc(50% - 10px);
+			@media(min-width: 768px){
+				width: calc(25% - 30px);
+			}
 			margin: 10px;
 			padding: 10px;
-			border: 2px solid $al-green;
+			border: none;
+			background-color: $jack-white;
 			color: $jack-black;
 			background-color: $light-grey;
 			font: {
 				size: .75rem;
 				weight: 700;
-			};
+			}
 			text: {
 				transform: uppercase;
-			};
-
+			}
 			&:hover {
 				background-color: lighten($jack-black, 80%);
 			}
-
 			&.active {
 				color: $jack-white;
 				background-color: $al-green;
 			}
 		}
-
 		.output-code {
 			width: 100%;
 			padding: 30px;
@@ -127,18 +120,17 @@ body {
 			background-color: rgba($jack-white, 0.2);
 			margin: {
 				top: 25px;
-			};
-
+			}
 			.code-title {
 				margin: {
 					top: 0;
 					bottom: 15px;
-				};
+				}
 			}
-
-			.code-img {
-				display: block;
-				width: 100%;
+			.code-description{
+				& + .code-description{
+					margin-bottom: 15px;
+				}
 			}
 		}
 	}

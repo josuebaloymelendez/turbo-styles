@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {events_count} from './constants';
 
-import EventsList from './events/events-list';
+import EventsContainer from './events/events-container';
 import EventItem from './events/event-item';
 
 import UIeventsController from './events/ui-events';
@@ -9,27 +9,31 @@ import UIeventsControllerAlt from './events/ui-events-alt';
 
 import SlickSlider from './slicked/slider';
 import UISlick from './slicked/ui-slick';
-//import './core.css';
+
+import './styles/core.css';
 
 class App extends Component {
 	constructor(){
 		super();
 		this.state = {
 			events:{
-				altEvents: "alt-1",
-				date:{
-					color: "green",
-					shape: "square",
-					month:{
-						length: "short"
+				conventional:{
+					name: "regular",
+					date:{
+						color: "green",
+						shape: "square",
+						month:{
+							length: "short"
+						}
+					},
+					summary:{
+						shape: "corner",
+						color: "green",
+						stroke: "no-stroke"
 					}
 				},
-				summary:{
-					shape: "corner",
-					color: "green",
-					stroke: "no-stroke"
-				},
-				unstyled:{
+				unconventional:{
+					name: "alt-1",
 					date:{
 						color: "",
 						shape: "",
@@ -42,9 +46,8 @@ class App extends Component {
 						color: "",
 						stroke: ""
 					}
-				},
+				}
 			},
-
 			slick:{
 				fade: false,
 				status: false,
@@ -52,16 +55,8 @@ class App extends Component {
 				dots: false,
 				adaptiveHeight: true,
 				centerMode: false,
-				vp:{
-					large: 1024,
-					mid: 768,
-					small: 320
-				},
-				total:{
-					large: 3,
-					mid: 2,
-					small: 1
-				}
+				slidesToShow: 3,
+				vertical: false
 			}
 		}
 		this.changeState = this.changeState.bind(this);
@@ -72,80 +67,64 @@ class App extends Component {
 		this.setState({objeto});
 	}
 	render() {
-		let sliderSettings = {
-			slidesToShow: this.state.slick.total.large,
-			fade: this.state.slick.fade,
-			arrows: this.state.slick.arrows,
-			dots: this.state.slick.dots,
-			focusOnSelect: true,
-			adaptiveHeight: this.state.slick.adaptiveHeight,
-			centerMode: this.state.slick.centerMode,
-			responsive: [
-				{
-					breakpoing: this.state.slick.vp.large,
-					settings:{
-						slidesToShow: this.state.slick.total.mid
-					}
-				},
-				{
-					breakpoing: this.state.slick.vp.mid,
-					settings:{
-						slidesToShow: this.state.slick.total.small
-					}
-				}
-			]
-		};
 		let eventsSlicked = [];
 		for(let i = 1; i <= 10; i++ ){
 			eventsSlicked.push(
 				<div key={i}>
-					<EventItem monthLenght="short"/>
+					<EventItem itemStyle={this.state.events.unconventional}/>
 				</div>
 			);
 		}
 		return (
 			<div className="App">
-
 				<div className="homepage-row">
 					<div className="homepage-row-inner">
-						<EventsList
+						<EventsContainer
 							sectionName="Conventional events styles"
-							eventsType="events-container"
-							eventsProps={this.state.events}
+							eventsType="conventional"
+							eventsSummary="Change date and summary shapes independently"
 							itemsNum={events_count}
+							itemStyle={this.state.events.conventional}
 						/>
 					</div>
 				</div>
 				<UIeventsController
 					changeState={this.changeState}
 				/>
-				<div className="homepage-row">
-					<div className="homepage-row-inner">
-						<h2 className="section-title dark-grey"><a href="/">Slicked Events</a></h2>
-						<SlickSlider
-							settings={sliderSettings}
-							slickedContents={eventsSlicked}
-						/>
-					</div>
-					<UISlick
-						slickSettings={this.state.slick}
-						changeState={this.changeState}
-					/>
-				</div>
+
 
 				<div className="homepage-row">
 					<div className="homepage-row-inner">
-						<EventsList
+						<EventsContainer
 							sectionName="Unconventional events styles"
-							eventsType={`events-container-alt ${this.state.events.altEvents}`}
-							eventsProps={this.state.events}
+							eventsType={this.state.events.unconventional.name}
+							eventsSummary="Change date and summary shapes together"
 							itemsNum={events_count}
+							itemStyle={this.state.events.unconventional}
 						/>
 					</div>
 				</div>
 				<UIeventsControllerAlt
 					changeState={this.changeState}
 				/>
+
+
+				<div className="homepage-row">
+					<div className="homepage-row-inner">
+						<h2 className="section-title dark-grey"><a href="/">Slicked Events</a></h2>
+						<SlickSlider
+							settings={this.state.slick}
+							slickedContents={eventsSlicked}
+						/>
+					</div>
+					<UISlick
+						slidesNum={4}
+						slickSettings={this.state.slick}
+						changeState={this.changeState}
+					/>
+				</div>
+				{/*
+				*/}
 			</div>
 		);
 	}

@@ -1,115 +1,79 @@
 import React, { Component } from 'react';
 import UIButton from '../ui_components/ui-button';
+import {date_shape_code, summary_shape_code} from '../constants/events_objects';
+import {CodeLoader} from '../code_loader/code-loader';
+import {readTextFile, getCode} from '../code_loader/request-file';
+import './events.css';
 
 class UIeventsController extends Component{
 	constructor(){
 		super();
 		this.state = {
-			codeImageUrl : "events_images/images/code-image_01.png",
+			dateCode: {...date_shape_code[0], syntax: "sass", code: "Loading.........."},
+			summaryCode: {...summary_shape_code[0], syntax: "sass", code: "Loading.........."},
 		}
+		getCode(date_shape_code[0].path, "date", "code",this);
+		getCode(summary_shape_code[0].path, "summary", "code",this);
 	}
+	_changeShape(value, key){
+		this.props.changeState(value, (state, value) => {
+			let obj = state.events.conventional[key].shape =value.name;
+			return obj;
+		});
+		this.setState({[value+"Code"]:{
+			name: value.name,
+			description: value.description,
+			notes: value.notes,
+			syntax: "sass"
+		}});
+		getCode(value.path, key+"Code", "code",this);
+	}
+
 	render(){
-		let  date_shape = ["square", "circle", "rombus","rombus-horizontal", "folded", "cube", "hexagon", "mosaic", "flag", "prism","clip","caca"],
-				date_shapeBtns = [];
-		for(let i=0; i<date_shape.length; i++){
-			let active = i === 0 ? "active" : "";
-			let numstring = i<10 ? "0"+(i+1) : i+"";
+
+		let date_shapeBtns = [];
+		for(let i = 0; i < date_shape_code.length; i++){
 			date_shapeBtns.push(
 				<UIButton
 					key={i}
 					defaultClassName="style-button"
 					buttonStatus=""
-					innerText={`${date_shape[i]} date shape`}
-					actionClick={()=>{this._changeShape(date_shape[i], numstring)}}
+					innerText={date_shape_code[i].name}
+					actionClick={()=>{this._changeShape(date_shape_code[i],"date", "code")}}
 				/>
 			)
 		}
+		let summary_shapeBtns = [];
+		for(let i = 0; i < summary_shape_code.length; i++){
+			summary_shapeBtns.push(
+				<UIButton
+					key={i}
+					defaultClassName="style-button"
+					buttonStatus=""
+					innerText={summary_shape_code[i].name}
+					actionClick={()=>{this._changeShape(summary_shape_code[i],"summary", "code")}}
+				/>
+			)
+		}
+
 		return(
 			<div className="ui-container">
 				<div className="ui-column">
-	      		<div className="ui-buttons" id="date_shape_btn">
-		      		<h2 className="ui-title">Events date shapes & colours</h2>
+	      		<div className="ui-buttons">
+		      		<h2 className="ui-title">Events date shapes</h2>
 		      		{date_shapeBtns}
-		      		<div className="output-code">
-		      			<h3 className="code-title">SCSS Code:</h3>
-		      			<img className="code-img" alt="" src={this.state.codeImageUrl}/>
-		      		</div>
-	      		</div>
+		      		<CodeLoader codeToOutput={this.state.dateCode} />
+		      	</div>
 				</div>
 				<div className="ui-column">
 	      		<div className="ui-buttons">
-		      		<h2 className="ui-title">Events summary colours</h2>
-		      		<button
-		      			className="style-button"
-		      			onClick={() => { this._changeSummColor('dark')}}
-		      		>Dark summary</button>
-		      		<button
-		      			className="style-button"
-		      			onClick={() => { this._changeSummColor('light')}}
-		      		>Light summary</button>
-		      		<button
-		      			className="style-button"
-		      			onClick={() => { this._changeSummColor('green')}}
-		      		>Colored summary</button>
-	      		</div>
-	      		<div className="ui-buttons">
 		      		<h2 className="ui-title">Events summary shape</h2>
-		      		<button
-		      			className="style-button"
-		      			onClick={() => { this._changeSummStroke('prism')}}
-		      		>Prism summary</button>
-		      		<button
-		      			className="style-button"
-		      			onClick={() => { this._changeSummStroke('stroke')}}
-		      		>Stroke summary</button>
-		      		<button
-		      			className="style-button"
-		      			onClick={() => { this._changeSummShape('round')}}
-		      		>Round summary</button>
-		      		<button
-		      			className="style-button"
-		      			onClick={() => { this._changeSummShape('clip')}}
-		      		>Clip summary</button>
-	      		</div>
-	      		<div className="ui-buttons">
-		      		<h2 className="ui-title">Events summary extras</h2>
+		      		{summary_shapeBtns}
+		      		<CodeLoader codeToOutput={this.state.summaryCode} />
 	      		</div>
 				</div>
       	</div>
 		);
-	}
-	_changeShape(value, image){
-		let poppy = document.getElementById('date_shape_btn').getElementsByClassName('style-button');
-		//console.log(poppy);
-		this.props.changeState(value,  (state, value) => {
-			let obj = state.events;
-			obj.date.shape = value;
-			return obj;
-		});
-		let path = "events_images/images/code-image_", extension = ".png";
-		this.setState({codeImageUrl: path+image+extension});
-
-	}
-	_changeSummColor(value){
-		this.props.changeState(value,  (state, value) => {
-			let obj = state.events;
-			obj.summary.color = value;
-			return obj;
-		});
-	}
-	_changeSummShape(value){
-		this.props.changeState(value,  (state, value) => {
-			let obj = state.events;
-			obj.summary.shape = value;
-			return obj;
-		});
-	}
-	_changeSummStroke(value){
-		this.props.changeState(value,  (state, value) => {
-			let obj = state.events;
-			obj.summary.stroke = value;
-			return obj;
-		});
 	}
 }
 
