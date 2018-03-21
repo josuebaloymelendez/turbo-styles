@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Route } from 'react-router-dom'
 import {events_count} from './constants';
 
 import EventsContainer from './events/events-container';
@@ -12,7 +13,10 @@ import UISlick from './slicked/ui-slick';
 
 import './styles/core.css';
 
-class App extends Component {
+
+
+class Main extends Component {
+
 	constructor(){
 		super();
 		this.state = {
@@ -66,7 +70,8 @@ class App extends Component {
 		let objeto = fun(this.state, keyValue);
 		this.setState({objeto});
 	}
-	render() {
+	
+	render(){
 		let eventsSlicked = [];
 		for(let i = 1; i <= 10; i++ ){
 			eventsSlicked.push(
@@ -75,10 +80,11 @@ class App extends Component {
 				</div>
 			);
 		}
-		return (
+		return(
 			<div className="App">
 				<div className="homepage-row">
 					<div className="homepage-row-inner">
+
 						<EventsContainer
 							sectionName="Conventional events styles"
 							eventsType="conventional"
@@ -86,6 +92,7 @@ class App extends Component {
 							itemsNum={events_count}
 							itemStyle={this.state.events.conventional}
 						/>
+
 					</div>
 				</div>
 				<UIeventsController
@@ -95,6 +102,7 @@ class App extends Component {
 
 				<div className="homepage-row">
 					<div className="homepage-row-inner">
+
 						<EventsContainer
 							sectionName="Unconventional events styles"
 							eventsType={this.state.events.unconventional.name}
@@ -102,6 +110,7 @@ class App extends Component {
 							itemsNum={events_count}
 							itemStyle={this.state.events.unconventional}
 						/>
+
 					</div>
 				</div>
 				<UIeventsControllerAlt
@@ -111,21 +120,33 @@ class App extends Component {
 
 				<div className="homepage-row">
 					<div className="homepage-row-inner">
+
 						<h2 className="section-title dark-grey"><a href="/">Slicked Events</a></h2>
 						<SlickSlider
 							settings={this.state.slick}
 							slickedContents={eventsSlicked}
 						/>
+
 					</div>
+
 					<UISlick
 						slidesNum={4}
 						slickSettings={this.state.slick}
 						changeState={this.changeState}
 					/>
+
 				</div>
-				{/*
-				*/}
 			</div>
+		);
+	}
+}
+
+class App extends Component {
+
+	render() {
+		
+		return (
+			<Route exact path="/" component={Main}/>
 		);
 	}
 }
