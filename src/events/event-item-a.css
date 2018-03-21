@@ -1,5 +1,6 @@
 .alt-1 .section-title {
   color: #365484; }
+
 .alt-1 .items-list .item {
   position: relative;
   display: flex; }
@@ -84,6 +85,7 @@
 
 .alt-2 .section-title {
   color: #bb3e53; }
+
 .alt-2 .items-list .item {
   display: flex;
   color: white;
@@ -146,6 +148,7 @@
 
 .alt-3 .section-title {
   color: #b1b381; }
+
 .alt-3 .items-list .item {
   position: relative;
   font-family: serif;
@@ -196,6 +199,7 @@
 
 .alt-4 .section-title {
   color: #323480; }
+
 .alt-4 .items-list .item {
   position: relative; }
   .alt-4 .items-list .item-date {
@@ -295,6 +299,7 @@
     height: 10px;
     background-color: #de612b;
     transform: skewX(30deg); }
+
 .alt-6 .items-list .item {
   font-size: 1rem;
   position: relative; }
@@ -380,6 +385,7 @@
 
 .events-container.conventional .section-title {
   color: #bb3e53; }
+
 .events-container.conventional .items-list .item {
   display: flex;
   align-items: stretch; }
@@ -661,7 +667,7 @@
         display: block;
         position: absolute;
         border-style: solid;
-        border-width: 100px 0 0 33.3333333333px;
+        border-width: 100px 0 0 33.33333px;
         border-color: transparent transparent transparent #bb3e53;
         top: 0;
         left: 100%; }
@@ -767,14 +773,14 @@
         text-shadow: -2px 2px 0 rgba(15, 15, 15, 0.3); }
     .events-container.conventional .items-list .item .item-summary.clip {
       height: 80px;
-      margin-left: 33.3333333333px;
+      margin-left: 33.33333px;
       position: relative; }
       .events-container.conventional .items-list .item .item-summary.clip:before {
         content: "";
         display: block;
         position: absolute;
         border-style: solid;
-        border-width: 0 33.3333333333px 100px 0;
+        border-width: 0 33.33333px 100px 0;
         border-color: transparent #bb3e53 transparent transparent;
         top: 0;
         right: 100%; }
@@ -832,5 +838,3 @@
             text-decoration: underl	ine; }
       .slick-events .item-summary .item-text {
         display: block; }
-
-/*# sourceMappingURL=event-item-a.css.map */

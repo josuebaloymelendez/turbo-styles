@@ -4,6 +4,7 @@
   font-size: 1rem;
   font-style: italic;
   color: #646464; }
+
 .content-container .items-list {
   display: flex;
   flex-direction: row;
@@ -35,5 +36,3 @@
       text-decoration: none; }
       .content-container .items-list .item .item-summary .item-name > a:hover {
         text-decoration: underline; }
-
-/*# sourceMappingURL=events.css.map */
