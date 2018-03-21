@@ -536,6 +536,7 @@ $primary-color: $red-fox;
 				&.cube{
 					@include square-date;
 					position: relative;
+					z-index: 10;
 					@include pseudo-both{
 						position: absolute;
 					}
@@ -762,6 +763,32 @@ $primary-color: $red-fox;
 					}
 					.item-name, .item-text{
 						text-shadow: 2px 2px 0 rgba($jack-black, 0.3);
+					}
+				}
+				&.cube{
+
+					position: relative;
+					@include pseudo-both{
+						position: absolute;
+					}
+					&:before{
+						top: 7px;
+						left: -20px;
+						width: 20px;
+						height: 100%;
+						background-color: darken($primary-color, 5%);
+						transform: skewY(-35deg);
+					}
+					&:after{
+						right: 11px;
+						bottom: -14px;
+						width: 100%;
+						height: 14px;
+						background-color: lighten($primary-color, 5%);
+						transform: skewX(-55deg);
+					}
+					.event-day, .event-month{
+						text-shadow: -2px 2px 0 rgba($jack-black, 0.3);
 					}
 				}
 				&.clip{

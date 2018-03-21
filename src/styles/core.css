@@ -7,7 +7,7 @@ body {
 
 .homepage-row {
   width: 100%; }
-  .homepage-row:dark {
+  .homepage-row.dark {
     background-color: black; }
   .homepage-row .homepage-row-inner {
     width: 100%;
@@ -61,10 +61,11 @@ body {
       font-size: inherit;
       text-align: center; }
     .ui-container .ui-buttons .style-button {
-      width: calc(50% - 30px);
+      width: calc(50% - 10px);
       margin: 10px;
       padding: 10px;
-      border: 2px solid #4a8153;
+      border: none;
+      background-color: white;
       color: #0f0f0f;
       background-color: gainsboro;
       font-size: .75rem;

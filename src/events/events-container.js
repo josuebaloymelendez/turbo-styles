@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import EventItem from './event-item';
+import ItemsList from '../items_list/items-list';
+
 import './events.scss';
 
-export default class EventsList extends Component{
+export default class EventsContainer extends Component{
 	render(){
 		let items_list = [];
 		for (let i = 1; i <= this.props.itemsNum; i++){
@@ -14,10 +16,13 @@ export default class EventsList extends Component{
 			);
 		}
 		return(
-			<div className={`events-container ${this.props.eventsType}`}>
+			<div className={`content-container events-container ${this.props.eventsType}`}>
 				<h2 className="section-title"><a href="/">{this.props.sectionName}</a></h2>
 				<div className="section-summary">{this.props.eventsSummary}</div>
-				<div className="items-list">{items_list}</div>
+				<ItemsList
+					class_name="three-in-row"
+					contents={items_list}
+				/>
 			</div>
 		)
 	}

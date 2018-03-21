@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {events_count} from './constants';
 
-import EventsList from './events/events-list';
+import EventsContainer from './events/events-container';
 import EventItem from './events/event-item';
 
 import UIeventsController from './events/ui-events';
@@ -79,7 +79,7 @@ class App extends Component {
 			<div className="App">
 				<div className="homepage-row">
 					<div className="homepage-row-inner">
-						<EventsList
+						<EventsContainer
 							sectionName="Conventional events styles"
 							eventsType="conventional"
 							eventsSummary="Change date and summary shapes independently"
@@ -95,7 +95,7 @@ class App extends Component {
 
 				<div className="homepage-row">
 					<div className="homepage-row-inner">
-						<EventsList
+						<EventsContainer
 							sectionName="Unconventional events styles"
 							eventsType={this.state.events.unconventional.name}
 							eventsSummary="Change date and summary shapes together"
