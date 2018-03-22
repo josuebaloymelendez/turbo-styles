@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import { Route, Link } from 'react-router-dom'
+import { Route, Link, Switch } from 'react-router-dom'
 import {events_count} from './constants';
+
+import Interface from './ui_menu/ui-interface';
 
 import EventsContainer from './events/events-container';
 import EventItem from './events/event-item';
@@ -15,11 +17,27 @@ import './styles/core.css';
 
 const News = () => (
 	<div>
-	    <h2>Lalalalalal test</h2>
-	  </div>
+	    <h2>NEWS COMPONENT COMING SOON...</h2>
+  	</div>
 );
 
-class Main extends Component {
+const NoMatch = ({ match, location, history }) => {
+
+	return (
+		<div>
+			<h2>Component not found! Probably coming soon... :)</h2>
+			{match.path}
+			{match.url}
+			{console.log(match, location, history)}
+		</div>
+	);
+};
+
+const Initial = () => (
+	<div><h2>Welcome to Spike Modules!</h2></div>
+);
+
+class Events extends Component {
 
 	constructor(){
 		super();
@@ -148,25 +166,14 @@ class Main extends Component {
 class App extends Component {
 	render() {
 		return (
-			<div>
-				<ul>
-					<li>
-						<Link to="/">Home</Link>
-					</li>
-					<li>
-						<Link to="/events">Events</Link>
-					</li>
-					<li>
-						<Link to="/news">News</Link>
-					</li>
-				</ul>
-
-				<hr />
-
-				<Route exact path="/" component={Main}/>
-				<Route path="/events" component={Main} />
+		<Interface>
+			<Switch>
+				<Route exact path="/" component={Initial}/>
+				<Route path="/events" component={Events} />
 				<Route path="/news" component={News} />
-			</div>
+				<Route component={NoMatch}/>
+			</Switch>
+		</Interface>
 		);
 	}
 }
