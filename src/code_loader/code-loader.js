@@ -18,7 +18,8 @@ export class CodeLoader extends Component{
 		let options = {
 			lineNumbers: true,
 			mode: syntax,
-			theme: '3024-night'
+			theme: '3024-night',
+			lineSeparator: true,
 		};
 		return(
 			<div className="output-code">
