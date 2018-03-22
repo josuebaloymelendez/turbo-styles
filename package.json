@@ -23,6 +23,7 @@
     "react": "^16.2.0",
     "react-codemirror2": "^4.2.0",
     "react-dom": "^16.2.0",
+    "react-router-dom": "^4.2.2",
     "react-scripts": "1.1.1",
     "react-slick": "^0.19.0",
     "react-slick-carousel": "^0.14.9",

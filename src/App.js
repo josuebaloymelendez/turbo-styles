@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
+import { Route, Link, Switch } from 'react-router-dom'
 import {events_count} from './constants';
+
+import Interface from './ui_menu/ui-interface';
 
 import EventsContainer from './events/events-container';
 import EventItem from './events/event-item';
@@ -12,7 +15,30 @@ import UISlick from './slicked/ui-slick';
 
 import './styles/core.css';
 
-class App extends Component {
+const News = () => (
+	<div>
+	    <h2>NEWS COMPONENT COMING SOON...</h2>
+  	</div>
+);
+
+const NoMatch = ({ match, location, history }) => {
+
+	return (
+		<div>
+			<h2>Component not found! Probably coming soon... :)</h2>
+			{match.path}
+			{match.url}
+			{console.log(match, location, history)}
+		</div>
+	);
+};
+
+const Initial = () => (
+	<div><h2>Welcome to Spike Modules!</h2></div>
+);
+
+class Events extends Component {
+
 	constructor(){
 		super();
 		this.state = {
@@ -66,7 +92,8 @@ class App extends Component {
 		let objeto = fun(this.state, keyValue);
 		this.setState({objeto});
 	}
-	render() {
+
+	render(){
 		let eventsSlicked = [];
 		for(let i = 1; i <= 10; i++ ){
 			eventsSlicked.push(
@@ -75,10 +102,11 @@ class App extends Component {
 				</div>
 			);
 		}
-		return (
+		return(
 			<div className="App">
 				<div className="homepage-row">
 					<div className="homepage-row-inner">
+
 						<EventsContainer
 							sectionName="Conventional events styles"
 							eventsType="conventional"
@@ -86,6 +114,7 @@ class App extends Component {
 							itemsNum={events_count}
 							itemStyle={this.state.events.conventional}
 						/>
+
 					</div>
 				</div>
 				<UIeventsController
@@ -95,6 +124,7 @@ class App extends Component {
 
 				<div className="homepage-row">
 					<div className="homepage-row-inner">
+
 						<EventsContainer
 							sectionName="Unconventional events styles"
 							eventsType={this.state.events.unconventional.name}
@@ -102,6 +132,7 @@ class App extends Component {
 							itemsNum={events_count}
 							itemStyle={this.state.events.unconventional}
 						/>
+
 					</div>
 				</div>
 				<UIeventsControllerAlt
@@ -111,21 +142,38 @@ class App extends Component {
 
 				<div className="homepage-row">
 					<div className="homepage-row-inner">
+
 						<h2 className="section-title dark-grey"><a href="/">Slicked Events</a></h2>
 						<SlickSlider
 							settings={this.state.slick}
 							slickedContents={eventsSlicked}
 						/>
+
 					</div>
+
 					<UISlick
 						slidesNum={4}
 						slickSettings={this.state.slick}
 						changeState={this.changeState}
 					/>
+
 				</div>
-				{/*
-				*/}
 			</div>
+		);
+	}
+}
+
+class App extends Component {
+	render() {
+		return (
+		<Interface>
+			<Switch>
+				<Route exact path="/" component={Initial}/>
+				<Route path="/events" component={Events} />
+				<Route path="/news" component={News} />
+				<Route component={NoMatch}/>
+			</Switch>
+		</Interface>
 		);
 	}
 }
