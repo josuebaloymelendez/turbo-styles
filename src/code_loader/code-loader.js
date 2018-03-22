@@ -19,8 +19,7 @@ export class CodeLoader extends Component{
 			lineNumbers: true,
 			mode: syntax,
 			theme: '3024-night',
-			smartIndent: true,
-
+			lineSeparator: true,
 		};
 		return(
 			<div className="output-code">

@@ -3,7 +3,7 @@ export const date_shape_code = [
 		name: "square", 
 		description: "Square shaped event date, $date-width and $date-height can be redefined, the rest of the summary ocuppies the rest of the width",
 		notes: "Background color and fonts color need further styling ",
-		path: "https://gist.githubusercontent.com/Turbosaurio/df14756d2a5a730c7dd93f4904a5f2aa/raw/c76048807e9ad96b9657c6449d2b2eec2141f727/circle.scss"
+		path: "https://gist.githubusercontent.com/Turbosaurio/bf4bea2cd0f3a3923a8be0ab5ee20aa6/raw/8c25e184b974025dddadb3699944632eb2bc2647/feito.scss"
 	}, 
 	{
 		name: "circle", 
@@ -15,19 +15,19 @@ export const date_shape_code = [
 		name: "rhombus-v", 
 		description: "Simple rhombus shaped divided vertically made with border radius, has flex none",
 		notes: "Background color and fonts color need further styling ",
-		path: "http://asdasd.com"
+		path: "manifest.json"
 	}, 
 	{
 		name: "rhombus-h", 
 		description: "Simple rhombus shaped divided horizontally made with border radius, has flex none",
 		notes: "Background color and fonts color need further styling ",
-		path: ""
+		path: "asdasas"
 	},
 	{
 		name: "folded", 
 		description: "Simple circle shaped made with border radius, has flex none",
 		notes: "Background color and fonts color need further styling ",
-		path: "https://gist.githubusercontent.com/Turbosaurio/df14756d2a5a730c7dd93f4904a5f2aa/raw/e6f265e1e85446f329e0218f3600a7b584fc23eb/babby.scss"
+		path: "http://asdasds.com"
 	}, 
 	{
 		name: "cube", 
