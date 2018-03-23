@@ -2,13 +2,9 @@ import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 
 export default class Interface extends Component{
-	constructor(){
-		super();
-	}
-
 	render(){
 		return(
-			<div className="main-wrapper">
+			<div id="wrapper_main" className="main-wrapper">
 				<header id="header_main" className="site-header" aria-labelledby="title_header">
 					<div id="row_header" className="row">
 						<div className="row-inner">
@@ -58,9 +54,8 @@ export default class Interface extends Component{
 						</div>
 					</div>
 				</header>
-				<main id="content_main" className="site-content" aria-label="Main Site Content" tabindex="-1">
-					{this.props.children}
-				</main>
+				
+				{this.props.children}
 			</div>
 		);
 	}

@@ -1,22 +1,22 @@
-@import "mixins.scss";
-@import "colors.scss";
+@import "helpers/mixins.scss";
+@import "helpers/settings.scss";
 
 
 .event-tabs{
 	display: flex;
 	justify-content: center;
 	a{
+		padding: 15px;
 		border: 1px solid $red-fox;
 		color: $jack-white;
 		background-color: $red-fox;
-		padding: 15px;
 		text-decoration: none;
 		& + a{
 			margin-left: 5px;
 		}
 		&:hover{
-			background-color: $jack-white;
 			color: $red-fox;
+			background-color: $jack-white;
 		}
 	}
 }
@@ -109,15 +109,15 @@ body {
 		}
 		.style-button {
 			width: calc(50% - 10px);
-			@media(min-width: 768px){
-				width: calc(25% - 30px);
-			}
 			margin: 10px;
 			padding: 10px;
 			border: none;
-			background-color: $jack-white;
 			color: $jack-black;
+			background-color: $jack-white;
 			background-color: $light-grey;
+			@media(min-width: 768px){
+				width: calc(25% - 30px);
+			}
 			font: {
 				size: .75rem;
 				weight: 700;
@@ -156,3 +156,5 @@ body {
 		}
 	}
 }
+
+@import "interface";
