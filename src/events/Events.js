@@ -125,7 +125,7 @@ export default class Events extends Component {
 			);
 		}
 		return(
-			<div className="App">
+			<main id="content_main" className="site-content" aria-label="Main Site Content">
 				<div className="event-tabs">
 					<Link to="/events/conventional">Conventional</Link>
 					<Link to="/events/unconventional">Unconventional</Link>
@@ -147,7 +147,7 @@ export default class Events extends Component {
 
 					</div>
 				</div>
-			</div>
+			</main>
 		);
 	}
 }

@@ -54,9 +54,8 @@ export default class Interface extends Component{
 						</div>
 					</div>
 				</header>
-				<main id="content_main" className="site-content" aria-label="Main Site Content" tabIndex="-1">
-					{this.props.children}
-				</main>
+				
+				{this.props.children}
 			</div>
 		);
 	}
