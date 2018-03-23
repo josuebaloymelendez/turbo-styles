@@ -76,61 +76,76 @@ export default class Events extends Component {
 				</div>
 			);
 		}
-		return(
-			<div className="App">
-				<div className="homepage-row">
-					<div className="homepage-row-inner">
-
-						<EventsContainer
-							sectionName="Conventional events styles"
-							eventsType="conventional"
-							eventsSummary="Change date and summary shapes independently"
-							itemsNum={events_count}
-							itemStyle={this.state.events.conventional}
-						/>
-
-					</div>
+		const Conventional = () =>{
+			return (
+				<div>
+					<EventsContainer
+						sectionName="Conventional events styles"
+						eventsType="conventional"
+						eventsSummary="Change date and summary shapes independently"
+						itemsNum={events_count}
+						itemStyle={this.state.events.conventional}
+					/>
+					<UIeventsController
+						changeState={this.changeState}
+					/>
 				</div>
-				<UIeventsController
-					changeState={this.changeState}
-				/>
-
-
-				<div className="homepage-row">
-					<div className="homepage-row-inner">
-
-						<EventsContainer
-							sectionName="Unconventional events styles"
-							eventsType={this.state.events.unconventional.name}
-							eventsSummary="Change date and summary shapes together"
-							itemsNum={events_count}
-							itemStyle={this.state.events.unconventional}
-						/>
-
-					</div>
+			);
+		},
+		Unconventional = () =>{
+			return(
+				<div>
+					<EventsContainer
+						sectionName="Unconventional events styles"
+						eventsType={this.state.events.unconventional.name}
+						eventsSummary="Change date and summary shapes together"
+						itemsNum={events_count}
+						itemStyle={this.state.events.unconventional}
+					/>
+					<UIeventsControllerAlt
+						changeState={this.changeState}
+					/>
 				</div>
-				<UIeventsControllerAlt
-					changeState={this.changeState}
-				/>
-
-
-				<div className="homepage-row">
-					<div className="homepage-row-inner">
-
-						<h2 className="section-title dark-grey"><a href="/">Slicked Events</a></h2>
-						<SlickSlider
-							settings={this.state.slick}
-							slickedContents={eventsSlicked}
-						/>
-
-					</div>
-
+			);
+		},
+		Slicked = () =>{
+			return(
+				<div>
+					<h2 className="section-title dark-grey"><a href="/">Slicked Events</a></h2>
+					<SlickSlider
+						settings={this.state.slick}
+						slickedContents={eventsSlicked}
+					/>
 					<UISlick
 						slidesNum={4}
 						slickSettings={this.state.slick}
 						changeState={this.changeState}
 					/>
+				</div>
+			);
+		}
+		return(
+			<div className="App">
+				<div className="event-tabs">
+					<Link to="/events/conventional">Conventional</Link>
+					<Link to="/events/unconventional">Unconventional</Link>
+					<Link to="/events/slicked">Slicked events</Link>
+				</div>
+				<div className="homepage-row">
+					<Route path="/events/conventional" component={Conventional} />
+					<div className="homepage-row-inner">
+					</div>
+				</div>
+				<div className="homepage-row">
+					<Route path="/events/unconventional" component={Unconventional} />
+					<div className="homepage-row-inner">
+					</div>
+				</div>
+				<div className="homepage-row">
+					<Route path="/events/slicked" component={Slicked} />
+					<div className="homepage-row-inner">
 
+					</div>
 				</div>
 			</div>
 		);
