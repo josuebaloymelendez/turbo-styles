@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import UIButton from '../ui_components/ui-button';
 import {date_shape_code, summary_shape_code} from '../constants/events_objects';
 import {CodeLoader} from '../code_loader/code-loader';
-import {readTextFile, getCode} from '../code_loader/request-file';
+import {getCode} from '../code_loader/request-file';
 import './events.css';
 
 class UIeventsController extends Component{

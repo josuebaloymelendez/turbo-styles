@@ -1,5 +1,5 @@
-@import "../styles/mixins";
-@import "../styles/colors";
+@import "../styles/helpers/mixins";
+@import "../styles/helpers/settings";
 @import "events_partials/events-settings";
 
 
@@ -159,12 +159,12 @@ $primary-color: $red-fox;
 	.items-list{
 		.item{
 			position: relative;
-			font-family: serif;
+			box-sizing: border-box;
 			margin-top: $date-height / 2;
 			padding: 10px 20px;
 			border-radius: 15px;
-			box-sizing: border-box;
 			background-color: lighten($yellow-ono, 30%);
+			font-family: serif;
 			font-family: serif;
 			&-date{
 				@include square-date;
@@ -172,15 +172,15 @@ $primary-color: $red-fox;
 				top: -#{$date-height / 2};
 				left: 10px;
 				border-radius: 50%;
-				background-color: $yellow-ono;
 				color: darken($yellow-ono, 40%);
+				background-color: $yellow-ono;
 				font:{
 					size: 1.5rem;
 					weight: 700;
 				}
 				.event-day{
-					font-size: 2rem;
 					height: 1.8rem;
+					font-size: 2rem;
 				}
 				.event-month{
 					text-transform: uppercase;
@@ -190,23 +190,23 @@ $primary-color: $red-fox;
 				z-index: 5;
 				display: flex;
 				width: 100% !important;
+				color: darken($yellow-ono, 40%);
 				flex-direction: column;
 				font:{
 					size: 1rem;
 				}
-				color: darken($yellow-ono, 40%);
 				.item-name{
 					text:{
 						align: center;
 					}
 					min-height: 2.9rem;
+					padding-bottom: 8px;
+					padding-left: $date-width;
+					border-bottom: 1px solid darken($yellow-ono, 40%);
 					margin:{
 						top: 0;
 						bottom: 8px;
 					}
-					padding-left: $date-width;
-					padding-bottom: 8px;
-					border-bottom: 1px solid darken($yellow-ono, 40%);
 					font:{
 						size: 1.1rem;
 					}
@@ -223,18 +223,18 @@ $primary-color: $red-fox;
 		.item{
 			position: relative;
 			&-date{
-				top: 25px;
-				width: 110px;
 				position: absolute;
+				top: 25px;
 				display: block;
-				justify-content: center;
-				background-color: $electro-purple;
+				width: 110px;
+				border-radius: 40px;
 				color: $electro-purple-over;
+				background-color: $electro-purple;
+				justify-content: center;
 				padding:{
 					top: 8px;
 					bottom: 8px;
 				}
-				border-radius: 40px;
 				font:{
 					size: 1.5rem;
 					weight: 700;
@@ -248,18 +248,18 @@ $primary-color: $red-fox;
 				}
 			}
 			&-summary{
-				border-radius: 20px;
-				width: calc(100% - 50px);
-				padding:{
-					top: 20px;
-					bottom: 20px;
-					left: 75px;
-					right: 20px;
-				}
 				box-sizing: border-box;
+				width: calc(100% - 50px);
 				margin-left: auto;
+				border-radius: 20px;
 				background-color: $light-grey;
 				font-size: .9rem;
+				padding:{
+					top: 20px;
+					right: 20px;
+					bottom: 20px;
+					left: 75px;
+				}
 				.item-name{
 					margin: 0;
 					font-size: inherit;
@@ -280,30 +280,30 @@ $primary-color: $red-fox;
 	.items-list{
 		.item{
 			position: relative;
-			padding: 5px 5px 5px 20px;
 			box-sizing: border-box;
+			padding: 5px 5px 5px 20px;
 			background-color: $aqua-green;
 			&-date{
 				position: absolute;
 				top: $item-min-height / 2;
 				left: -38px;
-				font-size: 1.5rem;
+				width: $item-min-height;
 				color: $jack-white;
 				transform: rotate(90deg);
-				width: $item-min-height;
+				font-size: 1.5rem;
 				text-align: center;
 				span + span{
 					margin-left: 8px;
 				}
 			}
 			&-summary{
-				min-height: $item-min-height;
+				box-sizing: border-box;
 				width: calc(100% - 40px);
-				margin: 10px auto 10px auto;;
+				min-height: $item-min-height;
+				margin: 10px auto 10px auto;
+				padding: 15px;;
 				background-color: $light-grey;
 				font-size: 1rem;
-				padding: 15px;
-				box-sizing: border-box;
 				.item-name{
 					font-size: inherit;
 					margin:{
@@ -324,13 +324,13 @@ $primary-color: $red-fox;
 .alt-6{
 	$inclination: 15deg;
 	.section-title{
-		transform: skewX(-#{$inclination}) rotate(#{$inclination});
 		display: inline-block;
-		padding: 15px;
-		background-color: $orange-mocha;
-		color: $jack-white;
 		margin-top: 75px;
 		margin-bottom: 50px;
+		padding: 15px;
+		color: $jack-white;
+		background-color: $orange-mocha;
+		transform: skewX(-#{$inclination}) rotate(#{$inclination});
 		@include pseudo-both{
 			position: absolute;
 		}
@@ -343,8 +343,8 @@ $primary-color: $red-fox;
 			transform: skewY(#{$inclination * 4});
 		}
 		&:after{
-			bottom: -12px;
 			right: -4px;
+			bottom: -12px;
 			width: 100%;
 			height: 10px;
 			background-color: lighten($orange-mocha, 8%);
@@ -354,23 +354,23 @@ $primary-color: $red-fox;
 	}
 	.items-list{
 		.item{
-			font-size: 1rem;
 			position: relative;
+			font-size: 1rem;
 			&-date{
 				@include square-date;
 				position: relative;
 				z-index: 10;
 				left: 25px;
-				transform: skewX(-#{$inclination}) rotate(#{$inclination});
-				background-color: darken($orange-mocha, 8%);
 				color: $jack-white;
+				background-color: darken($orange-mocha, 8%);
+				transform: skewX(-#{$inclination}) rotate(#{$inclination});
 				font:{
 					size: 1.5em;
 					weight: 700;
 				}
 				.event-day{
-					font-size: 2em;
 					height: 1em;
+					font-size: 2em;
 				}
 				.event-month{
 					text-transform: uppercase;
@@ -387,8 +387,8 @@ $primary-color: $red-fox;
 					transform: skewY(#{$inclination * 4});
 				}
 				&:after{
-					bottom: -12px;
 					right: -4px;
+					bottom: -12px;
 					width: 100%;
 					height: 10px;
 					background-color: lighten($orange-mocha, 8%);
@@ -397,25 +397,25 @@ $primary-color: $red-fox;
 				}
 			}
 			&-summary{
+				box-sizing: border-box;
 				margin-bottom: 60px;
+				color: $jack-white;
+				background-color: $orange-mocha;
+				transform: skewX(-#{$inclination}) rotate(#{$inclination});
 				text-align: right;
 				padding:{
 					top: 55px;
-					left: 20px;
 					right: 20px;
 					bottom: 25px;
+					left: 20px;
 				}
-				box-sizing: border-box;
-				transform: skewX(-#{$inclination}) rotate(#{$inclination});
-				background-color: $orange-mocha;
-				color: $jack-white;
 				.item-name{
 					margin:{
 						top: 0;
 						bottom: 10px;
 					}
-					border-bottom: 1px solid $jack-white;
 					padding-bottom: 10px;
+					border-bottom: 1px solid $jack-white;
 					font-size: inherit;
 				}
 				.item-text{
@@ -434,8 +434,8 @@ $primary-color: $red-fox;
 					transform: skewY(#{$inclination * 4});
 				}
 				&:after{
-					bottom: -22px;
 					right: -7px;
+					bottom: -22px;
 					width: 100%;
 					height: 20px;
 					background-color: lighten($orange-mocha, 8%);
@@ -561,9 +561,9 @@ $primary-color: $red-fox;
 					}
 				}
 				&.hexagon{
-					margin-right: $date-margin;
 					position: relative;
 					display: flex;
+					margin-right: $date-margin;
 					background-color: transparent !important;
 					flex-direction: column;
 					@include pseudo-both;
@@ -628,8 +628,8 @@ $primary-color: $red-fox;
 					@include square-date;
 					position: relative;
 					left: -20px;
-					transform: skewY(-15deg);
 					margin-top: 15px;
+					transform: skewY(-15deg);
 					@include pseudo-both{
 						position: absolute;
 					}
@@ -720,14 +720,14 @@ $primary-color: $red-fox;
 				}
 				&.round{
 					border-radius: 15px;
-					background-color: $primary-color;
 					color: $jack-white;
+					background-color: $primary-color;
 				}
 				&.round-stroke{
-					border-radius: 15px;
 					border: 2px solid $primary-color;
-					background-color: $jack-white;
+					border-radius: 15px;
 					color: $primary-color;
+					background-color: $jack-white;
 				}
 				&.stroke{
 					box-sizing: border-box;
@@ -738,10 +738,10 @@ $primary-color: $red-fox;
 				}
 				&.prism{
 					position: relative;
+					margin-top: 15px;
 					border-radius: 0;
 					background-color: darken($primary-color, 15%);
 					transform: skewY(15deg);
-					margin-top: 15px;
 					@include pseudo-both{
 						position: absolute;
 					}
