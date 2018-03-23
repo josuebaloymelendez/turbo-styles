@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import UIButton from '../ui_components/ui-button';
 import {event_alts} from '../constants/events_objects';
 import {CodeLoader} from '../code_loader/code-loader';
-import {readTextFile, getCode} from '../code_loader/request-file';
+import {getCode} from '../code_loader/request-file';
 
 export default class UIeventsController extends Component{
 	constructor(){

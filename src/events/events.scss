@@ -3,18 +3,18 @@
 .content-container{
 	.section-summary{
 		margin-bottom: 25px;
-		text-align: center;
+		color: rgb(100,100,100);
 		font-size: 1rem;
 		font-style: italic;
-		color: rgb(100,100,100);
+		text-align: center;
 	}
 	.items-list{
 		display: flex;
+		justify-content: center;
 		flex:{
 			direction: row;
 			wrap: wrap;
 		}
-		justify-content: center;
 		&.three-in-row{
 			.item{
 				width: calc(100% / 3 - #{$events-item-margin / 2});

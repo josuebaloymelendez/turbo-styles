@@ -1,0 +1,15 @@
+html { box-sizing: border-box; }
+*, *::before, *::after { box-sizing: inherit; }
+
+body {
+    min-width: $vp-small;
+    margin: 0;
+    padding: 0; 
+    background-color: $macy-grey; 
+    font: {
+        family: $primary-font;
+        size: 100%;
+    }
+}
+
+.row-inner { position: relative; height: 100%;}
