@@ -6,17 +6,17 @@
 	display: flex;
 	justify-content: center;
 	a{
+		padding: 15px;
 		border: 1px solid $red-fox;
 		color: $jack-white;
 		background-color: $red-fox;
-		padding: 15px;
 		text-decoration: none;
 		& + a{
 			margin-left: 5px;
 		}
 		&:hover{
-			background-color: $jack-white;
 			color: $red-fox;
+			background-color: $jack-white;
 		}
 	}
 }

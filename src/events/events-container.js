@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import EventItem from './event-item';
 import ItemsList from '../items_list/items-list';
 
-import './events.scss';
+import './events.css';
 
 export default class EventsContainer extends Component{
 	render(){
