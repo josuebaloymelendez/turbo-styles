@@ -132,18 +132,18 @@ export default class Events extends Component {
 					<Link to="/events/slicked">Slicked events</Link>
 				</div>
 				<div className="homepage-row">
-					<Route path="/events/conventional" component={Conventional} />
 					<div className="homepage-row-inner">
+						<Route exact path="/events/conventional" component={Conventional} />
 					</div>
 				</div>
 				<div className="homepage-row">
-					<Route path="/events/unconventional" component={Unconventional} />
 					<div className="homepage-row-inner">
+						<Route path="/events/unconventional" component={Unconventional} />
 					</div>
 				</div>
 				<div className="homepage-row">
-					<Route path="/events/slicked" component={Slicked} />
 					<div className="homepage-row-inner">
+						<Route path="/events/slicked" component={Slicked} />
 
 					</div>
 				</div>
